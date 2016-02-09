@@ -42,21 +42,21 @@ public class LearnCollections {
 
         temp = readFileToString(file);
         String words[] = temp.split("\\s+");
-        NitinSet s = new NitinSet();
+        TreeSet<String> s = new TreeSet<String>();
         for (int i = 0; i < words.length; i++) {
             s.add(words[i]);
         }
-        s.display();
+        System.out.println(s.toString());
         // First read entire file to String
         // Create a function.
 
         // Use a SET
-        return s.length;
+        return s.size();
     }
 
     public static void main(String[] args) throws IOException {
         LearnCollections c = new LearnCollections();
-        int n = countUniqueWordsInFile("C:/Users/Nitin/Desktop/nitin.txt");
+        int n = countUniqueWordsInFile("C:Users//Nitin/Desktop/nitin.txt");
         String s = readFileToString("C:/Users/Nitin/Desktop/nitin.txt");
         System.out.println(n);
     }

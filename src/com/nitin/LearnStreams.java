@@ -18,19 +18,13 @@ public class LearnStreams {
         FileInputStream fs = new FileInputStream(fileName);
         byte b[] = new byte[bufferSize];
         System.out.println("total bytes" + fs.available());
-
-        while (fs.read(b) != -1) {
-            for (int j = 0; j < b.length; j++) {
+        int N = 0;
+        while ((N = fs.read(b)) != -1) {
+            for (int j = 0; j < N; j++) {
                 System.out.print((char) (b[j]));
             }
         }
-        try {
-            if (fs != null) {
-                fs.close();
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        fs.close();
 
     }
 
@@ -38,27 +32,15 @@ public class LearnStreams {
         ByteArrayInputStream bi = new ByteArrayInputStream(data);
         FileOutputStream fout = new FileOutputStream(fileName);
         byte b[] = new byte[bufferSize];
-        while (bi.read() != -1) {
-            for (int j = 0; j < b.length; j++) {
+        int N = 0;
+        while ((N = bi.read(b)) != -1) {
+            for (int j = 0; j < N; j++) {
                 fout.write(b[j]);
             }
         }
-        try {
-            if (fout != null) {
-                fout.flush();
-                fout.close();
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        try {
-            if (bi != null) {
-                bi.close();
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
+        bi.close();
+        fout.flush();
+        fout.close();
 
     }
 
@@ -73,27 +55,15 @@ public class LearnStreams {
         FileInputStream fi = new FileInputStream(srcFile);
         FileOutputStream fo = new FileOutputStream(destFile);
         byte b[] = new byte[bufferSize];
-        while (fi.read(b) != -1) {
-            for (int i = 0; i < b.length; i++) {
+        int N = 0;
+        while ((N = fi.read(b)) != -1) {
+            for (int i = 0; i < N; i++) {
                 fo.write(b[i]);
             }
         }
-        try {
-            if (fo != null) {
-                fo.flush();
-                fo.close();
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        try {
-            if (fi != null) {
-                fi.close();
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
+        fi.close();
+        fo.flush();
+        fo.close();
     }
 
     public static void main(String[] args) throws IOException {

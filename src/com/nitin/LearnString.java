@@ -28,7 +28,7 @@ public class LearnString {
     /**
      * ((fslkfjsdlfkds )
      * Use recursion. Remove correct matching expressions.
-     * <p/>
+     * <p>
      * Use a stack (List)
      *
      * @param s
@@ -112,29 +112,36 @@ public class LearnString {
         //removing spaces
         String[] lineRemoved = s.split("\\n+");
         String str = "";
-        for (int i = 0; i < lineRemoved.length; i++) {
+        str = str + lineRemoved[0];
+        for (int i = 1; i < lineRemoved.length; i++) {
             str = str + "\n" + lineRemoved[i];
         }
-        String[] spaceRemoved = str.split("\\s+"); // A      B
+        String[] spaceRemoved = str.split("( )+"); // A      B
         String str1 = "";
-        for (int i = 0; i < spaceRemoved.length; i++) {
+        str1 = str1 + spaceRemoved[0];
+        for (int i = 1; i < spaceRemoved.length; i++) {
             str1 = str1 + " " + spaceRemoved[i];
         }
 
         //every letter after "." should be capital
         //removing multiple new Lines
+        //first a-z character after . should be capital
+        //indexOf to find first a-z character in a string;
 
-//        String[] makeCapital = str.split(".");
+//        String[] makeCapital = str1.split("\\.");
 //        String str2 = "";
-//        for(int i = 0; i < makeCapital.length; i++){
-//            if(isLowerCase(makeCapital[i].charAt(0)) == true) {
+//        System.out.println(makeCapital.length);
+//        System.out.println(makeCapital[0].charAt(0));if (isLowerCase(makeCapital[0].charAt(0)))
+//
+//
+//        for (int i = 0; i < makeCapital.length; i++) {
+//            if (isLowerCase(makeCapital[i].charAt(0))) {
 //                str2 = str2 + "." + toUpperCase(makeCapital[i].charAt(0)) + makeCapital[i].substring(1, makeCapital[i].length());
-//            }
-//            else {
+//            } else {
 //                str2 = str2 + "." + makeCapital[i];
 //            }
-//            System.out.println(str2);
 //        }
+
 
         return str1;
 
@@ -144,8 +151,8 @@ public class LearnString {
     public static void main(String[] args) {
 
         System.out.println(isProperExpression("[{()}]"));
-        System.out.println("hello world   \n  my name is nitin \n\n\n hahahaha");
-        System.out.println(properFormat("hello world   \n  my name is nitin \n\n\n hahahaha"));
+        System.out.println("hello world   \n  my name is.nitin \n\n\n hahahaha");
+        System.out.println(properFormat("my name     is nitin jain.\n\n\ni am a good boy"));
 
     }
 }
