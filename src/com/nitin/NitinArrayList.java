@@ -2,13 +2,15 @@ package com.nitin;
 
 /**
  * Created by harsh on 1/25/16.
- * <p/>
+ * <p>
  * this only has strings.
- * <p/>
+ * <p>
  * V1 :- Simple algo.
  * V2 :- Use a buffer
  * V3 :- Using dynamic buffer. Start with 10, on every resize increase size by 2X.
  */
+
+//Using Dynamic buffer
 public class NitinArrayList {
     static final int BUFFER = 50;
     String data[];
@@ -23,35 +25,6 @@ public class NitinArrayList {
         return data.length;
     }
 
-    //    public void add(String s) {
-//        if (length < data.length) {
-//            data[length] = s;
-//            length++;
-//        } else {
-//            // resize to data.length + BUFFER
-//            String temp[] = new String[data.length + BUFFER];
-//            for (int i = 0; i < data.length; i++) {
-//                temp[i] = data[i];
-//            }
-//            data = temp;
-//            data[length] = s;
-//            length++;
-//        }
-    // create a new temporary array of length + 1
-    // copy old array
-    // set last element to s
-    // replace data with temporary array
-//}
-//    public void add(String s){
-//      String temp[] = new String[data.length+1];
-//      for(int i = 0; i < data.length; i++){
-//          temp[i] = data[i];
-//      }
-//        temp[length] = s;
-//        data = temp;
-//        length++;
-//    }
-    //Using dynamic buffer
     public void add(String s) {
         if (length < data.length) {
             data[length] = s;
@@ -78,6 +51,7 @@ public class NitinArrayList {
         }
 
         data = temp;
+        length--;
     }
 
     public void remove(String s) {
@@ -109,6 +83,7 @@ public class NitinArrayList {
             }
         }
         data = temp;
+        length = length - counter;
     }
 
     public int indexOf(String s) {
@@ -143,12 +118,14 @@ public class NitinArrayList {
         n.remove("nitin2");
         n.remove("nitin3");
 
+
 //        System.out.println(n.get(102));
 //        System.out.println(n.get(34));
 //        System.out.println(n.indexOf("nitin23"));
 //        n.removeIndex(0);
 //        n.remove("nitin");
         n.display();
+
         System.out.println(n.length);
 
     }
