@@ -4,7 +4,9 @@ package com.nitin;
  * Created by harsh on 1/25/16.
  * <p/>
  * V1 : Do naive implementation.
- * V2 : Homework
+ * V2 : Using binary search
+ *
+ * Performance Analysis.
  */
 public class NitinSet {
 
@@ -37,10 +39,6 @@ public class NitinSet {
 
     public void remove(String s) {
 
-    }
-
-    public String get(int i) {
-        return data[i];
     }
 
     public boolean exists(String s) {

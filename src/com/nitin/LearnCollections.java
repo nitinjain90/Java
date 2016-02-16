@@ -4,9 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
 /**
  * Created by harsh on 1/25/16.
@@ -16,6 +14,14 @@ import java.util.TreeSet;
  * Map -> TreeMap, HashMap
  */
 public class LearnCollections {
+      Comparator c = new Comparator() {
+          @Override
+          public int compare(Object o1, Object o2) {
+              return 0;
+          }
+      };
+      TreeMap m = new TreeMap(c);
+
 
     public static String readFileToString(String file) throws IOException {
         //String ret = "";
