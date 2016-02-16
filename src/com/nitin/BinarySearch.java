@@ -9,6 +9,8 @@ import java.util.Collections;
  */
 public class BinarySearch {
 
+
+
     public boolean search(ArrayList<Integer> list , int i){
         int start = 0;
         int end = list.size()- 1;
