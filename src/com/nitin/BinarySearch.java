@@ -10,10 +10,10 @@ import java.util.Collections;
 public class BinarySearch {
 
 
-
     public boolean search(ArrayList<Integer> list , int i){
         int start = 0;
         int end = list.size()- 1;
+        Collections.sort(list);
         while(start <= end){
             int middle = (start+end)/2;
             if(i == list.get(middle)){
@@ -32,16 +32,27 @@ public class BinarySearch {
 
     private static void myAssert(boolean condition) {
         if (!condition) throw new IllegalStateException("Something is wrong");
+        else
+            System.out.println("Correct");
+    }
+
+    public boolean searchString(ArrayList<String> list , String s){
+        int start = 0;
+        int end = list.size()-1;
+        ArrayList<Integer> temp = new ArrayList<Integer>();
+        for(int i = 0; i < list.size(); i++ ){
+            temp.add(list.get(i).hashCode());
+        }
+        return search(temp , s.hashCode());
     }
 
      public static void main (String args[]){
          BinarySearch b = new BinarySearch();
          ArrayList<Integer> a = new ArrayList<>(Arrays.asList(1,2,3,4,5,6));
-         Collections.sort(a);
-
+         ArrayList<String> s = new ArrayList<>(Arrays.asList("Nitin","harsh","Hello","world"));
          myAssert(b.search(a, 2));
          myAssert(b.search(a, 6));
-
+         myAssert(b.searchString(s ,"Harsh"));
         ArrayList<Integer> a2 = new ArrayList<>();
          myAssert(!b.search(a2, 1));
       }

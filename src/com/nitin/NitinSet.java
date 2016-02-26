@@ -20,7 +20,7 @@ public class NitinSet {
     }
 
     public void add(String s) {
-        if (exists(s)) {
+        if (exists(s)&&s!=null) {
             System.out.println("Sorry cannot add already prsent");
         } else if (length < data.length) {
             data[length] = s;
@@ -70,10 +70,13 @@ public class NitinSet {
 
     public static void main(String args[]) {
         NitinSet n = new NitinSet();
-        for (int i = 0; i < 25; i++) {
-            n.add("nitin" + i);
+        long startTime = System.nanoTime();
+        for(int i = 0; i < 10000; i++){
+            n.add("hello"+i);
         }
+        long endTime = System.nanoTime();
 
-        n.display();
+        System.out.println("Time taken = "+(endTime - startTime)/1000000+" ms");
     }
 }
+//458ms
