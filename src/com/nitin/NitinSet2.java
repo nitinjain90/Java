@@ -33,14 +33,26 @@ public class NitinSet2 {
     public static void main(String args[]){
         //adding 1000 elements
         NitinSet2 n = new NitinSet2();
-
-//        for(int i = 0; i < 10; i++){
+        long startTime = System.nanoTime();
+       for(int i = 0; i < 1000000; i++){
+            n.add("hello"+i);
+        }
+        long endTime = System.nanoTime();
+//        long startTime = System.nanoTime();
+//        for(int i = 0; i < 100000; i++){
 //            n.add("hello"+i);
 //        }
 //        long endTime = System.nanoTime();
-//        n.add("hello4");
-//        System.out.println("Time taken = "+(endTime - startTime)/1000000+" ms");
+//        long startTime = System.nanoTime();
+//        for(int i = 0; i < 10000; i++){
+//            n.add("hello"+i);
+//        }
+//        long endTime = System.nanoTime();
+
+
+
+        System.out.println("Time taken = "+(endTime - startTime)/1000000000+"s");
     }
 
 }
-//1768ms
+//1588ms- 10000 elements

@@ -63,6 +63,8 @@ public class NitinArrayList {
          * Copy the elements != null to a new array
          * Set the old array = new array
          */
+
+        //element not found condition
         int counter = 0;
         for (int i = 0; i < data.length; i++) {
             if (data.length == 0) {
