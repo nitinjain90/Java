@@ -1,43 +1,28 @@
 package com.nitin;
 
 /**
- * Created by harsh on 1/25/16.
- * <p>
- * this only has strings.
- * <p>
- * V1 :- Simple algo.
- * V2 :- Use a buffer
- * V3 :- Using dynamic buffer. Start with 10, on every resize increase size by 2X.
+ * Created by harash on 09/02/16.
  */
 
-//Using Dynamic buffer
-public class NitinArrayList {
-    static final int BUFFER = 50;
+//no buffer
+public class ArrayListNoBuffer {
+
     String data[];
     int length;
 
-    public NitinArrayList() {
-        data = new String[BUFFER];
+    public ArrayListNoBuffer() {
         length = 0;
-    }
-
-    public int length() {
-        return data.length;
+        data = new String[length];
     }
 
     public void add(String s) {
-        if (length < data.length) {
-            data[length] = s;
-            length++;
-        } else {
-            String temp[] = new String[data.length + 2 * BUFFER];
-            for (int i = 0; i < data.length; i++) {
-                temp[i] = data[i];
-            }
-            data = temp;
-            data[length] = s;
-            length++;
+        String temp[] = new String[data.length + 1];
+        for (int i = 0; i < data.length; i++) {
+            temp[i] = data[i];
         }
+        temp[length] = s;
+        data = temp;
+        length++;
     }
 
     public void removeIndex(int i) {
@@ -66,10 +51,8 @@ public class NitinArrayList {
 
         //element not found condition
         int counter = 0;
-        for (int i = 0; i < data.length; i++) {
-            if (data.length == 0) {
-                System.out.println("No elements");
-            } else if (data[i].equals(s)) {
+        for (int i = 0; i < length; i++) {
+            if (data[i].compareTo(s) == 0) {
                 data[i] = null;
                 counter++;
             }
@@ -78,7 +61,7 @@ public class NitinArrayList {
         int k = 0;
         for (int j = 0; j < data.length; j++) {
             if (data[j] == null) {
-                System.out.println("Do nothing");
+//                System.out.println("Do nothing");
             } else {
                 temp[k] = data[j];
                 k++;
@@ -105,30 +88,50 @@ public class NitinArrayList {
         return data[i];
     }
 
-    public void display() {
-        for (int i = 0; i < data.length; i++) {
-            System.out.println(data[i]);
-        }
+    private static void myAssert(boolean condition) {
+        if (!condition) throw new IllegalStateException("Something is wrong");
+        else
+            System.out.println("Correct");
     }
+
 
     public static void main(String args[]) {
-        NitinArrayList n = new NitinArrayList();
-        for (int i = 0; i < 50; i++) {
-            n.add("nitin" + i);
+        ArrayListNoBuffer n = new ArrayListNoBuffer();
+        for (int i = 0; i < 10000; i++) {
+            n.add("" + i);
         }
-        n.remove("nitin1");
-        n.remove("nitin2");
-        n.remove("nitin3");
+        System.out.println(n.get(0));
+        System.out.println(n.get(1));
 
-
-//        System.out.println(n.get(102));
-//        System.out.println(n.get(34));
-//        System.out.println(n.indexOf("nitin23"));
-//        n.removeIndex(0);
-//        n.remove("nitin");
-        n.display();
-
+        for (int j = 0; j < 10000; j = j + 2) {
+            n.remove("" + j);
+        }
         System.out.println(n.length);
 
+        for (int k = 0; k < n.length; k++) {
+            n.removeIndex(k);
+        }
+        System.out.println(n.length);
+
+//        myAssert(n.length == 0);
+
+
+//        n.add("Chunnu");
+//        n.add("Hello World");
+//        n.add("kill bill");
+//        n.add("revenant");
+//        n.add("sfdsf");
+//
+//        myAssert(n.indexOf("Chunnu") == 0);
+//        n.remove("revenant");
+//        myAssert(n.get(3) == "sfdsf");
+//        myAssert(n.indexOf("kill bill") == 2);
+//        n.removeIndex(2);
+//        myAssert(n.indexOf("sfdsf") == 2);
+//        myAssert(n.length == 3);
+        //  myAssert(n.indexOf("revenant") == 2);
+
+
     }
+
 }

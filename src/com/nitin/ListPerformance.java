@@ -6,9 +6,9 @@ package com.nitin;
 public class ListPerformance {
 
     public static void main(String args[]) {
-        NitinArrayList n = new NitinArrayList();
-        NitinArrayList2 n2 = new NitinArrayList2();
-        NitinArrayList3 n3 = new NitinArrayList3();
+        ArrayListDynamic n = new ArrayListDynamic();
+        ArrayListNoBuffer n2 = new ArrayListNoBuffer();
+        ArrayListConstant n3 = new ArrayListConstant();
 
 
         //adding 10000 elements
@@ -39,12 +39,39 @@ public class ListPerformance {
 
     }
 }
-// 10000 elements
-//To add in list with dynamic Buffer :50 ms
-//To add in list with no Buffer :170 ms
-//To add in list with constant Buffer :11 ms
+/*
+adding 10 elemments
+    dymanic - 332 microseconds
+    no Buffer - 137 microseconds
+    constant Buffer - 151 microsecons
+ */
+/*
+adding 100 elements
+    dymanic - 894 mcs
+    no Buffer - 1626 mcs
+    constant Buffer - 761 mcs
+ */
+/*
+adding 1000 elements
+    dymanic -  7442 mcs
+    no Buffer - 34690 mcs
+    constant Buffer - 10488 mcs
+ */
+/*
+adding 100000
+   dynamic - 135 ms
+   no Buffer - 27689 ms
+   constant Buffer - 552 ms
+ */
 
-//100000 elements
-//To add in list with dynamic Buffer :262 ms
-//To add in list with no Buffer :8520 ms
-//To add in list with constant Buffer :175 ms
+/*
+Coclusion - As the number of element to add starts increasing dumanic buffer is most efficient.
+            For a very small size 0-20 - no buffer
+            for low to medium - constant buffer as it saves memoey and more or less efficiency is same as dynamic
+            For huge numbers - dynamic is more than 100x faster and efficiency increases exponentially with regards to no buffer
+                               and linearly with regards to constant buffer
+
+ */
+
+
+
