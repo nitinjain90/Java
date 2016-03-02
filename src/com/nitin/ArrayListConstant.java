@@ -55,25 +55,23 @@ public class ArrayListConstant {
          */
 
         //element not found condition
-        int counter = 0;
-        for (int i = 0; i < length; i++) {
-            if (data[i].compareTo(s) == 0) {
-                data[i] = null;
-                counter++;
+        int i = 0;
+        int t = 0;
+        while(i < length){
+            if(data[i].compareTo(s) == 0){
+                t = 1;
+                break;
             }
         }
-        String temp[] = new String[data.length - counter];
-        int k = 0;
-        for (int j = 0; j < data.length; j++) {
-            if (data[j] == null) {
-//                System.out.println("Do nothing");
-            } else {
-                temp[k] = data[j];
-                k++;
-            }
+        if(t == 0){
+            System.out.println("Element does not exist");
+        }else {
+
         }
-        data = temp;
-        length = length - counter;
+    }
+
+    public int size() {
+        return length;
     }
 
     public int indexOf(String s) {
@@ -95,32 +93,47 @@ public class ArrayListConstant {
 
     private static void myAssert(boolean condition) {
         if (!condition) throw new IllegalStateException("Something is wrong");
-        else
-            System.out.println("Correct");
     }
 
-    public static void main(String args[]){
-        ArrayListConstant c  = new ArrayListConstant();
+    public static void main(String args[]) {
+        ArrayListConstant c = new ArrayListConstant();
         c.add("hello");
         c.add("world");
         c.add("1234");
         c.add("chunnu");
         c.add("nitin");
 
-//        myAssert(c.length == 5);
-//        myAssert(c.get(2) == "1234");
-//        myAssert(c.indexOf("hello") == 0);
-//
-//        c.remove("1234");
-//        myAssert(c.length == 4);
-//        myAssert(c.indexOf("chunnu") == 2);
-//        myAssert(c.indexOf("nitin") == 3);
-//        myAssert(c.get(2) == "chunnu");
-//        myAssert(c.get(3) == "nitin");
+        myAssert(c.get(0) == "hello");
+        myAssert(c.get(1) == "world");
+        myAssert(c.get(2) == "1234");
 
-        myAssert(c.get(3) == "1234");
-        myAssert(c.indexOf("hello") == 1);
+        myAssert(c.size() == 5);
 
+        c.remove("chunnu");
+
+        myAssert(c.size() == 4);
+
+        c.remove("1234");
+        c.remove("nitin");
+
+        myAssert(c.size() == 2);
+        myAssert(c.indexOf("chunnu") == 2);
+
+
+        c.remove("world");
+        c.remove("hello");
+
+        myAssert(c.indexOf("chunnu") == 1);
+
+        c.add("mumbai");
+        c.add("kolkata");
+        c.add("chennai");
+        c.add("blore");
+        c.add("nagpur");
+
+        myAssert(c.indexOf("mumbai") == 0);
+        myAssert(c.indexOf("chennai") == 2);
+        myAssert(c.indexOf("honululu") == -1);
 
     }
 
