@@ -56,6 +56,13 @@ public class NitinSet {
             System.out.println("Correct");
     }
 
+    private static boolean myPersonalAssert(boolean condition){
+        if(condition == true)
+            return true;
+        else
+            return false;
+    }
+
 
     public static void main(String args[]) {
         NitinSet n = new NitinSet();
@@ -76,20 +83,26 @@ public class NitinSet {
         //n.add("hindi");
 
 
-        myAssert(n.length() == 5);
-        myAssert(n.exists("bengali"));
+//        myAssert(n.length() == 5);
+//        myAssert(n.exists("bengali"));
+//
+//        n.add(null);
+//        myAssert(n.length() == 5);
+//
+//        n.remove("urdu");
+//        myAssert(n.length() == 4);
+//
+//        System.out.println(myPersonalAssert(n.exists("hello")));
+//        System.out.println(myPersonalAssert(n.exists("spanish")));
+//        n.remove("spanish");
+//        System.out.println(myPersonalAssert(n.exists("spanish")));
 
-        n.add(null);
-        myAssert(n.length() == 5);
 
-        n.remove("urdu");
-        myAssert(n.length() == 4);
+        n.add("Hindi");
 
-        n.remove("german");
-
-
-
-
+        myAssert(n.length() == 6);
+        n.add("greek");
+        myAssert(n.length() == 7);
     }
 }
 //458ms

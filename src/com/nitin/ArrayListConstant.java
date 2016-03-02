@@ -100,6 +100,27 @@ public class ArrayListConstant {
     }
 
     public static void main(String args[]){
+        ArrayListConstant c  = new ArrayListConstant();
+        c.add("hello");
+        c.add("world");
+        c.add("1234");
+        c.add("chunnu");
+        c.add("nitin");
+
+//        myAssert(c.length == 5);
+//        myAssert(c.get(2) == "1234");
+//        myAssert(c.indexOf("hello") == 0);
+//
+//        c.remove("1234");
+//        myAssert(c.length == 4);
+//        myAssert(c.indexOf("chunnu") == 2);
+//        myAssert(c.indexOf("nitin") == 3);
+//        myAssert(c.get(2) == "chunnu");
+//        myAssert(c.get(3) == "nitin");
+
+        myAssert(c.get(3) == "1234");
+        myAssert(c.indexOf("hello") == 1);
+
 
     }
 
