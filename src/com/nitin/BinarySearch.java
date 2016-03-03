@@ -70,6 +70,7 @@ public class BinarySearch {
          myAssert(b.search(s , "harsh"));
          myAssert(!b.search(s , "honululu"));
          myAssert(b.search(s , "1234"));
+         myAssert(!b.search(s , ""));
 
       }
 

@@ -45,14 +45,24 @@ public class NitinMap {
     }
 
     public boolean exists(String key) {
-        int N = 0;
-        while(N < keys.size()){
-            if(keys.get(N).equals(key)){
-                return true;
+        int count = 0;
+        int temp = 0;
+        while(count < keys.size()){
+            if(keys.get(count).equals(key)){
+                temp = 1;
+                count++;
+                break;
+            }else {
+                count++;
             }
-            N++;
         }
+        if(temp == 1)
+            return true;
+        else
         return false;
+    }
+    public int size(){
+        return keys.size();
     }
 
     private static void myAssert(boolean condition) {
@@ -66,46 +76,78 @@ public class NitinMap {
         // Commit <code></code>
         // implement.
 
-//        NitinMap nm = new NitinMap();
-//        nm.put("Nitin","25");
-//        nm.put("harsh","30");
-//        System.out.println(nm.get("harsh"));
-//       // nm.remove("Nitin");
-
-//        myAssert(nm.exists("Nitin"));
-//        myAssert(nm.exists("harsh"));
-
-//        nm.remove("harsh");
-
         NitinMap map = new NitinMap();
-//        map.put("India", "7");
-//        map.put("USA", "1");
-//        map.put("Russia", "2");
-//        map.put("Germany" , "3");
-//        map.put("Vatican", "2");
-//        map.put("India", "8");
-//        map.put("India", "9");
-//        map.get("Vatican");
-//        System.out.println(map.get("USA"));
-//        System.out.println(map.get("Germany"));
-//        System.out.println(map.get("India"));
-//        myAssert(map.exists("Germany"));
-//        myAssert(map.exists("India"));
-      //  map.remove("USA");
+        map.put("nitin" , "hello");
+        map.put("chunnu" , "hello world");
+        map.put("India" , "New Delhi");
+        map.put("Sri Lanka", "Colombo");
+        map.put("Pakistan" , "Islamambad");
+        map.put("Italy" , "Rome");
 
-        long startTime = System.nanoTime();
-        for (int i = 0; i < 1000000; i++){
-            map.put("n"+i , "h"+i);
-        }
-        long endTime = System.nanoTime();
+        myAssert(map.get("nitin") == "hello");
+        myAssert(map.get("India") == "New Delhi");
+        myAssert(map.get("Italy") == "Rome");
+        myAssert(!(map.get("chunnu") == "hello"));
 
-        System.out.println("time taken to add = "+(float)(endTime - startTime)/1000000000+ " seconds");
+        myAssert(map.size() == 6);
+        map.remove("nitin");
+        myAssert(map.size() == 5);
+        map.remove("chunnu");
+        map.remove("India");
+        myAssert(map.size() == 3);
 
-//        map.remove("n56");
-//        map.remove("n34");
-//        System.out.println(map.get("n58"));
-//        myAssert(map.exists("n99"));
-//        myAssert(map.exists("n999"));
+
+        myAssert(map.exists("Sri Lanka"));
+        myAssert(!map.exists("India"));
+        myAssert(!map.exists("chunnu"));
+        myAssert(map.exists("Italy"));
+
+        map.put("" , "Hello");
+        myAssert(map.get("") == "Hello");
+//        map.put("" , "kill bill");
+
+        map.remove("");
+        map.remove("Sri Lanka");
+        map.remove("Pakistan");
+        map.remove("Italy");
+
+        myAssert(map.size() == 0);
+        myAssert(!map.exists("Italy"));
+
+
+        map.put("Delhi" , "NewDelhi");
+        map.put("Rajasthan" , "Jaipur");
+        map.put("gujrat" ,"Ahemdabad");
+
+        myAssert(map.size() == 3);
+        myAssert(map.get("Delhi") == "NewDelhi");
+        map.remove("Delhi");
+        map.remove("Rajasthan");
+        map.remove("gujrat");
+
+        myAssert(map.size() == 0);
+
+        map.put("hello" , "");
+        map.put("world" , "");
+
+        myAssert(map.get("hello") == "");
+        myAssert(map.get("world") == "");
+
+        map.put("hello" , "");
+
+
+//        map.put("Italy", "italy");
+         test(map);
+
+
+
+    }
+
+
+    public static void test(NitinMap m){
+
+        m.put("hello" , null);
+
     }
 
 }

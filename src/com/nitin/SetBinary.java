@@ -81,14 +81,31 @@ public class SetBinary {
         myAssert(!n.exists("urdu"));
         myAssert(n.size() == 3);
 
-        n.add(null);
+
         myAssert(n.size()== 3);
 //        n.add("spanish");
         n.add("");
         myAssert(n.exists(""));
         n.add("1234");
-        n.add(null);
-        n.exists(null);
+
+        n.remove("");
+        n.remove("1234");
+        n.remove("spanish");
+        n.remove("french");
+        n.remove("hindi");
+
+        myAssert(n.size() == 0);
+
+
+        n.add("park");
+        n.add("building");
+        n.add("railway station");
+        n.add("airport");
+        n.add("bus stand");
+
+        myAssert(n.size() == 5);
+        myAssert(n.exists("park"));
+        myAssert(!n.exists("1234"));
 
 
     }

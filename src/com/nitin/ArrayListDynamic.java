@@ -199,7 +199,7 @@ public class ArrayListDynamic {
         c.add("");
         myAssert(c.size() ==3);
         myAssert(c.indexOf("") == 2);
-        myAssert(c.get(2) == "")  ;
+        myAssert(c.get(2) == "");
         c.remove("");
         myAssert(c.size() == 2);
 
