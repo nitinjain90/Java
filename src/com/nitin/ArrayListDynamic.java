@@ -1,5 +1,7 @@
 package com.nitin;
 
+import java.util.Objects;
+
 /**
  * Created by harsh on 1/25/16.
  * <p/>
@@ -21,9 +23,6 @@ public class ArrayListDynamic {
         length = 0;
     }
 
-    public int length() {
-        return data.length;
-    }
 
     public void add(String s) {
         if (length < data.length) {
@@ -41,57 +40,54 @@ public class ArrayListDynamic {
     }
 
     public void removeIndex(int i) {
-        String temp[] = new String[data.length - 1];
+        if (i < length){
+            String temp[] = new String[data.length - 1];
 
-        for (int j = 0; j < i; j++) {
-            temp[j] = data[j];
-        }
-        for (int k = i + 1; k < data.length; k++) {
-            temp[k - 1] = data[k];
-        }
+            for (int j = 0; j < i; j++) {
+                temp[j] = data[j];
+            }
+            for (int k = i + 1; k < length; k++) {
+                temp[k - 1] = data[k];
+            }
 
-        data = temp;
-        --length;
+            data = temp;
+            length--;
+        } else {
+            throw new IllegalArgumentException("Index Out of Bounds");
+        }
     }
 
     public void remove(String s) {
-        /**
-         * Go through array
-         * Find the element
-         * Set the element = null(Count the null elements)
-         * Create a new array with size old - null
-         * Copy the elements != null to a new array
-         * Set the old array = new array
-         */
+        int i = 0;
+        int t = 0;
+        while(i < length){
+            if(Objects.equals(data[i] , s)){
+                t = 1;
+                i++;
+                break;
+            }else{
+                i++;
+            }
 
-        //element not found condition
-        int counter = 0;
-        for (int i = 0; i < length; i++) {
-            if (data[i].compareTo(s) == 0) {
-                data[i] = null;
-                counter++;
-            }
         }
-        String temp[] = new String[data.length - counter];
-        int k = 0;
-        for (int j = 0; j < data.length; j++) {
-            if (data[j] == null) {
-//                System.out.println("Do nothing");
-            } else {
-                temp[k] = data[j];
-                k++;
-            }
+        if(t == 0){
+            throw new IllegalArgumentException("Element does not exist");
+        }else {
+            //element not found condition
+            removeIndex(indexOf(s));
         }
-        data = temp;
-        length = length - counter;
+    }
+
+    public int size() {
+        return length;
     }
 
     public int indexOf(String s) {
         int i = 0;
         while (i < length) {
-            if (data[i].equals(s)) {
+            if (Objects.equals(data[i] , s)) {
                 i = i + length;
-                return i - length;
+                return (i - length);
             }
             i++;
         }
@@ -100,112 +96,116 @@ public class ArrayListDynamic {
     }
 
     public String get(int i) {
-        return data[i];
-    }
-
-    public void display() {
-        for (int i = 0; i < data.length; i++) {
-            System.out.println(data[i]);
+        if(i < length) {
+            return data[i];
+        }else
+        {
+            throw new IllegalArgumentException("Index out of bounds");
         }
     }
 
     private static void myAssert(boolean condition) {
         if (!condition) throw new IllegalStateException("Something is wrong");
-        else
-            System.out.println("Correct");
     }
 
+
     public static void main(String args[]) {
-        ArrayListDynamic n = new ArrayListDynamic();
+        ArrayListDynamic c = new ArrayListDynamic();
 
-        for(int i = 0; i < 10000; i++){
-            n.add(""+i);
-        }
-        System.out.println(n.get(0));
-        System.out.println(n.get(1));
+        c.add("hello");
+        c.add("world");
+        c.add("1234");
+        c.add("chunnu");
+        c.add("nitin");
 
-        for(int j  = 0 ; j < 10000; j++){
-            n.remove(""+j);
-        }
-        System.out.println(n.length);
+        myAssert(c.get(0) == "hello");
+        myAssert(c.get(1) == "world");
+        myAssert(c.get(2) == "1234");
 
-//        for(int k = 0; k < n.length; k++){
-//            n.remove(n.get(k));
-//        }
-//        System.out.println(n.length);
+        myAssert(c.size() == 5);
+
+        c.removeIndex(2);
+        myAssert(c.get(2) == "chunnu");
+        myAssert(c.get(3) == "nitin");
+        myAssert(c.size() == 4);
+
+        myAssert(c.indexOf("nitin") == 3);
+        myAssert(c.indexOf("world") == 1);
+        myAssert(c.indexOf("1234") == -1);
 
 
+        c.remove("hello");
+        c.remove("world");
 
-//        n.add("nitin");
-//        n.add("nitin");
-//        n.add("harsh");
-//        n.add("harsh");
-//
-//        n.removeIndex(1);
-//        n.removeIndex(3);
-//        myAssert(n.length == 2);
-//        myAssert(n.get(0) == "nitin");
-//        myAssert(n.get(1) == "harsh");
-//        n.remove("nitin");
-//        n.remove("harsh");
+        myAssert(c.size() == 2);
+        myAssert(c.get(0) == "chunnu");
+        myAssert(c.get(1) == "nitin");
 
-//        myAssert(n.length == 0);
-//        n.add(null);
-//        n.add(null);
-//        n.add(null);
-//
-//      n.remove(null);
-//        for(int i = 0; i < 10000; i++){
-//            n.add(""+i);
-//        }
-//        System.out.println(n.get(0));
-//        System.out.println(n.get(1));
-//
-//        for(int j  = 0 ; j < 10000; j= j+2){
-//            n.remove(""+j);
-//        }
-//        System.out.println(n.length);
-//
-//
-//        System.out.println(n.indexOf("3"));
-//        System.out.println(n.indexOf("1"));
-//
-//        myAssert(n.get(0).equals("1"));
-//        myAssert(n.get(1).equals("3"));
-//        myAssert(n.get(2).equals("5"));
-//
-//        System.out.println(n.get(0));
-//        System.out.println(n.get(1));
-//        System.out.println(n.get(2));
-//        System.out.println(n.get(3));
-//        System.out.println(n.get(4));
-//
-//
-//        n.add(null);
-//      n.remove(null);
-//        n.add("nitin");
-//        n.add("Harsh");
-//        myAssert(n.indexOf("nitin") == 0);
-//        myAssert(n.indexOf("Harsh") == 1);
-//        myAssert (n.indexOf("not exist") == -1);
-//       // myAssert (n.indexOf("nitin") == 1);
-//
-//        n.add("chunnu");
-//        n.add("sheldon");
-//        myAssert(n.indexOf("chunnu") == 2);
-//        myAssert(n.indexOf("sheldon") == 3);
-//        n.add("hello world");
-//
-//        myAssert(n.length == 5);
-//        n.remove("chunnu");
-//        myAssert(n.indexOf("chunnu") == -1);
-//        myAssert(n.length == 4);
-//        myAssert(n.indexOf("sheldon") == 2);
-//        myAssert(n.indexOf("hello world") == 3);
-//        System.out.println(n.length);
-//        myAssert(n.get(3) == "hello world");
-//        myAssert(n.get(2) == "sheldon");
-//        myAssert(n.get(1) == "Harsh");
+        myAssert(c.indexOf("chunnu") == 0);
+        myAssert(c.indexOf("nitin") == 1);
+
+        myAssert(c.get(0) == "chunnu");
+        myAssert(c.get(1) == "nitin");
+        c.remove("chunnu");
+        c.remove("nitin");
+        myAssert(c.size() == 0);
+        myAssert(c.indexOf("chunnu") == -1);
+        myAssert(c.indexOf("nitin") == -1);
+
+
+        c.add("mumbai");
+        c.add("kolkata");
+        c.add("chennai");
+        c.add("blore");
+        c.add("nagpur");
+
+        myAssert(c.indexOf("mumbai") == 0);
+        myAssert(c.indexOf("chennai") == 2);
+        myAssert(c.indexOf("honululu") == -1);
+
+        c.removeIndex(1);
+        c.removeIndex(3);
+
+        myAssert(c.indexOf("chennai") == 1);
+        myAssert(c.indexOf("blore") == 2);
+        myAssert(c.indexOf("nagpur") == -1);
+
+        myAssert(c.size() == 3);
+        c.remove("mumbai");
+        c.remove("chennai");
+        c.remove("blore");
+
+        myAssert(c.size() == 0);
+        // Corner Cases
+        c.add(null);
+        myAssert(c.indexOf(null) == 0);
+        myAssert(c.size() == 1);
+        c.removeIndex(0);
+        myAssert(c.size() == 0);
+        c.add(null);
+        myAssert(c.indexOf(null) == 0);
+        c.remove(null);
+        myAssert(c.indexOf(null) == -1);
+        myAssert(c.size() == 0);
+        c.add("nitin");
+        c.add("harsh");
+        c.add("nitin");
+        c.add("harsh");
+
+        c.remove("nitin");
+        c.remove("harsh");
+        myAssert(c.indexOf("nitin") == 0);
+        myAssert(c.indexOf("harsh") == 1);
+        c.add("");
+        myAssert(c.size() ==3);
+        myAssert(c.indexOf("") == 2);
+        myAssert(c.get(2) == "")  ;
+        c.remove("");
+        myAssert(c.size() == 2);
+
+//        c.remove("Hello world");
+//        c.removeIndex(25);
+
 
     }
 }

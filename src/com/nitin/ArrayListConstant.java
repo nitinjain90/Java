@@ -1,5 +1,7 @@
 package com.nitin;
 
+import java.util.Objects;
+
 /**
  * Created by harash on 09/02/16.
  */
@@ -31,7 +33,8 @@ public class ArrayListConstant {
     }
 
     public void removeIndex(int i) {
-        String temp[] = new String[length - 1];
+        if (i < length){
+            String temp[] = new String[data.length - 1];
 
         for (int j = 0; j < i; j++) {
             temp[j] = data[j];
@@ -42,32 +45,30 @@ public class ArrayListConstant {
 
         data = temp;
         length--;
+     } else {
+           throw new IllegalArgumentException("Index Out of Bounds");
+        }
     }
 
     public void remove(String s) {
-        /**
-         * Go through array
-         * Find the element
-         * Set the element = null(Count the null elements)
-         * Create a new array with size old - null
-         * Copy the elements != null to a new array
-         * Set the old array = new array
-         */
-
-        //element not found condition
-        int i = 0;
-        int t = 0;
+         int i = 0;
+         int t = 0;
         while(i < length){
-            if(data[i].compareTo(s) == 0){
+            if(Objects.equals(data[i] , s)){
                 t = 1;
+                i++;
                 break;
+            }else{
+                i++;
             }
-        }
-        if(t == 0){
-            System.out.println("Element does not exist");
-        }else {
 
         }
+         if(t == 0){
+             throw new IllegalArgumentException("Element does not exist");
+         }else {
+             //element not found condition
+             removeIndex(indexOf(s));
+         }
     }
 
     public int size() {
@@ -77,9 +78,9 @@ public class ArrayListConstant {
     public int indexOf(String s) {
         int i = 0;
         while (i < length) {
-            if (data[i].equals(s)) {
+            if (Objects.equals(data[i] , s)) {
                 i = i + length;
-                return i - length;
+                return (i - length);
             }
             i++;
         }
@@ -88,7 +89,12 @@ public class ArrayListConstant {
     }
 
     public String get(int i) {
-        return data[i];
+        if(i < length) {
+            return data[i];
+        }else
+        {
+            throw new IllegalArgumentException("Index out of bounds");
+        }
     }
 
     private static void myAssert(boolean condition) {
@@ -111,31 +117,85 @@ public class ArrayListConstant {
 
         c.removeIndex(2);
         myAssert(c.get(2) == "chunnu");
-//        c.remove("chunnu");
         myAssert(c.get(3) == "nitin");
         myAssert(c.size() == 4);
 
-//        c.remove("1234");
-//        c.remove("nitin");
-
-//        myAssert(c.size() == 2);
-//        myAssert(c.indexOf("chunnu") == 2);
+        myAssert(c.indexOf("nitin") == 3);
+        myAssert(c.indexOf("world") == 1);
+        myAssert(c.indexOf("1234") == -1);
 
 
-//        c.remove("world");
-//        c.remove("hello");
+        c.remove("hello");
+        c.remove("world");
 
-//        myAssert(c.indexOf("chunnu") == 1);
+        myAssert(c.size() == 2);
+        myAssert(c.get(0) == "chunnu");
+        myAssert(c.get(1) == "nitin");
 
-//        c.add("mumbai");
-//        c.add("kolkata");
-//        c.add("chennai");
-//        c.add("blore");
-//        c.add("nagpur");
-//
-//        myAssert(c.indexOf("mumbai") == 0);
-//        myAssert(c.indexOf("chennai") == 2);
-//        myAssert(c.indexOf("honululu") == -1);
+        myAssert(c.indexOf("chunnu") == 0);
+        myAssert(c.indexOf("nitin") == 1);
+
+        myAssert(c.get(0) == "chunnu");
+        myAssert(c.get(1) == "nitin");
+        c.remove("chunnu");
+        c.remove("nitin");
+        myAssert(c.size() == 0);
+        myAssert(c.indexOf("chunnu") == -1);
+        myAssert(c.indexOf("nitin") == -1);
+
+
+        c.add("mumbai");
+        c.add("kolkata");
+        c.add("chennai");
+        c.add("blore");
+        c.add("nagpur");
+
+        myAssert(c.indexOf("mumbai") == 0);
+        myAssert(c.indexOf("chennai") == 2);
+        myAssert(c.indexOf("honululu") == -1);
+
+        c.removeIndex(1);
+        c.removeIndex(3);
+
+        myAssert(c.indexOf("chennai") == 1);
+        myAssert(c.indexOf("blore") == 2);
+        myAssert(c.indexOf("nagpur") == -1);
+
+        myAssert(c.size() == 3);
+        c.remove("mumbai");
+        c.remove("chennai");
+        c.remove("blore");
+
+        myAssert(c.size() == 0);
+        // Corner Cases
+        c.add(null);
+        myAssert(c.indexOf(null) == 0);
+        myAssert(c.size() == 1);
+        c.removeIndex(0);
+        myAssert(c.size() == 0);
+        c.add(null);
+        myAssert(c.indexOf(null) == 0);
+        c.remove(null);
+        myAssert(c.indexOf(null) == -1);
+        myAssert(c.size() == 0);
+        c.add("nitin");
+        c.add("harsh");
+        c.add("nitin");
+        c.add("harsh");
+
+        c.remove("nitin");
+        c.remove("harsh");
+        myAssert(c.indexOf("nitin") == 0);
+        myAssert(c.indexOf("harsh") == 1);
+        c.add("");
+        myAssert(c.size() ==3);
+        myAssert(c.indexOf("") == 2);
+        myAssert(c.get(2) == "")  ;
+        c.remove("");
+        myAssert(c.size() == 2);
+
+//       c.remove("Hello world");
+//       c.removeIndex(25);
 
     }
 

@@ -5,7 +5,7 @@ package com.nitin;
  */
 public class ListPerformance {
 
-    public static void main(String args[]) {
+    public static void test(int N, int factor, String secondVariable) {
         ArrayListDynamic n = new ArrayListDynamic();
         ArrayListNoBuffer n2 = new ArrayListNoBuffer();
         ArrayListConstant n3 = new ArrayListConstant();
@@ -13,30 +13,36 @@ public class ListPerformance {
 
         //adding 10000 elements
         long nStartTime = System.nanoTime();
-        for (int i = 0; i < 100000; i++) {
+        for (int i = 0; i < N; i++) {
             n.add("nitin" + i);
         }
         long nEndTime = System.nanoTime();
 
-        System.out.println("To add in list with dynamic Buffer :" +(nEndTime-nStartTime)/1000000+" ms");
+        System.out.println("To add "+N+ " objects in list with dynamic Buffer :" + ((nEndTime - nStartTime) / factor) + secondVariable);
 
         long n1StartTime = System.nanoTime();
-        for (int i = 0; i < 100000; i++) {
+        for (int i = 0; i < N; i++) {
             n2.add("harsh" + i);
         }
         long n1EndTime = System.nanoTime();
 
-        System.out.println("To add in list with no Buffer :" +(n1EndTime-n1StartTime)/1000000+" ms");
+        System.out.println("To add "+N+" objects in list with no Buffer :" + ((n1EndTime - n1StartTime) / factor) + secondVariable);
 
         long n2StartTime = System.nanoTime();
-        for (int i = 0; i < 100000; i++) {
+        for (int i = 0; i < N; i++) {
             n3.add("hello" + i);
         }
         long n2EndTime = System.nanoTime();
 
-        System.out.println("To add in list with constant Buffer :" +(n2EndTime-n2StartTime)/1000000+" ms");
+        System.out.println("To add "+N+" objects in list with constant Buffer :" + ((n2EndTime - n2StartTime) / factor) + secondVariable);
+    }
 
-
+    public static void main(String args[]) {
+        test(10, 1, " nanoseconds");
+        test(100, 1000, " microseconds");
+        test(1000, 1000, " microseconds");
+        test(10000, 1000000, " miliseconds");
+        test(100000, 1000000, " miliseconds");
     }
 }
 /*
