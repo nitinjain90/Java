@@ -31,12 +31,12 @@ public class ArrayListConstant {
     }
 
     public void removeIndex(int i) {
-        String temp[] = new String[data.length - 1];
+        String temp[] = new String[length - 1];
 
         for (int j = 0; j < i; j++) {
             temp[j] = data[j];
         }
-        for (int k = i + 1; k < data.length; k++) {
+        for (int k = i + 1; k < length; k++) {
             temp[k - 1] = data[k];
         }
 
@@ -109,31 +109,33 @@ public class ArrayListConstant {
 
         myAssert(c.size() == 5);
 
-        c.remove("chunnu");
-
+        c.removeIndex(2);
+        myAssert(c.get(2) == "chunnu");
+//        c.remove("chunnu");
+        myAssert(c.get(3) == "nitin");
         myAssert(c.size() == 4);
 
-        c.remove("1234");
-        c.remove("nitin");
+//        c.remove("1234");
+//        c.remove("nitin");
 
-        myAssert(c.size() == 2);
-        myAssert(c.indexOf("chunnu") == 2);
+//        myAssert(c.size() == 2);
+//        myAssert(c.indexOf("chunnu") == 2);
 
 
-        c.remove("world");
-        c.remove("hello");
+//        c.remove("world");
+//        c.remove("hello");
 
-        myAssert(c.indexOf("chunnu") == 1);
+//        myAssert(c.indexOf("chunnu") == 1);
 
-        c.add("mumbai");
-        c.add("kolkata");
-        c.add("chennai");
-        c.add("blore");
-        c.add("nagpur");
-
-        myAssert(c.indexOf("mumbai") == 0);
-        myAssert(c.indexOf("chennai") == 2);
-        myAssert(c.indexOf("honululu") == -1);
+//        c.add("mumbai");
+//        c.add("kolkata");
+//        c.add("chennai");
+//        c.add("blore");
+//        c.add("nagpur");
+//
+//        myAssert(c.indexOf("mumbai") == 0);
+//        myAssert(c.indexOf("chennai") == 2);
+//        myAssert(c.indexOf("honululu") == -1);
 
     }
 
