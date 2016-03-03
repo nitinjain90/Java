@@ -16,66 +16,81 @@ public class SetBinary {
     public void add(String s) {
       if(s!=null) {
           if (exists(s)) {
-              System.out.println("Element already exists");
+              throw new IllegalArgumentException("Element already exists");
           } else {
               data.add(s);
           }
-      }else
-      {
-          System.out.println("Null elements not allowed");
+      }else{
+          throw new IllegalArgumentException("null elements not allowed");
       }
     }
 
-    public boolean exists(String s){
-        return new BinarySearch().search(data , s);
+    public boolean exists(String s) {
+        if (s != null) {
+            return new BinarySearch().search(data, s);
+        }else{
+            throw new IllegalArgumentException("Cant search for null elements");
+        }
+
     }
 
     public void remove(String s) {
         if (!data.contains(s)) {
-            System.out.println("Element does not exist");
+            throw new IllegalArgumentException("Element Already exists");
         } else
             data.remove(s);
     }
 
-    public int length(){
+    public int size(){
         return data.size();
     }
+
     private static void myAssert(boolean condition) {
         if (!condition) throw new IllegalStateException("Something is wrong");
-        else
-            System.out.println("Correct");
     }
 
-    private static boolean myPersonalAssert(boolean condition){
-        if(condition == true)
-            return true;
-        else
-            return false;
-    }
 
 
 
     public static void main(String args[]){
-        //adding 1000 elements
         SetBinary n = new SetBinary();
-//        n.add("New york");
-//        n.add("california");
-//        n.add("mumbai");
-//
-//        n.add("california");
-//
-//        n.add("ludhiana");
-//        n.add("moscow");
-//        n.add("bangkok");
-////        myAssert(n.length() == 3);
-//
-//        System.out.println(myPersonalAssert(n.length() == 6));
-//        System.out.println(myPersonalAssert(n.length()==5));
-//        myAssert(n.exists("mumbai"));
-//        System.out.println(myPersonalAssert(n.exists("mummbai") == false));
+
+        n.add("hindi");
+        n.add("english");
+        n.add("bengali");
+        n.add("spanish");
+        n.add("french");
+        n.add("urdu");
+
+
+        myAssert(n.size() == 6);
+
+        myAssert(n.exists("hindi"));
+        myAssert(n.exists("english"));
+        myAssert(n.exists("french"));
+        myAssert(!n.exists("malyalam"));
+        myAssert(!n.exists("French"));
+
+        n.remove("english");
+        myAssert(!n.exists("english"));
+        myAssert(n.size() == 5);
+        n.remove("bengali");
+        myAssert(!n.exists("bengali"));
+        myAssert(n.size() == 4);
+        n.remove("urdu");
+        myAssert(!n.exists("urdu"));
+        myAssert(n.size() == 3);
+
+        n.add(null);
+        myAssert(n.size()== 3);
+//        n.add("spanish");
+        n.add("");
+        myAssert(n.exists(""));
+        n.add("1234");
+        n.add(null);
+        n.exists(null);
 
 
     }
 
 }
-//1588ms- 10000 elements

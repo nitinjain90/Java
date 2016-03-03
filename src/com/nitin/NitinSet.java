@@ -24,6 +24,8 @@ public class NitinSet {
               throw new IllegalStateException("Element already exists");
           } else
               data.add(s);
+      }else{
+          throw new IllegalArgumentException("null elements not allowed");
       }
 
     }
@@ -31,7 +33,7 @@ public class NitinSet {
 
     public void remove(String s) {
         if (!data.contains(s)) {
-            System.out.println("Element does not exist");
+          throw new IllegalArgumentException("Element does not exists");
         } else
             data.remove(s);
     }
@@ -40,37 +42,19 @@ public class NitinSet {
         return data.contains(s);
     }
 
-    public int length() {
+    public int size() {
         return data.size();
     }
 
-    public void display() {
-        for (int i = 0; i < data.size(); i++) {
-            System.out.println(data.get(i));
-        }
-    }
+
 
     private static void myAssert(boolean condition) {
         if (!condition) throw new IllegalStateException("Something is wrong");
-        else
-            System.out.println("Correct");
     }
-
-    private static boolean myPersonalAssert(boolean condition){
-        if(condition == true)
-            return true;
-        else
-            return false;
-    }
-
 
     public static void main(String args[]) {
         NitinSet n = new NitinSet();
-//        n.add("nitin");
-//        myAssert(n.exists("nitin"));
-//
-//        n.remove("nitin");
-//        myAssert(n.exists("nitin"));
+
         n.add("hindi");
         n.add("english");
         n.add("bengali");
@@ -78,31 +62,32 @@ public class NitinSet {
         n.add("french");
         n.add("urdu");
 
+
+        myAssert(n.size() == 6);
+
+        myAssert(n.exists("hindi"));
+        myAssert(n.exists("english"));
+        myAssert(n.exists("french"));
+        myAssert(!n.exists("malyalam"));
+        myAssert(!n.exists("French"));
+
         n.remove("english");
+        myAssert(!n.exists("english"));
+        myAssert(n.size() == 5);
+        n.remove("bengali");
+        myAssert(!n.exists("bengali"));
+        myAssert(n.size() == 4);
+        n.remove("urdu");
+        myAssert(!n.exists("urdu"));
+        myAssert(n.size() == 3);
 
-        //n.add("hindi");
+        n.add(null);
+        myAssert(n.size()== 3);
+//        n.add("spanish");
+        n.add("");
+        myAssert(n.exists(""));
+        n.add("1234");
 
-
-//        myAssert(n.length() == 5);
-//        myAssert(n.exists("bengali"));
-//
-//        n.add(null);
-//        myAssert(n.length() == 5);
-//
-//        n.remove("urdu");
-//        myAssert(n.length() == 4);
-//
-//        System.out.println(myPersonalAssert(n.exists("hello")));
-//        System.out.println(myPersonalAssert(n.exists("spanish")));
-//        n.remove("spanish");
-//        System.out.println(myPersonalAssert(n.exists("spanish")));
-
-
-        n.add("Hindi");
-
-        myAssert(n.length() == 6);
-        n.add("greek");
-        myAssert(n.length() == 7);
     }
 }
 //458ms

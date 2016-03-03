@@ -35,6 +35,7 @@ public class ListPerformance {
         long n2EndTime = System.nanoTime();
 
         System.out.println("To add "+N+" objects in list with constant Buffer :" + ((n2EndTime - n2StartTime) / factor) + secondVariable);
+        System.out.println();
     }
 
     public static void main(String args[]) {
