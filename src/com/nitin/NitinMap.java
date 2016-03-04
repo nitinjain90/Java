@@ -31,6 +31,13 @@ public class NitinMap {
         }
     }
 
+    public boolean isEmpty(){
+        if(size() == 0)
+            return true;
+            else
+        return false;
+    }
+
     public void remove(String key) {
         values.remove(keys.indexOf(key));
         keys.remove(key);
@@ -77,13 +84,14 @@ public class NitinMap {
         // implement.
 
         NitinMap map = new NitinMap();
+        myAssert(map.isEmpty());
         map.put("nitin" , "hello");
         map.put("chunnu" , "hello world");
         map.put("India" , "New Delhi");
         map.put("Sri Lanka", "Colombo");
         map.put("Pakistan" , "Islamambad");
         map.put("Italy" , "Rome");
-
+        myAssert(!map.isEmpty());
         myAssert(map.get("nitin") == "hello");
         myAssert(map.get("India") == "New Delhi");
         myAssert(map.get("Italy") == "Rome");
@@ -111,6 +119,7 @@ public class NitinMap {
         map.remove("Pakistan");
         map.remove("Italy");
 
+        myAssert(map.isEmpty());
         myAssert(map.size() == 0);
         myAssert(!map.exists("Italy"));
 
