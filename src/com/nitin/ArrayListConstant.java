@@ -33,8 +33,11 @@ public class ArrayListConstant {
     }
 
     public void removeIndex(int i) {
-        if (i < length){
-            String temp[] = new String[data.length - 1];
+        if(i >= length){
+            throw new IllegalArgumentException(" Index Out of bounds");
+        }
+
+        String temp[] = new String[data.length - 1];
 
         for (int j = 0; j < i; j++) {
             temp[j] = data[j];
@@ -45,9 +48,6 @@ public class ArrayListConstant {
 
         data = temp;
         length--;
-     } else {
-           throw new IllegalArgumentException("Index Out of Bounds");
-        }
     }
 
     public void remove(String s) {
@@ -89,12 +89,10 @@ public class ArrayListConstant {
     }
 
     public String get(int i) {
-        if(i < length) {
-            return data[i];
-        }else
-        {
-            throw new IllegalArgumentException("Index out of bounds");
-        }
+       if(i >= length) {
+           throw new IllegalArgumentException("Index out of bounds");
+       }
+        return data[i];
     }
 
     private static void myAssert(boolean condition) {
@@ -109,16 +107,16 @@ public class ArrayListConstant {
         c.add("chunnu");
         c.add("nitin");
 
-        myAssert(c.get(0) == "hello");
-        myAssert(c.get(1) == "world");
-        myAssert(c.get(2) == "1234");
+        myAssert(c.get(0).equals("hello"));
+        myAssert(c.get(1).equals("world"));
+        myAssert(c.get(2).equals("1234"));
 
         myAssert(c.size() == 5);
 
         c.removeIndex(2);
-        myAssert(c.get(2) == "chunnu");
-        myAssert(c.get(3) == "nitin");
-        myAssert(c.size() == 4);
+        myAssert(c.get(2).equals("chunnu"));
+        myAssert(c.get(3).equals("nitin"));
+        myAssert(c.size() == (4));
 
         myAssert(c.indexOf("nitin") == 3);
         myAssert(c.indexOf("world") == 1);
@@ -129,14 +127,14 @@ public class ArrayListConstant {
         c.remove("world");
 
         myAssert(c.size() == 2);
-        myAssert(c.get(0) == "chunnu");
-        myAssert(c.get(1) == "nitin");
+        myAssert(c.get(0).equals("chunnu"));
+        myAssert(c.get(1).equals("nitin"));
 
         myAssert(c.indexOf("chunnu") == 0);
         myAssert(c.indexOf("nitin") == 1);
 
-        myAssert(c.get(0) == "chunnu");
-        myAssert(c.get(1) == "nitin");
+        myAssert(c.get(0).equals("chunnu"));
+        myAssert(c.get(1).equals("nitin"));
         c.remove("chunnu");
         c.remove("nitin");
         myAssert(c.size() == 0);
@@ -190,7 +188,7 @@ public class ArrayListConstant {
         c.add("");
         myAssert(c.size() ==3);
         myAssert(c.indexOf("") == 2);
-        myAssert(c.get(2) == "")  ;
+        myAssert(c.get(2).equals(""))  ;
         c.remove("");
         myAssert(c.size() == 2);
 

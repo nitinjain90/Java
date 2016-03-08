@@ -4,10 +4,8 @@ import java.util.ArrayList;
 
 /**
  * Created by harash on 16/02/16.
- *
+ * <p/>
  * - Any datastructure you already know. ArrayList
- *
- *
  */
 public class NitinMap {
 
@@ -15,27 +13,35 @@ public class NitinMap {
     ArrayList<String> values;
 
     public NitinMap() {
-      keys = new ArrayList<String>();
-      values = new ArrayList<String>();
+        keys = new ArrayList<String>();
+        values = new ArrayList<String>();
     }
 
     public void put(String key, String value) {
-       // check for null
+        // check for null
         // check for duplicate
-        if(key !=null && value !=null && exists(key) == false) {
+        if (key.equals(null)) {
+            throw new IllegalArgumentException("null value not allowed for key");
+        }
+        if (value.equals(null)) {
+            throw new IllegalArgumentException("null values not allowed for value");
+        }
+
+
+        if (exists(key)) {
+            values.set(keys.indexOf(key), value);
+        } else {
+
             keys.add(key);
             values.add(value);
         }
-        else{
-            throw new IllegalStateException("null values and duplicate entries not allowed");
-        }
     }
 
-    public boolean isEmpty(){
-        if(size() == 0)
+    public boolean isEmpty() {
+        if (size() == 0)
             return true;
-            else
-        return false;
+        else
+            return false;
     }
 
     public void remove(String key) {
@@ -44,31 +50,31 @@ public class NitinMap {
     }
 
     public String get(String key) {
-        if(exists(key)){
-        return values.get(keys.indexOf(key));
-        }else{
-            throw new IllegalStateException("Key not found");
+        if (!exists(key)) {
+            throw new IllegalArgumentException("key not found");
         }
+        return values.get(keys.indexOf(key));
     }
 
     public boolean exists(String key) {
         int count = 0;
         int temp = 0;
-        while(count < keys.size()){
-            if(keys.get(count).equals(key)){
+        while (count < keys.size()) {
+            if (keys.get(count).equals(key)) {
                 temp = 1;
                 count++;
                 break;
-            }else {
+            } else {
                 count++;
             }
         }
-        if(temp == 1)
+        if (temp == 1)
             return true;
         else
-        return false;
+            return false;
     }
-    public int size(){
+
+    public int size() {
         return keys.size();
     }
 
@@ -85,17 +91,17 @@ public class NitinMap {
 
         NitinMap map = new NitinMap();
         myAssert(map.isEmpty());
-        map.put("nitin" , "hello");
-        map.put("chunnu" , "hello world");
-        map.put("India" , "New Delhi");
+        map.put("nitin", "hello");
+        map.put("chunnu", "hello world");
+        map.put("India", "New Delhi");
         map.put("Sri Lanka", "Colombo");
-        map.put("Pakistan" , "Islamambad");
-        map.put("Italy" , "Rome");
+        map.put("Pakistan", "Islamambad");
+        map.put("Italy", "Rome");
         myAssert(!map.isEmpty());
-        myAssert(map.get("nitin") == "hello");
-        myAssert(map.get("India") == "New Delhi");
-        myAssert(map.get("Italy") == "Rome");
-        myAssert(!(map.get("chunnu") == "hello"));
+        myAssert(map.get("nitin").equals("hello"));
+        myAssert(map.get("India").equals("New Delhi"));
+        myAssert(map.get("Italy").equals("Rome"));
+        myAssert(!(map.get("chunnu").equals("hello")));
 
         myAssert(map.size() == 6);
         map.remove("nitin");
@@ -110,8 +116,8 @@ public class NitinMap {
         myAssert(!map.exists("chunnu"));
         myAssert(map.exists("Italy"));
 
-        map.put("" , "Hello");
-        myAssert(map.get("") == "Hello");
+        map.put("", "Hello");
+        myAssert(map.get("").equals("Hello"));
 //        map.put("" , "kill bill");
 
         map.remove("");
@@ -124,38 +130,39 @@ public class NitinMap {
         myAssert(!map.exists("Italy"));
 
 
-        map.put("Delhi" , "NewDelhi");
-        map.put("Rajasthan" , "Jaipur");
-        map.put("gujrat" ,"Ahemdabad");
+        map.put("Delhi", "NewDelhi");
+        map.put("Delhi", "hall bol");
+        myAssert(map.get("Delhi").equals("hall bol"));
+        map.put("Rajasthan", "Jaipur");
+        map.put("gujrat", "Ahemdabad");
 
         myAssert(map.size() == 3);
-        myAssert(map.get("Delhi") == "NewDelhi");
+        myAssert(map.get("Delhi").equals("hall bol"));
         map.remove("Delhi");
         map.remove("Rajasthan");
         map.remove("gujrat");
 
         myAssert(map.size() == 0);
 
-        map.put("hello" , "");
-        map.put("world" , "");
+        map.put("hello", "");
+        map.put("world", "");
 
-        myAssert(map.get("hello") == "");
-        myAssert(map.get("world") == "");
+        myAssert(map.get("hello").equals(""));
+        myAssert(map.get("world").equals(""));
 
-        map.put("hello" , "");
+        map.put("hello", "");
 
 
 //        map.put("Italy", "italy");
-         test(map);
-
+//         test(map);
 
 
     }
 
 
-    public static void test(NitinMap m){
+    public static void test(NitinMap m) {
 
-        m.put("hello" , null);
+        m.put("hello", null);
 
     }
 

@@ -19,23 +19,25 @@ public class NitinSet {
     }
 
     public void add(String s) {
-      if(s !=null) {
-          if (data.contains(s)) {
-              throw new IllegalStateException("Element already exists");
-          } else
-              data.add(s);
-      }else{
-          throw new IllegalArgumentException("null elements not allowed");
-      }
+        if (s.equals(null)) {
+            throw new IllegalArgumentException("null elements now allowed");
+        }
+        if (data.contains(s)) {
+            throw new IllegalArgumentException("duplicate entries not allowed");
+        }
+        data.add(s);
+
 
     }
 
 
     public void remove(String s) {
-        if (!data.contains(s)) {
-          throw new IllegalArgumentException("Element does not exists");
-        } else
-            data.remove(s);
+
+        if (!data.contains(s))
+            throw new IllegalArgumentException("Element does not exists");
+
+        data.remove(s);
+
     }
 
     public boolean exists(String s) {
@@ -45,7 +47,6 @@ public class NitinSet {
     public int size() {
         return data.size();
     }
-
 
 
     private static void myAssert(boolean condition) {
@@ -82,7 +83,7 @@ public class NitinSet {
         myAssert(n.size() == 3);
 
 
-        myAssert(n.size()== 3);
+        myAssert(n.size() == 3);
 
         n.add("");
         myAssert(n.exists(""));

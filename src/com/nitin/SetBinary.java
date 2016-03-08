@@ -14,31 +14,25 @@ public class SetBinary {
     }
 
     public void add(String s) {
-      if(s!=null) {
-          if (exists(s)) {
-              throw new IllegalArgumentException("Element already exists");
-          } else {
-              data.add(s);
-          }
-      }else{
-          throw new IllegalArgumentException("null elements not allowed");
-      }
+        if (s.equals(null)) {
+            throw new IllegalArgumentException("null elements now allowed");
+        }
+        if (data.contains(s)) {
+            throw new IllegalArgumentException("duplicate entries not allowed");
+        }
+        data.add(s);
+
     }
 
     public boolean exists(String s) {
-        if (s != null) {
-            return new BinarySearch().search(data, s);
-        }else{
-            throw new IllegalArgumentException("Cant search for null elements");
-        }
-
+        return new BinarySearch().search(data ,s);
     }
 
     public void remove(String s) {
-        if (!data.contains(s)) {
-            throw new IllegalArgumentException("Element Already exists");
-        } else
-            data.remove(s);
+        if (!data.contains(s))
+            throw new IllegalArgumentException("Element does not exist exists");
+
+        data.remove(s);
     }
 
     public int size(){
