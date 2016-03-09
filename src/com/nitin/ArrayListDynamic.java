@@ -178,18 +178,23 @@ public class ArrayListDynamic {
         c.add("nitin");
         c.add("harsh");
 
-        c.remove("nitin");
-        c.remove("harsh");
+//        c.remove("nitin");
+//        c.remove("harsh");
+//
         myAssert(c.indexOf("nitin") == 0);
         myAssert(c.indexOf("harsh") == 1);
+
+
+
         c.add("");
-        myAssert(c.size() ==3);
-        myAssert(c.indexOf("") == 2);
-        myAssert(c.get(2).equals(""))  ;
+        myAssert(c.size() ==5);
+        myAssert(c.indexOf("") == 4);
+        myAssert(c.get(2).equals("nitin"))  ;
         c.remove("");
-        myAssert(c.size() == 2);
-//        c.remove("Hello world");
-//        c.removeIndex(25);
+        myAssert(c.size() == 4);
+
+//       c.remove("Hello world");
+//       c.removeIndex(25);
 
 
     }

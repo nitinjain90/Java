@@ -5,48 +5,42 @@ package com.nitin;
  */
 public class QueuePointer {
 
-      Node bottom;
-      Node top;
-      int size;
+    Node bottom;
+    Node top;
+    int size;
 
-    public class Node{
+    public class Node {
         String data;
-        Node prev;
         Node next;
     }
 
-    public QueuePointer(){
-       bottom = null;
-       top = null;
-       size = 0;
+    public QueuePointer() {
+        bottom = null;
+        top = null;
+        size = 0;
     }
 
-    public boolean isEmpty(){
-        return (top==null);
+    public boolean isEmpty() {
+        return (top == null);
     }
 
-    public void push(String s){
-      if(size == 0) {
-          top = new Node();
-          bottom = new Node();
-          bottom.data = s;
-          top.data = s;
-          size++;
-      } else {
-          Node previousBottom = bottom;
-          bottom = new Node();
-          bottom.data = s;
-          bottom.prev = previousBottom;
-          bottom.next = null;
-          previousBottom.next = bottom;
-          size++;
-      }
+    public void push(String s) {
+        Node n = new Node();
+        n.data = s;
+        if (isEmpty()) {
+            top = n;
+        } else {
+            bottom.next = n;
+        }
+        bottom =n;
+        bottom.next = null;
+        size++;
     }
 
-    public String pop(){
-       if(size <= 0){
-           throw new IllegalArgumentException("empty queue");
-       }
+    public String pop() {
+        if (size <= 0) {
+            throw new IllegalArgumentException("empty queue");
+        }
         String t = top.data;
         top = top.next;
         size--;
@@ -57,7 +51,7 @@ public class QueuePointer {
         if (!condition) throw new IllegalStateException("Something is wrong");
     }
 
-    public static void main(String args[]){
+    public static void main(String args[]) {
         QueuePointer q = new QueuePointer();
         q.push("hello");
         q.push("world");
@@ -69,8 +63,19 @@ public class QueuePointer {
         myAssert(q.pop().equals("nitin"));
         myAssert(q.pop().equals("kill me"));
 
-        q.pop();
+        q.push("1");
+        q.push("2");
+        q.push("3");
+        q.push("4");
+        q.push("5");
 
+        myAssert(q.pop().equals("1"));
+        myAssert(q.pop().equals("2"));
+        myAssert(q.pop().equals("3"));
+        myAssert(q.pop().equals("4"));
+        myAssert(q.pop().equals("5"));
+
+        myAssert(!q.pop().equals(""));
     }
 
 }

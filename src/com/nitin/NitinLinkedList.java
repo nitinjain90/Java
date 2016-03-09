@@ -11,8 +11,8 @@ public class NitinLinkedList {
 
     public class Node {
         String data;
-        Node prev;
         Node next;
+
     }
 
     public NitinLinkedList() {
@@ -22,55 +22,64 @@ public class NitinLinkedList {
     }
 
     public void addFirst(String s) {
-        if (size == 0) {
-            top = new Node();
-            bottom = new Node();
-            top.data = s;
-            bottom.data = s;
-            size++;
+        Node n = new Node();
+        n.data = s;
+        Node previousTop = top;
+        if (isEmpty()) {
+            top = n;
+            bottom = n;
         } else {
-            Node previousTop = top;
-            top = new Node();
-            top.data = s;
-            top.next = previousTop;
-            top.prev = null;
-            previousTop.prev = top;
-            size++;
+            top = n;
         }
+        top.next = previousTop;
+        size++;
+    }
+
+    public boolean isEmpty() {
+        return (top == null);
     }
 
     public void addLast(String s) {
-        if (size == 0) {
-            top = new Node();
-            bottom = new Node();
-            top.data = s;
-            bottom.data = s;
+        Node n = new Node();
+        n.data = s;
+        if (isEmpty()) {
+            top = n;
+            bottom = n;
             size++;
         } else {
-            Node previousBottom = bottom;
-            bottom = new Node();
-            bottom.data = s;
-            bottom.next = null;
-            bottom.prev = previousBottom;
-            previousBottom.next = bottom;
-            size++;
+            bottom.next = n;
         }
+        bottom = n;
+        bottom.next = null;
+        size++;
     }
 
     public String removeFirst() {
-        String t = top.data;
+        if (isEmpty()) {
+            throw new IllegalArgumentException("Empty List");
+        }
+        Node temp = top;
         top = top.next;
-        top.prev = null;
         size--;
-        return t;
+        return temp.data;
     }
 
+    public void display() {
+        Node t = top;
+        while (t != null) {
+            System.out.println(t.data);
+            t = t.next;
+        }
+    }
+
+
     public String removeLast() {
-        String t = bottom.data;
-        bottom = bottom.prev;
-        bottom.next = null;
-        size--;
-        return t;
+        if (isEmpty()) {
+            throw new IllegalArgumentException("Empty list");
+        }
+        Node temp = bottom;
+
+        return temp.data;
     }
 
     private static void myAssert(boolean condition) {
@@ -85,11 +94,24 @@ public class NitinLinkedList {
         n.addLast("2");
         n.addLast("3");
         n.addLast("4");
-
         n.addFirst("5");
+        n.addFirst("6");
+
+        myAssert(n.removeFirst().equals("6"));
         myAssert(n.removeFirst().equals("5"));
         myAssert(n.removeFirst().equals("1"));
-        myAssert(n.removeLast().equals("4"));
+        myAssert(n.removeFirst().equals("2"));
+        myAssert(n.removeFirst().equals("3"));
+        myAssert(n.removeFirst().equals("4"));
+
+
+
+
+        myAssert(n.isEmpty());
+
+
+
+
 
     }
 
