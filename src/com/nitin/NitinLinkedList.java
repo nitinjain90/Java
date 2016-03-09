@@ -61,6 +61,7 @@ public class NitinLinkedList {
         String t = top.data;
         top = top.next;
         top.prev = null;
+        size--;
         return t;
     }
 
@@ -68,8 +69,12 @@ public class NitinLinkedList {
         String t = bottom.data;
         bottom = bottom.prev;
         bottom.next = null;
-
+        size--;
         return t;
+    }
+
+    private static void myAssert(boolean condition) {
+        if (!condition) throw new IllegalStateException("Something is wrong");
     }
 
 
@@ -81,14 +86,11 @@ public class NitinLinkedList {
         n.addLast("3");
         n.addLast("4");
 
-        assert n.removeFirst().equals("1");
-        assert n.removeFirst().equals("2");
-        assert n.removeFirst().equals("3");
-        assert n.removeFirst().equals("4");
+        n.addFirst("5");
+        myAssert(n.removeFirst().equals("5"));
+        myAssert(n.removeFirst().equals("1"));
+        myAssert(n.removeLast().equals("4"));
 
-
-//        assert n.removeFirst().equals("5");
-//        assert n.removeLast().equals("4");
     }
 
 }

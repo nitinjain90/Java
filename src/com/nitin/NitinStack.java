@@ -12,6 +12,7 @@ public class NitinStack {
 
 
     public NitinStack() {
+
         data = new ArrayList<String>();
     }
 
@@ -20,6 +21,9 @@ public class NitinStack {
     }
 
     public String pop() {
+       if(isEmpty()){
+           throw new IllegalArgumentException("empty stack");
+       }
         String tmp = data.get(data.size() -1);
         data.remove(data.size() - 1);
         return tmp;
@@ -33,6 +37,9 @@ public class NitinStack {
     }
 
     public String peek() {
+       if(isEmpty()){
+           throw new IllegalArgumentException("empty stack");
+       }
         return data.get(data.size() - 1);
     }
 
@@ -86,6 +93,11 @@ public class NitinStack {
         myAssert(n.pop() == null);
         myAssert(n.pop() == "");
         myAssert(n.isEmpty());
+
+        //corner Cases
+        n.pop();
+        n.peek();
+
 
 
     }

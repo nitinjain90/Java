@@ -21,6 +21,10 @@ public class QueuePointer {
        size = 0;
     }
 
+    public boolean isEmpty(){
+        return (top==null);
+    }
+
     public void push(String s){
       if(size == 0) {
           top = new Node();
@@ -34,15 +38,23 @@ public class QueuePointer {
           bottom.data = s;
           bottom.prev = previousBottom;
           bottom.next = null;
+          previousBottom.next = bottom;
           size++;
       }
     }
 
     public String pop(){
+       if(size <= 0){
+           throw new IllegalArgumentException("empty queue");
+       }
         String t = top.data;
-        top  = top.next;
+        top = top.next;
         size--;
         return t;
+    }
+
+    private static void myAssert(boolean condition) {
+        if (!condition) throw new IllegalStateException("Something is wrong");
     }
 
     public static void main(String args[]){
@@ -52,13 +64,12 @@ public class QueuePointer {
         q.push("nitin");
         q.push("kill me");
 
+        myAssert(q.pop().equals("hello"));
+        myAssert(q.pop().equals("world"));
+        myAssert(q.pop().equals("nitin"));
+        myAssert(q.pop().equals("kill me"));
 
-        assert  q.pop().equals("hello");
-        assert  q.pop().equals("world");
-        assert  q.pop().equals("nitin");
-        assert  q.pop().equals("kill me");
-
-
+        q.pop();
 
     }
 

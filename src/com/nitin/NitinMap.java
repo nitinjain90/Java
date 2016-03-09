@@ -57,21 +57,10 @@ public class NitinMap {
     }
 
     public boolean exists(String key) {
-        int count = 0;
-        int temp = 0;
-        while (count < keys.size()) {
-            if (keys.get(count).equals(key)) {
-                temp = 1;
-                count++;
-                break;
-            } else {
-                count++;
-            }
-        }
-        if (temp == 1)
-            return true;
-        else
+        if(!keys.contains(key))
             return false;
+        else
+            return true;
     }
 
     public int size() {

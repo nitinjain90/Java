@@ -58,19 +58,7 @@ public class ArrayListDynamic {
     }
 
     public void remove(String s) {
-        int i = 0;
-        int t = 0;
-        while(i < length){
-            if(Objects.equals(data[i] , s)){
-                t = 1;
-                i++;
-                break;
-            }else{
-                i++;
-            }
-
-        }
-        if(t == 0){
+        if(indexOf(s) == -1){
             throw new IllegalArgumentException("Element does not exist");
         }else {
             //element not found condition
