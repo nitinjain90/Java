@@ -13,6 +13,8 @@ public class NitinLinkedList {
         String data;
         Node next;
 
+
+
     }
 
     public NitinLinkedList() {
@@ -42,6 +44,7 @@ public class NitinLinkedList {
     public void addLast(String s) {
         Node n = new Node();
         n.data = s;
+        Node previousBottom = bottom;
         if (isEmpty()) {
             top = n;
             bottom = n;
@@ -78,6 +81,7 @@ public class NitinLinkedList {
             throw new IllegalArgumentException("Empty list");
         }
         Node temp = bottom;
+        int i = 0;
 
         return temp.data;
     }
@@ -105,12 +109,21 @@ public class NitinLinkedList {
         myAssert(n.removeFirst().equals("4"));
 
 
-
-
         myAssert(n.isEmpty());
 
-
-
+//        n.addFirst("1");
+//        n.addFirst("2");
+//        n.addFirst("3");
+//        n.addFirst("4");
+//        n.addFirst("5");
+//
+//        myAssert(n.removeLast().equals("1"));
+//        myAssert(n.removeLast().equals("2"));
+//        myAssert(n.removeLast().equals("3"));
+//        myAssert(n.removeLast().equals("4"));
+//        myAssert(n.removeLast().equals("5"));
+//
+//        myAssert(n.isEmpty());
 
 
     }
