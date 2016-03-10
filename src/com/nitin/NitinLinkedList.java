@@ -14,7 +14,6 @@ public class NitinLinkedList {
         Node next;
 
 
-
     }
 
     public NitinLinkedList() {
@@ -111,19 +110,19 @@ public class NitinLinkedList {
 
         myAssert(n.isEmpty());
 
-//        n.addFirst("1");
-//        n.addFirst("2");
-//        n.addFirst("3");
-//        n.addFirst("4");
-//        n.addFirst("5");
-//
-//        myAssert(n.removeLast().equals("1"));
-//        myAssert(n.removeLast().equals("2"));
-//        myAssert(n.removeLast().equals("3"));
-//        myAssert(n.removeLast().equals("4"));
-//        myAssert(n.removeLast().equals("5"));
-//
-//        myAssert(n.isEmpty());
+        n.addFirst("1");
+        n.addFirst("2");
+        n.addFirst("3");
+        n.addFirst("4");
+        n.addFirst("5");
+
+        myAssert(n.removeLast().equals("1"));
+        myAssert(n.removeLast().equals("2"));
+        myAssert(n.removeLast().equals("3"));
+        myAssert(n.removeLast().equals("4"));
+        myAssert(n.removeLast().equals("5"));
+
+        myAssert(n.isEmpty());
 
 
     }
