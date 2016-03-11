@@ -7,7 +7,7 @@ public class QueuePointer {
 
     Node bottom;
     Node top;
-    int size;
+
 
     public class Node {
         String data;
@@ -17,7 +17,7 @@ public class QueuePointer {
     public QueuePointer() {
         bottom = null;
         top = null;
-        size = 0;
+
     }
 
     public boolean isEmpty() {
@@ -32,18 +32,18 @@ public class QueuePointer {
         } else {
             bottom.next = n;
         }
-        bottom =n;
+        bottom = n;
         bottom.next = null;
-        size++;
+
     }
 
     public String pop() {
-        if (size <= 0) {
+        if (isEmpty()) {
             throw new IllegalArgumentException("empty queue");
         }
         String t = top.data;
         top = top.next;
-        size--;
+
         return t;
     }
 
@@ -63,6 +63,12 @@ public class QueuePointer {
         myAssert(q.pop().equals("nitin"));
         myAssert(q.pop().equals("kill me"));
 
+        try{
+            q.pop();
+        }catch(IllegalArgumentException e){
+            myAssert(true);
+        }
+
         q.push("1");
         q.push("2");
         q.push("3");
@@ -75,7 +81,26 @@ public class QueuePointer {
         myAssert(q.pop().equals("4"));
         myAssert(q.pop().equals("5"));
 
-        myAssert(!q.pop().equals(""));
+        try {
+            q.pop();
+        } catch (IllegalArgumentException e) {
+            myAssert(true);
+        }
+
+        q.push(null);
+        q.push("1");
+        q.push("");
+
+        myAssert(q.pop() == null);
+        myAssert(q.pop() == "1");
+        myAssert(q.pop() == "");
+
+        try {
+            q.pop();
+        } catch (IllegalArgumentException e) {
+            myAssert(true);
+        }
+
     }
 
 }

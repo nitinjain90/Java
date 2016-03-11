@@ -9,7 +9,6 @@ import java.util.Stack;
 public class StackPointer {
 
     Node top;
-    int size;
 
 
     public class Node {
@@ -20,7 +19,6 @@ public class StackPointer {
 
     public StackPointer() {
         top = null;
-        size = 0;
     }
 
     public void push(String s) {
@@ -28,22 +26,20 @@ public class StackPointer {
         top = new Node();
         top.data = s;
         top.next = previousTop;
-        size++;
 
     }
 
     public String pop() {
-       if(size <= 0){
-           throw new IllegalArgumentException("empty stack");
-       }
+        if (top == null) {
+            throw new IllegalArgumentException("empty stack");
+        }
         String t = top.data;
         top = top.next;
-        size--;
         return t;
     }
 
     public String peek() {
-        if(size <= 0){
+        if (top == null) {
             throw new IllegalArgumentException("empty stack");
         }
         return top.data;
@@ -54,8 +50,7 @@ public class StackPointer {
     }
 
 
-
-    public static void main(String args[]){
+    public static void main(String args[]) {
         StackPointer s = new StackPointer();
 
 //        s.pop();
@@ -71,6 +66,12 @@ public class StackPointer {
         myAssert(s.pop().equals("world"));
         myAssert(s.pop().equals("hello"));
 
+        try {
+            s.pop();
+        } catch (IllegalArgumentException e) {
+            myAssert(true);
+        }
+
         s.push("1");
         s.push("2");
         s.push("3");
@@ -80,6 +81,32 @@ public class StackPointer {
         myAssert(s.pop().equals("2"));
         myAssert(s.pop().equals("1"));
 
+
+        try {
+            s.pop();
+        } catch (IllegalArgumentException e) {
+            myAssert(true);
+        }
+
+        s.push(null);
+        s.push("");
+        s.push("what");
+
+        myAssert(s.pop() == "what");
+        myAssert(s.pop() == "");
+        myAssert(s.pop() == null);
+
+        s.push("nitin");
+        s.push("nitin");
+
+        myAssert(s.pop() == "nitin");
+        myAssert(s.pop() == "nitin");
+
+        try {
+            s.pop();
+        } catch (IllegalArgumentException e) {
+            myAssert(true);
+        }
 
     }
 }

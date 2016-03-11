@@ -20,10 +20,10 @@ public class NitinMap {
     public void put(String key, String value) {
         // check for null
         // check for duplicate
-        if (key.equals(null)) {
+        if (key == null) {
             throw new IllegalArgumentException("null value not allowed for key");
         }
-        if (value.equals(null)) {
+        if (value == null) {
             throw new IllegalArgumentException("null values not allowed for value");
         }
 

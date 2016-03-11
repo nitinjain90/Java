@@ -125,6 +125,10 @@ public class LinkedList {
         if (!condition) throw new IllegalStateException("Something is wrong");
     }
 
+    public boolean search(String s) {
+        return false;
+    }
+
     public static void main(String args[]) {
         LinkedList link = new LinkedList();
 
@@ -163,20 +167,50 @@ public class LinkedList {
 
         link.addLast("hello");
         link.addFirst("world");
-        myAssert((link.removeFirst() + " " +link.removeLast()).equals("world hello"));
+        myAssert((link.removeFirst() + " " + link.removeLast()).equals("world hello"));
 
         myAssert(link.isEmpty());
 
 //        link.removeFirst();
 //        link.removeLast();
 
-       link.addFirst(null);
-        myAssert(link.removeFirst()== null);
+        link.addFirst(null);
+        myAssert(link.removeFirst() == null);
 
         myAssert(link.isEmpty());
 
         link.addLast(null);
-        myAssert(link.removeLast()==null);
+        myAssert(link.removeLast() == null);
+
+        try {
+            link.removeFirst();
+        } catch (IllegalArgumentException e) {
+            myAssert(true);
+        }
+
+        try {
+            link.removeLast();
+        } catch (IllegalArgumentException e) {
+            myAssert(true);
+        }
+
+        link.addFirst("nitin");
+        link.addLast("nitin");
+
+        myAssert(link.removeFirst().equals("nitin"));
+        myAssert(link.removeLast().equals("nitin"));
+
+        try {
+            link.removeLast();
+        } catch (IllegalArgumentException e) {
+            myAssert(true);
+        }
+
+        try {
+            link.removeFirst();
+        } catch (IllegalArgumentException e) {
+            myAssert(true);
+        }
 
     }
 
