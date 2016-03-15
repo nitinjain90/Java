@@ -47,6 +47,16 @@ public class QueuePointer {
         return t;
     }
 
+    public int size(){
+        int size = 0;
+        Node t = top;
+        while(t!=null) {
+            t = t.next;
+            size++;
+        }
+        return size + 1;
+    }
+
     private static void myAssert(boolean condition) {
         if (!condition) throw new IllegalStateException("Something is wrong");
     }
@@ -58,10 +68,16 @@ public class QueuePointer {
         q.push("nitin");
         q.push("kill me");
 
+        myAssert(q.size()== 4);
+
         myAssert(q.pop().equals("hello"));
+        myAssert(q.size()== 3);
         myAssert(q.pop().equals("world"));
+        myAssert(q.size()== 2);
         myAssert(q.pop().equals("nitin"));
+        myAssert(q.size()== 1);
         myAssert(q.pop().equals("kill me"));
+        myAssert(q.size()== 0);
 
         try{
             q.pop();
@@ -75,6 +91,9 @@ public class QueuePointer {
         q.push("4");
         q.push("5");
 
+        myAssert(q.size()== 5);
+
+
         myAssert(q.pop().equals("1"));
         myAssert(q.pop().equals("2"));
         myAssert(q.pop().equals("3"));
@@ -86,10 +105,15 @@ public class QueuePointer {
         } catch (IllegalArgumentException e) {
             myAssert(true);
         }
+        myAssert(q.size()== 0);
+
 
         q.push(null);
         q.push("1");
         q.push("");
+
+        myAssert(q.size()== 3);
+
 
         myAssert(q.pop() == null);
         myAssert(q.pop() == "1");

@@ -6,49 +6,14 @@ package com.nitin;
 public class LinkedList {
     Node top;
     Node bottom;
-    int size;
 
 
-    public class Node {
-        String data;
-        Node prev;
-        Node next;
 
-        public Node(String data, Node prev, Node next) {
-            this.data = data;
-            this.prev = prev;
-            this.next = next;
-        }
-
-        public Node getNext() {
-            return next;
-        }
-
-        public Node getPrev() {
-            return prev;
-        }
-
-        public void setNext(Node next) {
-            this.next = next;
-        }
-
-        public void setPrev(Node prev) {
-            this.prev = prev;
-        }
-
-        public String getData() {
-            return data;
-        }
-
-        public void setData(String data) {
-            this.data = data;
-        }
-    }
 
     public LinkedList() {
         top = null;
         bottom = null;
-        size = 0;
+
     }
 
     public boolean isEmpty() {
@@ -66,7 +31,7 @@ public class LinkedList {
             top = n;
             n.setPrev(null);
         }
-        size++;
+
     }
 
     public void addLast(String s) {
@@ -80,7 +45,7 @@ public class LinkedList {
             bottom = n;
             n.setNext(null);
         }
-        size++;
+
     }
 
     public String removeFirst() {
@@ -88,17 +53,16 @@ public class LinkedList {
             throw new IllegalArgumentException("Empty list");
         }
 
-        if (size == 1) {
+        if (top.equals(bottom)) {
             String temp = top.getData();
             top = null;
             bottom = null;
-            size--;
             return temp;
         }
         String temp = top.getData();
         top = top.next;
         top.setPrev(null);
-        size--;
+
         return temp;
     }
 
@@ -107,18 +71,26 @@ public class LinkedList {
             throw new IllegalArgumentException("Empty list");
         }
 
-        if (size == 1) {
+        if (top.equals(bottom)) {
             String temp = bottom.getData();
             top = null;
             bottom = null;
-            size--;
             return temp;
         }
         String temp = bottom.getData();
         bottom = bottom.prev;
         bottom.setNext(null);
-        size--;
         return temp;
+    }
+
+    public int size(){
+        int size = 0;
+        Node t = top;
+        while(t != null){
+            t = t.next;
+            size++;
+        }
+        return size;
     }
 
     private static void myAssert(boolean condition) {
@@ -140,13 +112,19 @@ public class LinkedList {
         link.addFirst("6");
         link.addLast("7");
 
+        myAssert(link.size()== 7);
+
+
         myAssert(link.removeFirst().equals("6"));
         myAssert(link.removeFirst().equals("5"));
+        myAssert(link.size()== 5);
         myAssert(link.removeFirst().equals("1"));
         myAssert(link.removeFirst().equals("2"));
+        myAssert(link.size()== 3);
         myAssert(link.removeFirst().equals("3"));
         myAssert(link.removeFirst().equals("4"));
         myAssert(link.removeFirst().equals("7"));
+        myAssert(link.size()== 0);
 
         myAssert(link.isEmpty());
 
@@ -157,12 +135,15 @@ public class LinkedList {
         link.addFirst("4");
         link.addFirst("5");
 
+        myAssert(link.size() == 5);
+
         myAssert(link.removeLast().equals("1"));
         myAssert(link.removeLast().equals("2"));
         myAssert(link.removeLast().equals("3"));
         myAssert(link.removeLast().equals("4"));
         myAssert(link.removeLast().equals("5"));
 
+        myAssert(link.size()== 0);
         myAssert(link.isEmpty());
 
         link.addLast("hello");
@@ -175,6 +156,7 @@ public class LinkedList {
 //        link.removeLast();
 
         link.addFirst(null);
+        myAssert(link.size() == 1);
         myAssert(link.removeFirst() == null);
 
         myAssert(link.isEmpty());

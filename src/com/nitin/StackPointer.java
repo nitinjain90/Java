@@ -49,6 +49,18 @@ public class StackPointer {
         if (!condition) throw new IllegalStateException("Something is wrong");
     }
 
+    public int size(){
+
+        int size = 0;
+        Node t = top;
+        while(t!=null){
+            t = t.next;
+            size++;
+        }
+
+        return size;
+    }
+
 
     public static void main(String args[]) {
         StackPointer s = new StackPointer();
@@ -60,11 +72,16 @@ public class StackPointer {
         s.push("nitin");
         s.push("kill me");
 
+        myAssert(s.size()== 4);
 
         myAssert(s.pop().equals("kill me"));
+        myAssert(s.size()== 3);
         myAssert(s.pop().equals("nitin"));
+        myAssert(s.size()== 2);
         myAssert(s.pop().equals("world"));
+        myAssert(s.size()== 1);
         myAssert(s.pop().equals("hello"));
+        myAssert(s.size()== 0);
 
         try {
             s.pop();
@@ -78,6 +95,7 @@ public class StackPointer {
 
         myAssert(s.pop().equals("3"));
         myAssert(s.peek().equals("2"));
+        myAssert(s.size()== 2);
         myAssert(s.pop().equals("2"));
         myAssert(s.pop().equals("1"));
 
@@ -91,6 +109,8 @@ public class StackPointer {
         s.push(null);
         s.push("");
         s.push("what");
+
+        myAssert(s.size() == 3);
 
         myAssert(s.pop() == "what");
         myAssert(s.pop() == "");
