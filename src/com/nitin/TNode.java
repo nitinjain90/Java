@@ -38,26 +38,26 @@ public class TNode {
     }
 
     // Do using recursion.
-    public static int height(TNode node) {
-        if (node == null) {
-            return 0;
+    public int height() {
+        if (this.isLeaf()) {
+            return 1;
         } else {
-            return 1 + Math.max(height(node.getLeft()), height(node.getRight()));
+            return 1 + Math.max(this.getLeft().height(), this.getRight().height());
         }
     }
 
-    public static int count(TNode node) {
+    public  int count() {
 
-        TNode left = node.getLeft();
-        TNode right = node.getRight();
+        TNode left = this.getLeft();
+        TNode right = this.getRight();
 
         int size = 1;
 
         if (left != null)
-            size = size + left.count(left);
+            size = size + left.count();
 
         if (right != null)
-            size = size + right.count(left);
+            size = size + right.count();
 
         return size;
     }
@@ -71,8 +71,8 @@ public class TNode {
         t.setLeft(new TNode("nitin"));
         t.setRight(new TNode("jain"));
 //        myAssert(t.count() == 1);
-        myAssert(height(t) == 2);
-        myAssert(count(t) == 3);
+        myAssert(t.height() == 2);
+        myAssert(t.count() == 3);
 
         myAssert(!t.isLeaf());
         myAssert(t.getLeft().isLeaf());
@@ -90,8 +90,8 @@ public class TNode {
         r.setLeft(new TNode("6"));
         r.setRight(new TNode("7"));
 
-        myAssert(height(n) == 3);
-        myAssert(count(n) == 7);
+        myAssert(n.height() == 3);
+        myAssert(n.count() == 7);
         
     }
 }

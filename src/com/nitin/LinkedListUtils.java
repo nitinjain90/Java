@@ -6,23 +6,23 @@ package com.nitin;
 public class LinkedListUtils {
 
     public static boolean isProper(Node top) {
-        if (top.prev!=null)
+        if (top.prev != null)
             return false;
-        if(hasCycle(top)){
+        if (hasCycle(top)) {
             return false;
         }
-
-
-        while (top.next != null) {
-            Node temp = top;
+        while (top != null) {
+            Node first = top;
+            Node second = top.next;
+            if (second != null) {
+                if (second.prev != first) {
+                    return false;
+                }
+            }
             top = top.next;
-            if (!top.prev.equals(temp)) {
-                return false;
-            }
-            if (!(temp.next).equals(top)) {
-                return false;
-            }
         }
+
+
         return true;
     }
 
@@ -43,16 +43,16 @@ public class LinkedListUtils {
 //    }
 
     public static int countElements(Node top) {
-       if(isProper(top)) {
-           int size = 0;
-           Node t = top;
-           while (t != null) {
-               t = t.next;
-               size++;
-           }
-           return size;
-       }else
-           return -1;
+        if (isProper(top)) {
+            int size = 0;
+            Node t = top;
+            while (t != null) {
+                t = t.next;
+                size++;
+            }
+            return size;
+        } else
+            return -1;
     }
 
     public static boolean hasCycle(Node top) {
@@ -108,7 +108,7 @@ public class LinkedListUtils {
 //
 //        myAssert(!isProper(link.top));
 
-        link.bottom = n;
+
 
         myAssert(isProper(link.top));
 
