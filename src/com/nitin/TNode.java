@@ -92,6 +92,6 @@ public class TNode {
 
         myAssert(height(n) == 3);
         myAssert(count(n) == 7);
-
+        
     }
 }

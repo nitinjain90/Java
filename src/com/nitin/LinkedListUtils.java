@@ -6,28 +6,53 @@ package com.nitin;
 public class LinkedListUtils {
 
     public static boolean isProper(Node top) {
-        if (top.prev != null)
+        if (top.prev!=null)
             return false;
+        if(hasCycle(top)){
+            return false;
+        }
+
+
         while (top.next != null) {
             Node temp = top;
             top = top.next;
-            if (top.prev != temp) {
+            if (!top.prev.equals(temp)) {
                 return false;
             }
-            if (temp.next != top) {
+            if (!(temp.next).equals(top)) {
                 return false;
             }
         }
         return true;
     }
+
+//    public static boolean checkBottom(Node top){
+//        Node bottom = null;
+//        Node beforeBottom = null;
+//        while(top != null){
+//            top = top.next;
+//            if(top.next.next == null){
+//                bottom = top.next;
+//                beforeBottom = top;
+//            }
+//        }
+//        if(!(bottom.prev).equals(beforeBottom))
+//            return false;
+//         else
+//        return true;
+//    }
+
     public static int countElements(Node top) {
-        int size = 0;
-        Node t = top;
-        while (t != null) {
-            t = t.next;
-            size++;
-        }
-        return size;
+       if(isProper(top)) {
+           int size = 0;
+           Node t = top;
+           while (t != null) {
+               t = t.next;
+               size++;
+           }
+           return size;
+       }else
+           return -1;
     }
 
     public static boolean hasCycle(Node top) {
@@ -37,7 +62,7 @@ public class LinkedListUtils {
         while (firstNode != null) {
             Node secondNode = firstNode.next;
             while (secondNode != null) {
-                if (secondNode == firstNode) {
+                if (secondNode.equals(firstNode)) {
                     return true;
                 }
                 secondNode = secondNode.next;
@@ -82,7 +107,10 @@ public class LinkedListUtils {
 //        link.top.next.next.prev = n;
 //
 //        myAssert(!isProper(link.top));
+
         link.bottom = n;
+
         myAssert(isProper(link.top));
+
     }
 }
