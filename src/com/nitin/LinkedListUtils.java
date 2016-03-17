@@ -6,6 +6,9 @@ package com.nitin;
 public class LinkedListUtils {
 
     public static boolean isProper(Node top) {
+        if (top == null) {
+            return false;
+        }
         if (top.prev != null)
             return false;
         if (hasCycle(top)) {
@@ -21,8 +24,6 @@ public class LinkedListUtils {
             }
             top = top.next;
         }
-
-
         return true;
     }
 
@@ -59,17 +60,25 @@ public class LinkedListUtils {
         if (top == null)
             return false;
         Node firstNode = top;
-        while (firstNode != null) {
-            Node secondNode = firstNode.next;
-            while (secondNode != null) {
-                if (secondNode.equals(firstNode)) {
-                    return true;
-                }
-                secondNode = secondNode.next;
-            }
+        Node secondNode = top;
+
+        while (true) {
             firstNode = firstNode.next;
+
+            if (secondNode.next != null) {
+                secondNode = secondNode.next.next;
+            } else {
+                return false;
+            }
+
+            if (firstNode == null || secondNode == null) {
+                return false;
+            }
+            if(firstNode == secondNode){
+                return true;
+            }
         }
-        return false;
+
     }
 
     private static void myAssert(boolean condition) {
@@ -80,13 +89,10 @@ public class LinkedListUtils {
         LinkedList link = new LinkedList();
         Node n = new Node("hello", null, null);
         link.addFirst("1");
-        link.addFirst(null);
-        link.addLast("3");
-        link.addFirst("4");
-        link.addFirst("5");
+        link.addFirst("2");
+        link.addFirst("3");
 
-
-        myAssert(countElements(link.top) == 5);
+        myAssert(countElements(link.top) == 3);
 
 
         myAssert(isProper(link.top));
@@ -108,9 +114,60 @@ public class LinkedListUtils {
 //
 //        myAssert(!isProper(link.top));
 
+        link.top.next.next = n;
+        myAssert(!isProper(link.top));
+
+        LinkedList newLink = new LinkedList();
+        newLink.addFirst("nitin");
+        newLink.addLast("harsh");
+        newLink.addFirst("hello");
+        newLink.addLast("world");
+        newLink.addFirst("1");
+        newLink.addLast("2");
+
+        myAssert(countElements(newLink.top) == 6);
+
+        newLink.removeFirst();
+        myAssert(countElements(newLink.top) == 5);
+        newLink.removeLast();
+
+        myAssert(countElements(newLink.top) == 4);
 
 
-        myAssert(isProper(link.top));
+        isProper(newLink.top);
+
+        Node n1 = newLink.top;
+
+        n1 = null;
+        myAssert(!isProper(n1));
+
+        newLink.top = newLink.bottom;
+
+        myAssert(!isProper(newLink.top));
+        myAssert(countElements(newLink.top) == -1);
+
+        LinkedList l = new LinkedList();
+        l.addFirst("india");
+        l.addLast("pakistan");
+        l.addLast("sri lannka");
+        l.addLast("new zealand");
+        l.addLast("south africa");
+        l.addLast("australia");
+
+
+        myAssert(!hasCycle(l.top));
+
+        l.addFirst(null);
+        myAssert(!hasCycle(l.top));
+
+        l.bottom.next = l.top;
+
+        myAssert(hasCycle(l.top));
+
+        l.bottom.next = null;
+
+        myAssert(!hasCycle(l.top));
+
 
     }
 }
