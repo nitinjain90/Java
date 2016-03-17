@@ -168,6 +168,16 @@ public class LinkedListUtils {
 
         myAssert(!hasCycle(l.top));
 
+        l.bottom.next = l.top.next;
 
+        myAssert(hasCycle(l.top));
+
+        l.bottom.next = null;
+
+        myAssert(!hasCycle(l.top));
+
+        l.top.next.next = l.top;
+
+        myAssert(hasCycle(l.top));
     }
 }
