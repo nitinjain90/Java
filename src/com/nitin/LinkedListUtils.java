@@ -136,7 +136,7 @@ public class LinkedListUtils {
 
         isProper(newLink.top);
 
-        Node n1 = newLink.top;
+        Node n1;
 
         n1 = null;
         myAssert(!isProper(n1));
@@ -179,5 +179,27 @@ public class LinkedListUtils {
         l.top.next.next = l.top;
 
         myAssert(hasCycle(l.top));
+
+        LinkedList test = new LinkedList();
+
+        test.addFirst("English");
+        test.addFirst("Hindi");
+        test.addLast("Spanish");
+        test.addLast(null);
+        test.addLast("French");
+
+        myAssert(countElements(test.top) == 5);
+
+        test.removeFirst();
+
+        myAssert(countElements(test.top) == 4);
+
+        test.top.next.next.next.next = test.top;
+
+        myAssert(hasCycle(test.top));
+
+        myAssert(!isProper(test.top));
+
+        myAssert(countElements(test.top) == -1);
     }
 }
