@@ -92,6 +92,10 @@ public class TNode {
 
         myAssert(n.height() == 3);
         myAssert(n.count() == 7);
-        
+
+        TNode boo = new TNode("1");
+        boo.setLeft(new TNode("2"));
+
+        myAssert(boo.height() == 2);
     }
 }

@@ -1,6 +1,5 @@
-package com.nitin;
+package com.nitin.list;
 
-import java.io.StringBufferInputStream;
 import java.util.ArrayList;
 
 /**

@@ -1,4 +1,4 @@
-package com.nitin;
+package com.nitin.list;
 
 /**
  * Created by harash on 08/03/16.

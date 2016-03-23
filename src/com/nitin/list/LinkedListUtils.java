@@ -1,4 +1,6 @@
-package com.nitin;
+package com.nitin.list;
+
+import com.nitin.Node;
 
 /**
  * Created by harsh on 3/15/16.

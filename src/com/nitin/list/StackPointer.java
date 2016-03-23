@@ -1,6 +1,4 @@
-package com.nitin;
-
-import java.util.Stack;
+package com.nitin.list;
 
 /**
  * Created by harash on 08/03/16.

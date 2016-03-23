@@ -1,28 +1,35 @@
-package com.nitin;
+package com.nitin.list;
 
 import java.util.Objects;
 
 /**
- * Created by harash on 09/02/16.
+ * Created by harsh on 1/25/16.
+ * <p/>
+ * this only has strings.
+ * <p/>
+ * V1 :- Simple algo.
+ * V2 :- Use a buffer
+ * V3 :- Using dynamic buffer. Start with 10, on every resize increase size by 2X.
  */
-//constant Buffer
-public class ArrayListConstant {
-    static final int BUFFER = 50;
-    int length;
-    String data[];
 
-    public ArrayListConstant() {
-        length = 0;
+//Using Dynamic buffer
+public class ArrayListDynamic {
+    static final int BUFFER = 50;
+    String data[];
+    int length;
+
+    public ArrayListDynamic() {
         data = new String[BUFFER];
+        length = 0;
     }
+
 
     public void add(String s) {
         if (length < data.length) {
             data[length] = s;
             length++;
         } else {
-            // resize to data.length + BUFFER
-            String temp[] = new String[data.length + BUFFER];
+            String temp[] = new String[data.length * 2];
             for (int i = 0; i < data.length; i++) {
                 temp[i] = data[i];
             }
@@ -51,13 +58,12 @@ public class ArrayListConstant {
     }
 
     public void remove(String s) {
-
-         if(indexOf(s) == -1){
-             throw new IllegalArgumentException("Element does not exist");
-         }else {
-             //element not found condition
-             removeIndex(indexOf(s));
-         }
+        if(indexOf(s) == -1){
+            throw new IllegalArgumentException("Element does not exist");
+        }else {
+            //element not found condition
+            removeIndex(indexOf(s));
+        }
     }
 
     public int size() {
@@ -78,9 +84,9 @@ public class ArrayListConstant {
     }
 
     public String get(int i) {
-       if(i >= length) {
-           throw new IllegalArgumentException("Index out of bounds");
-       }
+        if(i >= length) {
+            throw new IllegalArgumentException("Index out of bounds");
+        }
         return data[i];
     }
 
@@ -88,8 +94,10 @@ public class ArrayListConstant {
         if (!condition) throw new IllegalStateException("Something is wrong");
     }
 
+
     public static void main(String args[]) {
-        ArrayListConstant c = new ArrayListConstant();
+        ArrayListDynamic c = new ArrayListDynamic();
+
         c.add("hello");
         c.add("world");
         c.add("1234");
@@ -188,6 +196,6 @@ public class ArrayListConstant {
 //       c.remove("Hello world");
 //       c.removeIndex(25);
 
-    }
 
+    }
 }

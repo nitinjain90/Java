@@ -1,4 +1,4 @@
-package com.nitin;
+package com.nitin.list;
 
 import java.util.Objects;
 

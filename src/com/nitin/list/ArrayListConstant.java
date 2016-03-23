@@ -1,35 +1,28 @@
-package com.nitin;
+package com.nitin.list;
 
 import java.util.Objects;
 
 /**
- * Created by harsh on 1/25/16.
- * <p/>
- * this only has strings.
- * <p/>
- * V1 :- Simple algo.
- * V2 :- Use a buffer
- * V3 :- Using dynamic buffer. Start with 10, on every resize increase size by 2X.
+ * Created by harash on 09/02/16.
  */
-
-//Using Dynamic buffer
-public class ArrayListDynamic {
+//constant Buffer
+public class ArrayListConstant {
     static final int BUFFER = 50;
-    String data[];
     int length;
+    String data[];
 
-    public ArrayListDynamic() {
-        data = new String[BUFFER];
+    public ArrayListConstant() {
         length = 0;
+        data = new String[BUFFER];
     }
-
 
     public void add(String s) {
         if (length < data.length) {
             data[length] = s;
             length++;
         } else {
-            String temp[] = new String[data.length * 2];
+            // resize to data.length + BUFFER
+            String temp[] = new String[data.length + BUFFER];
             for (int i = 0; i < data.length; i++) {
                 temp[i] = data[i];
             }
@@ -58,12 +51,13 @@ public class ArrayListDynamic {
     }
 
     public void remove(String s) {
-        if(indexOf(s) == -1){
-            throw new IllegalArgumentException("Element does not exist");
-        }else {
-            //element not found condition
-            removeIndex(indexOf(s));
-        }
+
+         if(indexOf(s) == -1){
+             throw new IllegalArgumentException("Element does not exist");
+         }else {
+             //element not found condition
+             removeIndex(indexOf(s));
+         }
     }
 
     public int size() {
@@ -84,9 +78,9 @@ public class ArrayListDynamic {
     }
 
     public String get(int i) {
-        if(i >= length) {
-            throw new IllegalArgumentException("Index out of bounds");
-        }
+       if(i >= length) {
+           throw new IllegalArgumentException("Index out of bounds");
+       }
         return data[i];
     }
 
@@ -94,10 +88,8 @@ public class ArrayListDynamic {
         if (!condition) throw new IllegalStateException("Something is wrong");
     }
 
-
     public static void main(String args[]) {
-        ArrayListDynamic c = new ArrayListDynamic();
-
+        ArrayListConstant c = new ArrayListConstant();
         c.add("hello");
         c.add("world");
         c.add("1234");
@@ -196,6 +188,6 @@ public class ArrayListDynamic {
 //       c.remove("Hello world");
 //       c.removeIndex(25);
 
-
     }
+
 }
