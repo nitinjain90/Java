@@ -1,22 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="be55d35b-58ca-468c-98e7-6c237cd86e10" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/nitin/tree/BSTNode.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/nitin/tree/BinarySearchTree.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/nitin/ArrayListConstant.java" afterPath="$PROJECT_DIR$/src/com/nitin/list/ArrayListConstant.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/nitin/ArrayListDynamic.java" afterPath="$PROJECT_DIR$/src/com/nitin/list/ArrayListDynamic.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/nitin/ArrayListNoBuffer.java" afterPath="$PROJECT_DIR$/src/com/nitin/list/ArrayListNoBuffer.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/nitin/LinkedList.java" afterPath="$PROJECT_DIR$/src/com/nitin/list/LinkedList.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/nitin/LinkedListUtils.java" afterPath="$PROJECT_DIR$/src/com/nitin/list/LinkedListUtils.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/nitin/ListPerformance.java" afterPath="$PROJECT_DIR$/src/com/nitin/list/ListPerformance.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/nitin/NitinStack.java" afterPath="$PROJECT_DIR$/src/com/nitin/list/NitinStack.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/nitin/QueuePointer.java" afterPath="$PROJECT_DIR$/src/com/nitin/list/QueuePointer.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/nitin/StackPointer.java" afterPath="$PROJECT_DIR$/src/com/nitin/list/StackPointer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/nitin/TNode.java" afterPath="$PROJECT_DIR$/src/com/nitin/TNode.java" />
-    </list>
+    <list default="true" id="be55d35b-58ca-468c-98e7-6c237cd86e10" name="Default" comment="" />
     <ignored path="Java.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
