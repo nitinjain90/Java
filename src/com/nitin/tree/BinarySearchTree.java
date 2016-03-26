@@ -5,9 +5,26 @@ import sun.misc.FloatingDecimal;
 /**
  * Created by harsh on 3/23/16.
  *
- *             5
- *        3         12
- *     1         10
+ *        1
+ *           2
+ *               3
+ *                    4
+ *                        5
+ *                            6
+ *
+ *       1) Perfectly balanced tree , height = log(N)
+ *       2) Perfectly im-balanced tree, height = N.
+ *
+ *   1) Changing signature of any function.
+ *   2) Adding any new PUBLIC methods.
+ *
+ *   N numbers
+ *   1 add =>
+ *
+ *
+ *   [5,1,2,6,8,4,1,3,6,8]
+ *
+ *   log(N) => Balanced.
  *
  */
 public class BinarySearchTree {
@@ -15,15 +32,17 @@ public class BinarySearchTree {
     private BSTNode root;
 
     public BinarySearchTree() {
-       root =null;
+       root = null;
     }
 
+    // Best Case :- log(N) , Worst Case :- N.
     public void addNumber(int N) {
-
        BSTNode sNode = new BSTNode(N);
-        if(root == null){
-           root = sNode;
-       }
+        if (root == null){
+            root = sNode;
+            return;
+        }
+
         BSTNode current = root;
         BSTNode xNode = null;
 
@@ -47,13 +66,20 @@ public class BinarySearchTree {
         }
     }
 
+    //  Destructive balance. O(N).
+    public void balance() {
+
+    }
+
 
     // First LEFT -> ROOT -> RIGHT
+    // O(N) =>
     public void printInOrder() {
         inOrder(root);
         // 1,3,5,10,12
     }
-    public void inOrder(BSTNode node){
+
+    private static void inOrder(BSTNode node){
         if(node == null){
             return;
         }

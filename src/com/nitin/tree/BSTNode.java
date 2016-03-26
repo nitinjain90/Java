@@ -6,6 +6,7 @@ package com.nitin.tree;
 public class BSTNode {
 
     private int data;
+    private boolean isBlack;
 
     private BSTNode left;
     private BSTNode right;
@@ -31,5 +32,20 @@ public class BSTNode {
     }
     public int getData(){
         return this.data;
+    }
+
+    public boolean isBlack() {
+        return isBlack;
+    }
+
+    public boolean isRed() {
+        return !isBlack;
+    }
+
+    public void setBlack() {
+        isBlack = true;
+    }
+    public void setRed() {
+        isBlack = false;
     }
 }
