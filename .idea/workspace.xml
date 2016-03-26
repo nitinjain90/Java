@@ -14,31 +14,6 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Desktop/com/nitin/QueuePointer.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Desktop/com/nitin/StackPointer$Node.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Desktop/com/nitin/StackPointer.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/nitin/ArrayListConstant.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/nitin/ArrayListDynamic.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/nitin/ArrayListNoBuffer.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/nitin/LinkedList.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/nitin/LinkedListUtils.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/nitin/ListPerformance.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/nitin/NitinStack.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/nitin/QueuePointer.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/nitin/StackPointer.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/nitin/Node.java" afterPath="$PROJECT_DIR$/src/com/nitin/list/Node.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Desktop/com/nitin/BinarySearch.class" afterPath="$PROJECT_DIR$/out/production/Desktop/com/nitin/BinarySearch.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Desktop/com/nitin/LearnCollections$1.class" afterPath="$PROJECT_DIR$/out/production/Desktop/com/nitin/LearnCollections$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Desktop/com/nitin/LearnCollections.class" afterPath="$PROJECT_DIR$/out/production/Desktop/com/nitin/LearnCollections.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Desktop/com/nitin/LearnStreams.class" afterPath="$PROJECT_DIR$/out/production/Desktop/com/nitin/LearnStreams.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Desktop/com/nitin/LearnString.class" afterPath="$PROJECT_DIR$/out/production/Desktop/com/nitin/LearnString.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Desktop/com/nitin/NitinMap.class" afterPath="$PROJECT_DIR$/out/production/Desktop/com/nitin/NitinMap.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Desktop/com/nitin/NitinSet.class" afterPath="$PROJECT_DIR$/out/production/Desktop/com/nitin/NitinSet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Desktop/com/nitin/SetBinary.class" afterPath="$PROJECT_DIR$/out/production/Desktop/com/nitin/SetBinary.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Desktop/com/nitin/SetComaprison.class" afterPath="$PROJECT_DIR$/out/production/Desktop/com/nitin/SetComaprison.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Desktop/com/nitin/TNode.class" afterPath="$PROJECT_DIR$/out/production/Desktop/com/nitin/TNode.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/nitin/list/LinkedList.java" afterPath="$PROJECT_DIR$/src/com/nitin/list/LinkedList.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/nitin/list/LinkedListUtils.java" afterPath="$PROJECT_DIR$/src/com/nitin/list/LinkedListUtils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/nitin/tree/BSTNode.java" afterPath="$PROJECT_DIR$/src/com/nitin/tree/BSTNode.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/nitin/tree/BinarySearchTree.java" afterPath="$PROJECT_DIR$/src/com/nitin/tree/BinarySearchTree.java" />
     </list>
     <ignored path="Java.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -100,8 +75,8 @@
       <file leaf-file-name="BinarySearchTree.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/nitin/tree/BinarySearchTree.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="2.902985">
-              <caret line="109" column="1" selection-start-line="109" selection-start-column="1" selection-end-line="109" selection-end-column="1" />
+            <state vertical-scroll-proportion="0.27985075">
+              <caret line="73" column="9" selection-start-line="73" selection-start-column="9" selection-end-line="73" selection-end-column="9" />
               <folding>
                 <element signature="e#255#256#0" expanded="true" />
                 <element signature="e#280#281#0" expanded="true" />
@@ -1253,8 +1228,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/nitin/tree/BinarySearchTree.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.902985">
-          <caret line="109" column="1" selection-start-line="109" selection-start-column="1" selection-end-line="109" selection-end-column="1" />
+        <state vertical-scroll-proportion="0.27985075">
+          <caret line="73" column="9" selection-start-line="73" selection-start-column="9" selection-end-line="73" selection-end-column="9" />
           <folding>
             <element signature="e#255#256#0" expanded="true" />
             <element signature="e#280#281#0" expanded="true" />
