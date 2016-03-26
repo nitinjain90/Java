@@ -11,7 +11,7 @@ public class BSTNode {
     private BSTNode right;
 
     public BSTNode(int data) {
-
+        this.data = data;
     }
 
     public void setLeft(BSTNode left) {
@@ -28,5 +28,8 @@ public class BSTNode {
 
     public BSTNode getRight() {
         return right;
+    }
+    public int getData(){
+        return this.data;
     }
 }
