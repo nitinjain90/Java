@@ -57,4 +57,11 @@ public class BSTNode {
     public BSTNode getParent() {
         return parent;
     }
+    public boolean isLeaf(){
+        if(left == null && right == null){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }

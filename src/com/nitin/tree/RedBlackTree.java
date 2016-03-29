@@ -34,8 +34,29 @@ public class RedBlackTree {
         } else {
             return gp.getLeft();
         }
-        
-
     }
+    public static void rotateRight(BSTNode n){
+        if(n.isLeaf() || n.getLeft().isLeaf()){
+            throw new IllegalArgumentException("rotation not possible");
+        }
+        BSTNode child = n.getLeft();
+        n.setLeft(child.getRight());
+        child.getRight().setParent(n);
+        child.setRight(n);
+        n.setParent(child);
+    }
+
+    public static void rotateLeft(BSTNode n){
+        if(n.isLeaf() || n.getRight().isLeaf()){
+            throw new IllegalArgumentException("rotation not possible");
+        }
+        BSTNode child = n.getRight();
+        n.setRight(child.getLeft());
+        child.getLeft().setParent(n);
+        child.setLeft(n);
+        n.setParent(child);
+    }
+
+
 
 }

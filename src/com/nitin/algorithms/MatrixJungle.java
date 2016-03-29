@@ -134,6 +134,29 @@ public class MatrixJungle {
         myAssert(jungle.countMaxStartingAt(3 , 0) == 1);
         myAssert(jungle.countMax() == 6);
 
+        MatrixJungle mj = new MatrixJungle(5 , 5);
+
+            /*
+            1 0 0 0 1
+            1 1 1 1 1
+            1 1 1 1 0
+            0 0 1 1 1
+            1 1 1 1 1
+             */
+        mj.set(0, 0, true);
+        mj.set(0, 4, true);
+        mj.set(1, 0, true);
+        mj.set(1, 1, true);
+        mj.set(1, 2, true);
+        mj.set(1, 3, true);
+        mj.set(1, 4, true);
+        mj.set(2, 0, true);
+        mj.set(2, 1, true);
+        mj.set(2, 2, true);
+        mj.set(2, 3, true);
+
+        myAssert(mj.countMax() == 8);
+
     }
 
 }
