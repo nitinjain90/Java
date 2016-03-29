@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="be55d35b-58ca-468c-98e7-6c237cd86e10" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/nitin/algorithms/MatrixJungle.java" afterPath="$PROJECT_DIR$/src/com/nitin/algorithms/MatrixJungle.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/nitin/algorithms/SequenceAlgorithms.java" afterPath="$PROJECT_DIR$/src/com/nitin/algorithms/SequenceAlgorithms.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/nitin/tree/BSTNode.java" afterPath="$PROJECT_DIR$/src/com/nitin/tree/BSTNode.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/nitin/tree/RedBlackTree.java" afterPath="$PROJECT_DIR$/src/com/nitin/tree/RedBlackTree.java" />
     </list>
     <ignored path="Java.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -100,8 +97,8 @@
       <file leaf-file-name="SequenceAlgorithms.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/nitin/algorithms/SequenceAlgorithms.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.24440299">
-              <caret line="22" column="8" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
+            <state vertical-scroll-proportion="0.30037314">
+              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
               <folding>
                 <element signature="e#253#254#0" expanded="true" />
                 <element signature="e#282#283#0" expanded="true" />
@@ -744,7 +741,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="47" />
+      <option name="time" value="49" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1133,8 +1130,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/nitin/algorithms/SequenceAlgorithms.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.24440299">
-          <caret line="22" column="8" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
+        <state vertical-scroll-proportion="0.30037314">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding>
             <element signature="e#253#254#0" expanded="true" />
             <element signature="e#282#283#0" expanded="true" />
