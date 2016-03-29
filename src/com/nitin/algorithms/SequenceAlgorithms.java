@@ -10,7 +10,7 @@ public class SequenceAlgorithms {
     int data[];
 
     public SequenceAlgorithms(ArrayList<Integer> d) {
-
+        
     }
 
     public SequenceAlgorithms(int[] d) {
