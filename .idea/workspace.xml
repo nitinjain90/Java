@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="be55d35b-58ca-468c-98e7-6c237cd86e10" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/nitin/algorithms/SequenceAlgorithms.java" afterPath="$PROJECT_DIR$/src/com/nitin/algorithms/SequenceAlgorithms.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/nitin/tree/BSTNode.java" afterPath="$PROJECT_DIR$/src/com/nitin/tree/BSTNode.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/nitin/tree/RedBlackTree.java" afterPath="$PROJECT_DIR$/src/com/nitin/tree/RedBlackTree.java" />
     </list>
     <ignored path="Java.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -49,17 +51,17 @@
         <entry file="file://$PROJECT_DIR$/src/com/nitin/tree/BinarySearchTree.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="123" column="5" selection-start-line="121" selection-start-column="3" selection-end-line="123" selection-end-column="5" />
+              <caret line="76" column="32" selection-start-line="76" selection-start-column="32" selection-end-line="76" selection-end-column="32" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RedBlackTree.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="RedBlackTree.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/nitin/tree/RedBlackTree.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
+            <state vertical-scroll-proportion="0.9160448">
+              <caret line="36" column="8" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -69,9 +71,12 @@
         <entry file="file://$PROJECT_DIR$/src/com/nitin/tree/BSTNode.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+              <caret line="54" column="5" selection-start-line="54" selection-start-column="5" selection-end-line="54" selection-end-column="5" />
               <folding>
-                <element signature="e#825#826#0" expanded="false" />
+                <element signature="e#898#899#0" expanded="true" />
+                <element signature="e#934#935#0" expanded="true" />
+                <element signature="e#968#969#0" expanded="true" />
+                <element signature="e#997#998#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -91,11 +96,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SequenceAlgorithms.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SequenceAlgorithms.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/nitin/algorithms/SequenceAlgorithms.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.30037314">
-              <caret line="24" column="8" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
               <folding>
                 <element signature="e#252#253#0" expanded="true" />
                 <element signature="e#281#282#0" expanded="true" />
@@ -176,10 +181,10 @@
         <option value="$PROJECT_DIR$/src/com/nitin/TNode.java" />
         <option value="$PROJECT_DIR$/src/com/nitin/list/LinkedListUtils.java" />
         <option value="$PROJECT_DIR$/src/com/nitin/tree/BinarySearchTree.java" />
-        <option value="$PROJECT_DIR$/src/com/nitin/tree/RedBlackTree.java" />
-        <option value="$PROJECT_DIR$/src/com/nitin/tree/BSTNode.java" />
         <option value="$PROJECT_DIR$/src/com/nitin/algorithms/MatrixJungle.java" />
         <option value="$PROJECT_DIR$/src/com/nitin/algorithms/SequenceAlgorithms.java" />
+        <option value="$PROJECT_DIR$/src/com/nitin/tree/BSTNode.java" />
+        <option value="$PROJECT_DIR$/src/com/nitin/tree/RedBlackTree.java" />
       </list>
     </option>
   </component>
@@ -1094,32 +1099,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/nitin/tree/RedBlackTree.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/nitin/tree/BSTNode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
-          <folding>
-            <element signature="e#825#826#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/nitin/tree/BinarySearchTree.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="123" column="5" selection-start-line="121" selection-start-column="3" selection-end-line="123" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/nitin/algorithms/MatrixJungle.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1134,12 +1113,41 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/nitin/algorithms/SequenceAlgorithms.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.30037314">
-          <caret line="24" column="8" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
           <folding>
             <element signature="e#252#253#0" expanded="true" />
             <element signature="e#281#282#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/nitin/tree/BinarySearchTree.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="76" column="32" selection-start-line="76" selection-start-column="32" selection-end-line="76" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/nitin/tree/BSTNode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="54" column="5" selection-start-line="54" selection-start-column="5" selection-end-line="54" selection-end-column="5" />
+          <folding>
+            <element signature="e#898#899#0" expanded="true" />
+            <element signature="e#934#935#0" expanded="true" />
+            <element signature="e#968#969#0" expanded="true" />
+            <element signature="e#997#998#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/nitin/tree/RedBlackTree.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9160448">
+          <caret line="36" column="8" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="8" />
+          <folding />
         </state>
       </provider>
     </entry>

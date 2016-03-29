@@ -10,6 +10,7 @@ public class BSTNode {
 
     private BSTNode left;
     private BSTNode right;
+    private BSTNode parent;
 
     public BSTNode(int data) {
         this.data = data;
@@ -47,5 +48,13 @@ public class BSTNode {
     }
     public void setRed() {
         isBlack = false;
+    }
+
+    public void setParent(BSTNode parent) {
+        this.parent = parent;
+    }
+
+    public BSTNode getParent() {
+        return parent;
     }
 }

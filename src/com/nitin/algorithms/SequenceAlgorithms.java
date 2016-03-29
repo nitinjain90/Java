@@ -22,7 +22,7 @@ public class SequenceAlgorithms {
         for(int k = 0; k < count.length; k++){
             count[k] = 1;
         }
-        
+
 
         return 0;
     }
