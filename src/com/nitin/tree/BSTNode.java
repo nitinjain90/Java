@@ -31,7 +31,8 @@ public class BSTNode {
     public BSTNode getRight() {
         return right;
     }
-    public int getData(){
+
+    public int getData() {
         return this.data;
     }
 
@@ -46,6 +47,7 @@ public class BSTNode {
     public void setBlack() {
         isBlack = true;
     }
+
     public void setRed() {
         isBlack = false;
     }
@@ -57,10 +59,11 @@ public class BSTNode {
     public BSTNode getParent() {
         return parent;
     }
-    public boolean isLeaf(){
-        if(left == null && right == null){
+
+    public boolean isLeaf() {
+        if (left == null && right == null) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }
