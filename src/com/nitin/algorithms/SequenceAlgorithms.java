@@ -47,14 +47,28 @@ public class SequenceAlgorithms {
             count[k] = 1;
         }
 
+        for(int i = 1 ; i < data.length; i++){
+            for(int j = 0; j < i; j++){
+               if(data[j] < data[i] && count[i] < count[j] + 1){
+                   count[i] = count[j] + 1;
+               }
+            }
+        }
 
-        return 0;
+        int maxValue = count[0];
+        for(int k = 1; k < count.length; k++){
+            if(count[k] > maxValue){
+                maxValue = count[k];
+            }
+        }
+        return maxValue;
     }
 
     public static void main(String args[]) {
-        SequenceAlgorithms sq = new SequenceAlgorithms(new int[]{10, 2, 3, 5, 1, 4, 6, 7, 8, 9, 23, 56});
+        SequenceAlgorithms sq = new SequenceAlgorithms(new int[]{3, 4, 7, 0, 3, 9, 6});
         SequenceAlgorithms test = new SequenceAlgorithms(new int[]{1, 3, 6, 7, 7, 12, 15, 18, 19, 22, 5, 7, 10});
         System.out.println(sq.longestIncreasingContinuous());
         System.out.println(test.longestIncreasingContinuous());
+        System.out.println(sq.longestIncreasing());
     }
 }

@@ -5,16 +5,47 @@ package com.nitin.tree;
  */
 public class RedBlackTree {
 
-    BSTNode root;
+    private BSTNode root;
 
     public RedBlackTree() {
-        this.root = null;
-
+        root = null;
     }
 
 
     public void addNumber(int N) {
         BSTNode n = new BSTNode(N);
+        if(root == null){
+           root = n;
+           root.setBlack();
+           root.setParent(null);
+            return;
+        }
+
+          BSTNode current = root;
+          BSTNode xNode =null;
+        while(true){
+            xNode = current;
+            if(N < current.getData()){
+                current =current.getLeft();
+                if(current ==null){
+                    xNode.setLeft(n);
+                    n.setParent(xNode);
+                    n.setRed();
+                    break;
+                }
+            }else if(N > current.getData()){
+                current = current.getRight();
+                if(current == null){
+                    xNode.setRight(n);
+                    n.setParent(xNode);
+                    n.setRed();
+                    break;
+                }
+            }else{
+                break;
+            }
+        }
+
     }
 
     private static BSTNode getGrandParent(BSTNode n) {

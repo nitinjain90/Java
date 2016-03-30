@@ -15,7 +15,7 @@ public class BSTNode {
     public BSTNode(int data) {
         this.data = data;
     }
-    
+
     public void setLeft(BSTNode left) {
         this.left = left;
     }
