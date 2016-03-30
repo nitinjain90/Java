@@ -13,7 +13,8 @@ public class RedBlackTree {
     }
 
     public void addNumber(int N) {
-
+        BSTNode n = new BSTNode(N);
+        insert_case1(n);
     }
 
     private static BSTNode getGrandParent(BSTNode n) {
@@ -36,7 +37,7 @@ public class RedBlackTree {
         }
     }
 
-    public static void rotateRight(BSTNode n) {
+    private static void rotateRight(BSTNode n) {
         if (n.isLeaf() || n.getLeft().isLeaf()) {
             throw new IllegalArgumentException("rotation not possible");
         }
@@ -47,7 +48,7 @@ public class RedBlackTree {
         n.setParent(child);
     }
 
-    public static void rotateLeft(BSTNode n) {
+    private static void rotateLeft(BSTNode n) {
         if (n.isLeaf() || n.getRight().isLeaf()) {
             throw new IllegalArgumentException("rotation not possible");
         }
@@ -59,7 +60,7 @@ public class RedBlackTree {
     }
 
     // when node is at the root of the tree
-    public void insert_case1(BSTNode n) {
+    private static void insert_case1(BSTNode n) {
         if (n.getParent() == null) {
             n.setBlack();
         } else {
@@ -68,7 +69,7 @@ public class RedBlackTree {
 
     }
     // if node parent is black. Everything is good
-    public void insert_case2(BSTNode n) {
+    private static void insert_case2(BSTNode n) {
        if(n.getParent().isBlack()){
            return;
        }else{
@@ -76,7 +77,7 @@ public class RedBlackTree {
        }
     }
     //
-    public void insert_case3(BSTNode n){
+    private static void insert_case3(BSTNode n){
          BSTNode u = getUncle(n);
          BSTNode g;
         if(u!=null && u.isRed()){
@@ -89,7 +90,7 @@ public class RedBlackTree {
            insert_case4(n);
         }
     }
-    public void insert_case4(BSTNode n){
+    private static void insert_case4(BSTNode n){
         BSTNode g = getGrandParent(n);
 
         if(n == n.getParent().getRight() && n.getParent() == g.getLeft()){
@@ -102,8 +103,19 @@ public class RedBlackTree {
         insert_case5(n);
 
     }
-    public void insert_case5(BSTNode n){
-
+    private static void insert_case5(BSTNode n){
+      BSTNode g = getGrandParent(n);
+        // Changing colors of P ang G to satisfy 4
+        n.getParent().setBlack();
+        g.setRed();
+        if(n == n.getParent().getLeft()){
+            rotateRight(g);
+        }else{
+            rotateLeft(g);
+        }
     }
 
+    public static void main(String args[]){
+        
+    }
 }
