@@ -47,6 +47,7 @@ public class SequenceAlgorithms {
             count[k] = 1;
         }
 
+
         return 0;
     }
 
