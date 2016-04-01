@@ -114,17 +114,18 @@ public class MatrixJungle {
     public int shortestDistance(int sx, int sy, int ex, int ey) {
         int shortestDistance = -1;
         boolean isVisited[][] = new boolean[rows][columns];
-        for(int i = 0; i < rows; i++){
-            for(int j = 0; j < columns; j++){
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
                 isVisited[i][j] = false;
             }
         }
-        if(matrix[sx][sy] == false || matrix[ex][ey] == false){
+        if (matrix[sx][sy] == false || matrix[ex][ey] == false) {
             return -1;
         }
         isVisited[sx][sy] = true;
-        while(isVisited[ex][ey] == false){
-            
+
+        while(isVisited[ex][ey] == false) {
+
         }
         return shortestDistance;
     }
@@ -133,16 +134,15 @@ public class MatrixJungle {
         return 0;
     }
 
-    private boolean isIsland(int i , int j){
-        if(!moveRight(i , j) && !moveLeft(i , j) && !moveUp(i , j) && !moveDown(i , j)){
+    private boolean isIsland(int i, int j) {
+        if (!canMoveRight(i, j) && !canMoveLeft(i, j) && !canMoveUp(i, j) && !canMoveDown(i, j)) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }
 
-
-    private boolean moveRight(int i, int j) {
+    private boolean canMoveRight(int i, int j) {
         if (j + 1 < columns && matrix[i][j + 1] == true) {
             return true;
         } else {
@@ -150,7 +150,7 @@ public class MatrixJungle {
         }
     }
 
-    private boolean moveLeft(int i, int j) {
+    private boolean canMoveLeft(int i, int j) {
         if (j - 1 >= 0 && matrix[i][j - 1] == true) {
             return true;
         } else {
@@ -158,7 +158,7 @@ public class MatrixJungle {
         }
     }
 
-    private boolean moveUp(int i, int j) {
+    private boolean canMoveUp(int i, int j) {
         if (i - 1 >= 0 && matrix[i - 1][j] == true) {
             return true;
         } else {
@@ -166,12 +166,28 @@ public class MatrixJungle {
         }
     }
 
-    private boolean moveDown(int i, int j) {
+    private boolean canMoveDown(int i, int j) {
         if (i + 1 < rows && matrix[i + 1][j] == true) {
             return true;
         } else {
             return false;
         }
+    }
+
+    private void moveRight(int i, int j) {
+        j = j + 1;
+    }
+
+    private void moveLeft(int i, int j) {
+        j = j - 1;
+    }
+
+    private void moveUp(int i, int j) {
+        i = i - 1;
+    }
+
+    private void moveDown(int i, int j) {
+        i = i + 1;
     }
 
     private static void myAssert(boolean condition) {
