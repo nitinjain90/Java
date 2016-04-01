@@ -29,6 +29,26 @@ public class MatrixJungle {
             }
         }
     }
+    //
+    public MatrixJungle(String s){
+       String rowsAsString[] = s.split("\n");
+       String test[] = rowsAsString[0].split("\\s+");
+       this.rows = rowsAsString.length;
+       this.columns = test.length;
+       matrix = new boolean[rows][columns];
+       for(int i = 0; i < rowsAsString.length; i++){
+           String temp[] = rowsAsString[i].split("\\s+");
+           for(int j = 0; j < columns; j++){
+               if(temp[j].equals("1")){
+                   matrix[i][j] = true;
+               }else{
+                   matrix[i][j] = false;
+               }
+           }
+       }
+
+
+    }
 
     public void set(int row, int column, boolean value) {
         matrix[row][column] = value;
@@ -43,98 +63,80 @@ public class MatrixJungle {
      * @return
      */
     public int countMax() {
-        int count[][] = new int[rows][columns];
+        int maxValue = Integer.MIN_VALUE;
         for(int i = 0; i < rows; i++){
             for(int j = 0; j < columns; j++){
-                count[i][j] = countMaxStartingAt(i , j);
+                maxValue = Math.max(maxValue , countMaxStartingAt(i , j));
             }
         }
-        int maxValue = count[0][0];
-        for(int k = 0; k < rows; k++){
-            for(int j = 0; j < columns; j++){
-                if(count[k][j] > maxValue){
-                    maxValue = count[k][j];
-                }
-            }
-        }
-
         return maxValue;
     }
 
     // -> , ->
-    private int countMaxStartingAt(int i, int j) {
-        int countBottom = 0;
-        int rowNumber = i;
-
-
-        if (matrix[i][j] == false) {
+    private int countMaxStartingAt(final int i, final int j) {
+        if(matrix[i][j] == false){
             return 0;
         }
-        while (rowNumber < rows && matrix[rowNumber][j] == true) {
+        int xStart = i;
+        int yStart = j;
+        int countBottom = 0;
+        while(xStart < rows && matrix[xStart][yStart] == true){
             countBottom = countBottom + 1;
-            rowNumber = rowNumber + 1;
+            xStart = xStart + 1;
         }
-        int countPerRow[] = new int[countBottom];
-        for (int m = 0; m < countPerRow.length; m++) {
-            countPerRow[m] = 0;
+        int rowCount[] = new int[countBottom];
+        for(int mI = 0; mI < rowCount.length; mI++){
+            rowCount[mI] = 1;
         }
-        for (int k = 0; k < countPerRow.length; k++) {
-            int jCopy = j;
-            while (jCopy < columns && i < rows && matrix[i][jCopy] == true) {
-                countPerRow[k] = countPerRow[k] + 1;
-                jCopy = jCopy + 1;
-            }
-            i = i + 1;
-        }
-        int min = countPerRow[0];
-        for (int o = 0; o < countPerRow.length; o++) {
-            if (countPerRow[0] != 0 && countPerRow[o] < min) {
-                min = countPerRow[o];
+        xStart = i;
+        yStart = j;
+        for(int mi = i; mi < i + countBottom; mi++){
+            for(int mj = j + 1; mj < columns; mj++){
+                if(matrix[mi][mj] == true){
+                    rowCount[mi-i] = rowCount[mi-i] + 1;
+                }else{
+                    break;
+                }
             }
         }
 
 
-        return countBottom * min;
+        return 0;
+    }
+    private int getBiggestRectangle(int n[]){
+
+        return 0;
     }
 
+
+    public int shortestDistance(int sx , int sy , int ex, int ey){
+
+        return -1;
+    }
+    public int countIslands(String s){
+        return 0;
+    }
     private static void myAssert(boolean condition) {
         if (!condition) throw new IllegalStateException("Something is wrong");
     }
 
     public static void main(String args[]) {
-        MatrixJungle jungle = new MatrixJungle(4, 4);
-        jungle.set(0, 0, true);
-        jungle.set(0, 1, true);
-        jungle.set(0, 2, true);
-        jungle.set(1, 0, true);
-        jungle.set(1, 2, true);
-        jungle.set(1, 3, true);
-        jungle.set(2, 0, true);
-        jungle.set(2, 1, true);
-        jungle.set(2, 2, true);
-        jungle.set(2, 3, true);
-        jungle.set(3, 0, true);
-        jungle.set(3, 2, true);
-        jungle.set(3, 3, true);
-        /*
-          1 1 1 0
-          1 0 1 1
-          1 1 1 1
-          1 0 1 1
-         */
+        MatrixJungle jungle = new MatrixJungle("1 0 1\n1 1 1\n0 1 0");
+        myAssert(jungle.matrix[0][0] == true);
+        myAssert(jungle.matrix[0][1] == false);
+        myAssert(jungle.matrix[0][2] == true);
+        myAssert(jungle.matrix[1][0] == true);
+        myAssert(jungle.matrix[1][1] == true);
+        myAssert(jungle.matrix[1][2] == true);
+        myAssert(jungle.matrix[2][0] == false);
+        myAssert(jungle.matrix[2][1] == true);
+        myAssert(jungle.matrix[2][2] == false);
+        myAssert(jungle.rows == 3);
+        myAssert(jungle.columns == 3);
+        System.out.println(jungle.countMax());
 
-        myAssert(jungle.countMaxStartingAt(0, 0) == 4);
-        myAssert(jungle.countMaxStartingAt(0, 1) == 2);
-        myAssert(jungle.countMaxStartingAt(1 , 0) == 3);
-        myAssert(jungle.countMaxStartingAt(1 , 2) == 6);
-        myAssert(jungle.countMaxStartingAt(1 , 3) == 3);
-        myAssert(jungle.countMaxStartingAt(2 , 1) == 3);
-        myAssert(jungle.countMaxStartingAt(2 , 2) == 4);
-        myAssert(jungle.countMaxStartingAt(2 , 3) == 2);
-        myAssert(jungle.countMaxStartingAt(3 , 0) == 1);
-        myAssert(jungle.countMax() == 6);
-
-        MatrixJungle mj = new MatrixJungle(5 , 5);
+        MatrixJungle jungle2 = new MatrixJungle("1 1 1 1\n1 1 1 1\n1 0 1 1\n1 1 0 0");
+        System.out.println(jungle2.countMax());
 
             /*
             1 0 0 0 1
@@ -143,19 +145,6 @@ public class MatrixJungle {
             0 0 1 1 1
             1 1 1 1 1
              */
-        mj.set(0, 0, true);
-        mj.set(0, 4, true);
-        mj.set(1, 0, true);
-        mj.set(1, 1, true);
-        mj.set(1, 2, true);
-        mj.set(1, 3, true);
-        mj.set(1, 4, true);
-        mj.set(2, 0, true);
-        mj.set(2, 1, true);
-        mj.set(2, 2, true);
-        mj.set(2, 3, true);
-
-        myAssert(mj.countMax() == 8);
 
     }
 
