@@ -1,5 +1,6 @@
 package com.nitin.algorithms;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -68,7 +69,7 @@ public class MatrixJungle {
         int maxValue = Integer.MIN_VALUE;
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
-                maxValue = Math.max(maxValue, countMaxStartingAt(i, j));
+                maxValue = Math.max(maxValue, countStartingAt(i, j));
             }
         }
         return maxValue;
@@ -106,6 +107,25 @@ public class MatrixJungle {
         return 0;
     }
 
+    private int countStartingAt(final int i, final int j){
+        if(matrix[i][j] == false){
+            return 0;
+        }
+        int xStart = i;
+        int yStart = j;
+        int count = 0;
+        for(int xI = xStart; xI < rows; xI++){
+            for(int yJ = j; yJ <columns; yJ++){
+                if(matrix[xI][yJ] == true){
+                    count++;
+                }else{
+                    return (count/rows) * rows;
+                }
+            }
+        }
+        return (count/rows) * rows;
+    }
+
     private int getBiggestRectangle(int n[]) {
 
         return 0;
@@ -113,22 +133,32 @@ public class MatrixJungle {
 
     public int shortestDistance(int sx, int sy, int ex, int ey) {
         int shortestDistance = -1;
-        boolean isVisited[][] = new boolean[rows][columns];
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < columns; j++) {
-                isVisited[i][j] = false;
-            }
-        }
-        if (matrix[sx][sy] == false || matrix[ex][ey] == false) {
+        ArrayList<Integer> distances = new ArrayList<Integer>();
+        if(isIsland(sx , sy) || isIsland(ex , ey)){
             return -1;
         }
-        isVisited[sx][sy] = true;
 
-        while(isVisited[ex][ey] == false) {
 
-        }
+
         return shortestDistance;
     }
+    public int travel(int sx, int sy, int ex, int ey){
+        int startX = sx;
+        int startY = sy;
+        if(startX == ex && startY == ey){
+            return 1;
+        }
+        if(startY + 1 <columns && matrix[startX][startY + 1] == true){
+            return 1 + travel(startX , startY + 1 , ex, ey);
+        }
+        if(startX + 1 < rows && matrix[startX + 1][startY] == true){
+            return 1 + travel(startX + 1, startY, ex, ey);
+        }
+
+        return 0;
+    }
+
+
 
     public int countIslands(String s) {
         return 0;
@@ -174,22 +204,6 @@ public class MatrixJungle {
         }
     }
 
-    private void moveRight(int i, int j) {
-        j = j + 1;
-    }
-
-    private void moveLeft(int i, int j) {
-        j = j - 1;
-    }
-
-    private void moveUp(int i, int j) {
-        i = i - 1;
-    }
-
-    private void moveDown(int i, int j) {
-        i = i + 1;
-    }
-
     private static void myAssert(boolean condition) {
         if (!condition) throw new IllegalStateException("Something is wrong");
     }
@@ -219,6 +233,9 @@ public class MatrixJungle {
             0 0 1 1 1
             1 1 1 1 1
              */
+
+        MatrixJungle m3 = new MatrixJungle("1 1 1\n1 1 1");
+        System.out.println(m3.travel(0 , 0 , 1 , 2));
 
     }
 
