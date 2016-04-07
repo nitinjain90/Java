@@ -14,6 +14,19 @@ public class MatrixJungle {
     int rows;
     int columns;
 
+    class Point{
+        int x;
+        int y;
+        public Point(int x , int y){
+            this.x = x;
+            this.y =y;
+        }
+
+        @Override
+        public boolean equals(Object obj) {
+            return super.equals(obj);
+        }
+    }
 
     /**
      * Initialize matrix to all false elements.
@@ -65,66 +78,40 @@ public class MatrixJungle {
      *
      * @return
      */
-    public int countMax() {
-        int maxValue = Integer.MIN_VALUE;
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < columns; j++) {
-                maxValue = Math.max(maxValue, countStartingAt(i, j));
+    public int count(int sx , int sy , int ex , int ey){
+        int count = 0;
+        for(int i = sx; i <= ex; i++){
+            for(int j = sy; j <=ey; j++){
+                if(matrix[i][j] == true){
+                    count++;
+                }else{
+                    return 0;
+                }
             }
         }
-        return maxValue;
+
+        return count;
+    }
+
+    public int countMax() {
+        int max = Integer.MIN_VALUE;
+        for(int i = 0; i < rows; i++){
+            for(int j = 0; j < columns; j++){
+                for(int k = 0; k < rows; k++){
+                    for(int l = 0; l < columns; l++){
+                        max = Math.max(max , count(i , j , k , l));
+                    }
+                }
+            }
+        }
+        return max;
     }
 
     // -> , ->
-    private int countMaxStartingAt(final int i, final int j) {
-        if (matrix[i][j] == false) {
-            return 0;
-        }
-        int xStart = i;
-        int yStart = j;
-        int countBottom = 0;
-        while (xStart < rows && matrix[xStart][yStart] == true) {
-            countBottom = countBottom + 1;
-            xStart = xStart + 1;
-        }
-        int rowCount[] = new int[countBottom];
-        for (int mI = 0; mI < rowCount.length; mI++) {
-            rowCount[mI] = 1;
-        }
-        xStart = i;
-        yStart = j;
-        for (int mi = i; mi < i + countBottom; mi++) {
-            for (int mj = j + 1; mj < columns; mj++) {
-                if (matrix[mi][mj] == true) {
-                    rowCount[mi - i] = rowCount[mi - i] + 1;
-                } else {
-                    break;
-                }
-            }
-        }
 
 
-        return 0;
-    }
 
-    private int countStartingAt(final int i, final int j){
-        if(matrix[i][j] == false){
-            return 0;
-        }
-        int xStart = i;
-        int yStart = j;
-        int count = 0;
-        for(int xI = xStart; xI < rows; xI++){
-            for(int yJ = j; yJ <columns; yJ++){
-                if(matrix[xI][yJ] == true){
-                    count++;
-                }else{
-                    return (count/rows) * rows;
-                }
-            }
-        }
-        return (count/rows) * rows;
-    }
+
 
     private int getBiggestRectangle(int n[]) {
 
@@ -132,27 +119,8 @@ public class MatrixJungle {
     }
 
     public int shortestDistance(int sx, int sy, int ex, int ey) {
-        int shortestDistance = -1;
-        ArrayList<Integer> distances = new ArrayList<Integer>();
-        if(isIsland(sx , sy) || isIsland(ex , ey)){
-            return -1;
-        }
-
-
-
-        return shortestDistance;
-    }
-    public int travel(int sx, int sy, int ex, int ey){
-        int startX = sx;
-        int startY = sy;
-        if(startX == ex && startY == ey){
-            return 1;
-        }
-        if(startY + 1 <columns && matrix[startX][startY + 1] == true){
-            return 1 + travel(startX , startY + 1 , ex, ey);
-        }
-        if(startX + 1 < rows && matrix[startX + 1][startY] == true){
-            return 1 + travel(startX + 1, startY, ex, ey);
+        if(sx == ex && sy == ey){
+            return 0;
         }
 
         return 0;
@@ -203,6 +171,9 @@ public class MatrixJungle {
             return false;
         }
     }
+    private boolean hasVisitedDown(int i , int j){
+
+    }
 
     private static void myAssert(boolean condition) {
         if (!condition) throw new IllegalStateException("Something is wrong");
@@ -221,11 +192,10 @@ public class MatrixJungle {
         myAssert(jungle.matrix[2][2] == false);
         myAssert(jungle.rows == 3);
         myAssert(jungle.columns == 3);
-        System.out.println(jungle.countMax());
+
 
         MatrixJungle jungle2 = new MatrixJungle("1 1 1 1\n1 1 1 1\n1 0 1 1\n1 1 0 0");
         System.out.println(jungle2.countMax());
-
             /*
             1 0 0 0 1
             1 1 1 1 1
@@ -235,7 +205,9 @@ public class MatrixJungle {
              */
 
         MatrixJungle m3 = new MatrixJungle("1 1 1\n1 1 1");
-        System.out.println(m3.travel(0 , 0 , 1 , 2));
+        System.out.println(m3.countMax());
+        MatrixJungle m4 = new MatrixJungle("1 1 1 1 0\n1 1 1 1 0\n1 0 1 1 0\n0 1 1 1 1\n0 0 1 0 1");
+        System.out.println(m4.countMax());
 
     }
 
