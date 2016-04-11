@@ -13,13 +13,18 @@ public class MatrixJungle {
     boolean matrix[][];
     int rows;
     int columns;
+    boolean visited[][];
 
-    class Point{
+
+    class Point {
         int x;
         int y;
-        public Point(int x , int y){
+        boolean visited;
+
+        public Point(int x, int y, boolean visited) {
             this.x = x;
-            this.y =y;
+            this.y = y;
+            this.visited = visited;
         }
 
         @Override
@@ -38,9 +43,11 @@ public class MatrixJungle {
         this.rows = rows;
         this.columns = columns;
         matrix = new boolean[rows][columns];
+        visited = new boolean[rows][columns];
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
                 matrix[i][j] = false;
+                visited[i][j] = false;
             }
         }
     }
@@ -52,6 +59,7 @@ public class MatrixJungle {
         this.rows = rowsAsString.length;
         this.columns = test.length;
         matrix = new boolean[rows][columns];
+        visited = new boolean[rows][columns];
         for (int i = 0; i < rowsAsString.length; i++) {
             String temp[] = rowsAsString[i].split("\\s+");
             for (int j = 0; j < columns; j++) {
@@ -62,7 +70,11 @@ public class MatrixJungle {
                 }
             }
         }
-
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                visited[i][j] = false;
+            }
+        }
 
     }
 
@@ -78,13 +90,13 @@ public class MatrixJungle {
      *
      * @return
      */
-    public int count(int sx , int sy , int ex , int ey){
+    public int count(int sx, int sy, int ex, int ey) {
         int count = 0;
-        for(int i = sx; i <= ex; i++){
-            for(int j = sy; j <=ey; j++){
-                if(matrix[i][j] == true){
+        for (int i = sx; i <= ex; i++) {
+            for (int j = sy; j <= ey; j++) {
+                if (matrix[i][j] == true) {
                     count++;
-                }else{
+                } else {
                     return 0;
                 }
             }
@@ -95,11 +107,11 @@ public class MatrixJungle {
 
     public int countMax() {
         int max = Integer.MIN_VALUE;
-        for(int i = 0; i < rows; i++){
-            for(int j = 0; j < columns; j++){
-                for(int k = 0; k < rows; k++){
-                    for(int l = 0; l < columns; l++){
-                        max = Math.max(max , count(i , j , k , l));
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                for (int k = 0; k < rows; k++) {
+                    for (int l = 0; l < columns; l++) {
+                        max = Math.max(max, count(i, j, k, l));
                     }
                 }
             }
@@ -110,22 +122,33 @@ public class MatrixJungle {
     // -> , ->
 
 
-
-
-
     private int getBiggestRectangle(int n[]) {
 
         return 0;
     }
 
     public int shortestDistance(int sx, int sy, int ex, int ey) {
-        if(sx == ex && sy == ey){
+        if (sx == ex && sy == ey) {
             return 0;
         }
-
+        if (canMoveRight(sx, sy)) {
+            visited[sx][sy] = true;
+            return 1 + shortestDistance(sx, sy + 1, ex, ey);
+        }
+        if (canMoveLeft(sx, sy)) {
+            visited[sx][sy] = true;
+            return 1 + shortestDistance(sx, sy - 1, ex, ey);
+        }
+        if (canMoveUp(sx, sy)) {
+            visited[sx][sy] = true;
+            return 1 + shortestDistance(sx - 1, sy, ex, ey);
+        }
+        if (canMoveDown(sx, sy)) {
+            visited[sx][sy] = true;
+            return 1 + shortestDistance(sx + 1, sy + 1, ex, ey);
+        }
         return 0;
     }
-
 
 
     public int countIslands(String s) {
@@ -141,7 +164,7 @@ public class MatrixJungle {
     }
 
     private boolean canMoveRight(int i, int j) {
-        if (j + 1 < columns && matrix[i][j + 1] == true) {
+        if (j + 1 < columns && matrix[i][j + 1] == true && visited[i][j + 1] == false) {
             return true;
         } else {
             return false;
@@ -149,7 +172,7 @@ public class MatrixJungle {
     }
 
     private boolean canMoveLeft(int i, int j) {
-        if (j - 1 >= 0 && matrix[i][j - 1] == true) {
+        if (j - 1 >= 0 && matrix[i][j - 1] == true&& visited[i][j - 1] == false) {
             return true;
         } else {
             return false;
@@ -157,7 +180,7 @@ public class MatrixJungle {
     }
 
     private boolean canMoveUp(int i, int j) {
-        if (i - 1 >= 0 && matrix[i - 1][j] == true) {
+        if (i - 1 >= 0 && matrix[i - 1][j] == true && visited[i -1][j] == false) {
             return true;
         } else {
             return false;
@@ -165,14 +188,16 @@ public class MatrixJungle {
     }
 
     private boolean canMoveDown(int i, int j) {
-        if (i + 1 < rows && matrix[i + 1][j] == true) {
+        if (i + 1 < rows && matrix[i + 1][j] == true && visited[i + 1][j] == false) {
             return true;
         } else {
             return false;
         }
     }
-    private boolean hasVisitedDown(int i , int j){
 
+    private boolean hasVisitedDown(int i, int j) {
+
+        return false;
     }
 
     private static void myAssert(boolean condition) {
@@ -208,6 +233,8 @@ public class MatrixJungle {
         System.out.println(m3.countMax());
         MatrixJungle m4 = new MatrixJungle("1 1 1 1 0\n1 1 1 1 0\n1 0 1 1 0\n0 1 1 1 1\n0 0 1 0 1");
         System.out.println(m4.countMax());
+        System.out.println(m3.shortestDistance( 0 , 0 , 1 , 2));
+
 
     }
 
