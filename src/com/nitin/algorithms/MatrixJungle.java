@@ -126,15 +126,19 @@ public class MatrixJungle {
             return 0;
         }
         if (canMoveRight(sx, sy)) {
+            visited.add(new Point(sx,sy));
             return 1 + shortestDistance(sx, sy + 1, ex, ey);
         }
         if (canMoveLeft(sx, sy)) {
+            visited.add(new Point(sx,sy));
             return 1 + shortestDistance(sx, sy - 1, ex, ey);
         }
         if (canMoveUp(sx, sy)) {
+            visited.add(new Point(sx,sy));
             return 1 + shortestDistance(sx - 1, sy, ex, ey);
         }
         if (canMoveDown(sx, sy)) {
+            visited.add(new Point(sx,sy));
             return 1 + shortestDistance(sx + 1, sy, ex, ey);
         }
 
@@ -155,7 +159,7 @@ public class MatrixJungle {
     }
 
     private boolean canMoveRight(int i, int j) {
-        if (j + 1 < columns && matrix[i][j + 1] == true) {
+        if (j + 1 < columns && matrix[i][j + 1] == true && !hasVisitedRight(i , j)) {
             return true;
         } else {
             return false;
@@ -163,7 +167,7 @@ public class MatrixJungle {
     }
 
     private boolean canMoveLeft(int i, int j) {
-        if (j - 1 >= 0 && matrix[i][j - 1] == true) {
+        if (j - 1 >= 0 && matrix[i][j - 1] == true && !hasVisitedLeft(i , j)) {
             return true;
         } else {
             return false;
@@ -171,7 +175,7 @@ public class MatrixJungle {
     }
 
     private boolean canMoveUp(int i, int j) {
-        if (i - 1 >= 0 && matrix[i - 1][j] == true) {
+        if (i - 1 >= 0 && matrix[i - 1][j] == true && !hasVisitedUp(i , j)) {
             return true;
         } else {
             return false;
@@ -179,7 +183,7 @@ public class MatrixJungle {
     }
 
     private boolean canMoveDown(int i, int j) {
-        if (i + 1 < rows && matrix[i + 1][j] == true) {
+        if (i + 1 < rows && matrix[i + 1][j] == true && !hasVisitedDown(i , j)) {
             return true;
         } else {
             return false;
