@@ -56,7 +56,7 @@ public class LearnStreams {
         FileOutputStream fo = new FileOutputStream(destFile);
         byte b[] = new byte[bufferSize];
         int N = 0;
-        while ((N = fi.read(b)) != -1) {
+        while   ((N = fi.read(b)) != -1) {
             for (int i = 0; i < N; i++) {
                 fo.write(b[i]);
             }

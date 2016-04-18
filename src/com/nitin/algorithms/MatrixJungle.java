@@ -241,8 +241,6 @@ public class MatrixJungle {
 
     public int possibleCombinations(String s){
         Set<String> total = new TreeSet<String>();
-        
-
         return total.size();
     }
 
