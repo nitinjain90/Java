@@ -10,12 +10,12 @@ public class MatrixJungle {
     boolean matrix[][];
     int rows;
     int columns;
-    ArrayList<Point> visited = new ArrayList<Point>();
 
 
-    class Point {
+    class Point implements Comparable {
         int x;
         int y;
+
 
         public Point(int x, int y) {
             this.x = x;
@@ -27,6 +27,16 @@ public class MatrixJungle {
             Point p = (Point) obj;
 
             return p.x == x && p.y == y;
+        }
+
+        @Override
+        public int compareTo(Object o) {
+            Point p = (Point) o;
+
+            if (p.x == x && p.y == y) {
+                return 0;
+            } else
+                return -1;
         }
     }
 
@@ -116,16 +126,66 @@ public class MatrixJungle {
         return 0;
     }
 
+    int distanceRight = -1;
+    int distanceLeft = -1;
+    int distanceUp = -1;
+    int distanceDown = -1;
+
     public int shortestDistance(Point start, Point end, Set<Point> visited) {
 
+        if (start.equals(end)) {
+            return 0;
+        }
+        if (isIsland(start)) {
+            return Integer.MIN_VALUE;
+        }
+//        if(visited.contains(new Point(start.x, start.y + 1)) && visited.contains(new Point(start.x, start.y - 1)) && visited.contains(new Point(start.x + 1, start.y)) && visited.contains(new Point(start.x - 1, start.y))){
+//            return Integer.MIN_VALUE;
+//        }
+        if (canMoveRight(start) && !visited.contains(new Point(start.x, start.y + 1))) {
+            TreeSet<Point> temp = new TreeSet<>();
+            temp.addAll(visited);
+            temp.add(start);
+            distanceRight = 1 + shortestDistance(new Point(start.x, start.y + 1), end, temp);
+        }
+        if (canMoveLeft(start) && !visited.contains(new Point(start.x, start.y - 1))) {
+            TreeSet<Point> temp = new TreeSet<>();
+            temp.addAll(visited);
+            temp.add(start);
+            distanceLeft = 1 + shortestDistance(new Point(start.x, start.y - 1), end, temp);
+        }
+        if (canMoveUp(start) && !visited.contains(new Point(start.x - 1, start.y))) {
+            TreeSet<Point> temp = new TreeSet<>();
+            temp.addAll(visited);
+            temp.add(start);
+            distanceUp = 1 + shortestDistance(new Point(start.x - 1, start.y), end, temp);
+        }
+        if (canMoveDown(start) && !visited.contains(new Point(start.x + 1, start.y))) {
+            TreeSet<Point> temp = new TreeSet<>();
+            temp.addAll(visited);
+            temp.add(start);
+            distanceDown = 1 + shortestDistance(new Point(start.x + 1, start.y), end, temp);
+        }
+
+        if (distanceDown >= 0 && distanceDown <= distanceLeft && distanceDown <= distanceUp && distanceDown <= distanceRight) {
+            return distanceDown;
+        } else if (distanceUp >= 0 && distanceUp <= distanceLeft && distanceUp <= distanceDown && distanceUp <= distanceRight) {
+            return distanceUp;
+        } else if (distanceRight >= 0 && distanceRight <= distanceLeft && distanceRight <= distanceUp && distanceRight <= distanceDown) {
+            return distanceRight;
+        } else if (distanceLeft >= 0 && distanceLeft <= distanceDown && distanceLeft <= distanceUp && distanceLeft <= distanceRight) {
+            return distanceLeft;
+        } else {
+            return -1;
+        }
     }
 
     public int shortestDistance(int sx, int sy, int ex, int ey) {
         Point start = new Point(sx, sy);
         Point end = new Point(ex, ey);
         return shortestDistance(start, end, new TreeSet<Point>());
-    }
 
+    }
 
 
     public int countIslands(String s) {
@@ -142,7 +202,7 @@ public class MatrixJungle {
     }
 
     private boolean canMoveRight(Point p) {
-        if (p.y + 1 < columns && matrix[p.x][p.y + 1] == true && !hasVisitedRight(p)) {
+        if (p.y + 1 < columns && matrix[p.x][p.y + 1] == true) {
             return true;
         } else {
             return false;
@@ -150,7 +210,7 @@ public class MatrixJungle {
     }
 
     private boolean canMoveLeft(Point p) {
-        if (p.y - 1 >= 0 && matrix[p.x][p.y - 1] == true && !hasVisitedLeft(p)) {
+        if (p.y - 1 >= 0 && matrix[p.x][p.y - 1] == true) {
             return true;
         } else {
             return false;
@@ -158,7 +218,7 @@ public class MatrixJungle {
     }
 
     private boolean canMoveUp(Point p) {
-        if (p.x - 1 >= 0 && matrix[p.x - 1][p.y] == true && !hasVisitedUp(p)) {
+        if (p.x - 1 >= 0 && matrix[p.x - 1][p.y] == true) {
             return true;
         } else {
             return false;
@@ -166,31 +226,24 @@ public class MatrixJungle {
     }
 
     private boolean canMoveDown(Point p) {
-        if (p.x + 1 < rows && matrix[p.x + 1][p.y] == true && !hasVisitedDown(p)) {
+        if (p.x + 1 < rows && matrix[p.x + 1][p.y] == true) {
             return true;
         } else {
             return false;
         }
     }
 
-    private boolean hasVisitedDown(Point p) {
-        return visited.contains(new Point(p.x + 1, p.y));
-    }
-
-    private boolean hasVisitedUp(Point p) {
-        return visited.contains(new Point(p.x - 1, p.y));
-    }
-
-    private boolean hasVisitedRight(Point p) {
-        return visited.contains(new Point(p.x, p.y + 1));
-    }
-
-    private boolean hasVisitedLeft(Point p) {
-        return visited.contains(new Point(p.x, p.y - 1));
-    }
 
     private static void myAssert(boolean condition) {
         if (!condition) throw new IllegalStateException("Something is wrong");
+    }
+
+
+    public int possibleCombinations(String s){
+        Set<String> total = new TreeSet<String>();
+        
+
+        return total.size();
     }
 
     public static void main(String args[]) {
