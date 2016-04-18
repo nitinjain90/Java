@@ -121,86 +121,89 @@ public class MatrixJungle {
     }
 
     public int shortestDistance(int sx, int sy, int ex, int ey) {
-        int distance = Integer.MAX_VALUE;
-        if (sx == ex && sy == ey) {
+        Point start = new Point(sx, sy);
+        Point end = new Point(ex, ey);
+
+
+        if (start.equals(end)) {
             return 0;
         }
-        if (canMoveRight(sx, sy)) {
-            visited.add(new Point(sx,sy));
-            return 1 + shortestDistance(sx, sy + 1, ex, ey);
-        }
-        if (canMoveLeft(sx, sy)) {
-            visited.add(new Point(sx,sy));
-            return 1 + shortestDistance(sx, sy - 1, ex, ey);
-        }
-        if (canMoveUp(sx, sy)) {
-            visited.add(new Point(sx,sy));
-            return 1 + shortestDistance(sx - 1, sy, ex, ey);
-        }
-        if (canMoveDown(sx, sy)) {
-            visited.add(new Point(sx,sy));
-            return 1 + shortestDistance(sx + 1, sy, ex, ey);
-        }
+        if (canMoveRight(start)) {
 
-        return 0;
+        }
+        if (canMoveLeft(start)) {
+
+        }
+        if (canMoveUp(start)) {
+
+        }
+        if (canMoveDown(start)) {
+
+        }
+        return -1;
     }
+
 
 
     public int countIslands(String s) {
         return 0;
     }
 
-    private boolean isIsland(int i, int j) {
-        if (!canMoveRight(i, j) && !canMoveLeft(i, j) && !canMoveUp(i, j) && !canMoveDown(i, j)) {
+    private boolean isIsland(Point p) {
+
+        if (!canMoveRight(p) && !canMoveLeft(p) && !canMoveUp(p) && !canMoveDown(p)) {
             return true;
         } else {
             return false;
         }
     }
 
-    private boolean canMoveRight(int i, int j) {
-        if (j + 1 < columns && matrix[i][j + 1] == true && !hasVisitedRight(i , j)) {
+    private boolean canMoveRight(Point p) {
+        if (p.y + 1 < columns && matrix[p.x][p.y + 1] == true && !hasVisitedRight(p)) {
             return true;
         } else {
             return false;
         }
     }
 
-    private boolean canMoveLeft(int i, int j) {
-        if (j - 1 >= 0 && matrix[i][j - 1] == true && !hasVisitedLeft(i , j)) {
+    private boolean canMoveLeft(Point p) {
+        if (p.y - 1 >= 0 && matrix[p.x][p.y - 1] == true && !hasVisitedLeft(p)) {
             return true;
         } else {
             return false;
         }
     }
 
-    private boolean canMoveUp(int i, int j) {
-        if (i - 1 >= 0 && matrix[i - 1][j] == true && !hasVisitedUp(i , j)) {
+    private boolean canMoveUp(Point p) {
+        if (p.x - 1 >= 0 && matrix[p.x - 1][p.y] == true && !hasVisitedUp(p)) {
             return true;
         } else {
             return false;
         }
     }
 
-    private boolean canMoveDown(int i, int j) {
-        if (i + 1 < rows && matrix[i + 1][j] == true && !hasVisitedDown(i , j)) {
+    private boolean canMoveDown(Point p) {
+        if (p.x + 1 < rows && matrix[p.x + 1][p.y] == true && !hasVisitedDown(p)) {
             return true;
         } else {
             return false;
         }
     }
 
-    private boolean hasVisitedDown(int i, int j) {
-        return visited.contains(new Point(i + 1 , j));
+    private boolean hasVisitedDown(Point p) {
+        return visited.contains(new Point(p.x + 1, p.y));
     }
-    private boolean hasVisitedUp(int i, int j) {
-        return visited.contains(new Point(i - 1 , j));
+
+    private boolean hasVisitedUp(Point p) {
+        return visited.contains(new Point(p.x - 1, p.y));
     }
-    private boolean hasVisitedRight(int i, int j) {
-        return visited.contains(new Point(i , j + 1));
+
+    private boolean hasVisitedRight(Point p) {
+        return visited.contains(new Point(p.x, p.y + 1));
     }
-    private boolean hasVisitedLeft(int i, int j) {
-        return visited.contains(new Point(i, j - 1));
+
+    private boolean hasVisitedLeft(Point p) {
+        return visited.contains(new Point(p.x, p.y - 1));
     }
 
     private static void myAssert(boolean condition) {
