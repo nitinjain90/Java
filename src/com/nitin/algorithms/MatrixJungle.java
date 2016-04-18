@@ -1,9 +1,6 @@
 package com.nitin.algorithms;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by harsh on 3/26/16.
@@ -116,31 +113,17 @@ public class MatrixJungle {
 
 
     private int getBiggestRectangle(int n[]) {
-
         return 0;
+    }
+
+    public int shortestDistance(Point start, Point end, Set<Point> visited) {
+
     }
 
     public int shortestDistance(int sx, int sy, int ex, int ey) {
         Point start = new Point(sx, sy);
         Point end = new Point(ex, ey);
-
-
-        if (start.equals(end)) {
-            return 0;
-        }
-        if (canMoveRight(start)) {
-
-        }
-        if (canMoveLeft(start)) {
-
-        }
-        if (canMoveUp(start)) {
-
-        }
-        if (canMoveDown(start)) {
-
-        }
-        return -1;
+        return shortestDistance(start, end, new TreeSet<Point>());
     }
 
 
