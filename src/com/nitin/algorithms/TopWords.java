@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.HashMap;
+import java.util.TreeMap;
 
 /**
  * Created by harash on 18/04/16.
@@ -20,7 +21,7 @@ public class TopWords {
                 fileContent = fileContent + (char)b[i];
             }
         }
-         HashMap hm = new HashMap();
+         TreeMap tm = new TreeMap();
         String words[] = fileContent.split("\\s+");
         for(int i = 0; i < words.length; i++){
             int count = 0;
@@ -29,7 +30,7 @@ public class TopWords {
                     count++;
                 }
             }
-            hm.put(words[i] , count);
+            tm.put(words[i] , count);
         }
 
     }

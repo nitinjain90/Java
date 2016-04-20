@@ -139,9 +139,9 @@ public class MatrixJungle {
         if (isIsland(start)) {
             return Integer.MIN_VALUE;
         }
-//        if(visited.contains(new Point(start.x, start.y + 1)) && visited.contains(new Point(start.x, start.y - 1)) && visited.contains(new Point(start.x + 1, start.y)) && visited.contains(new Point(start.x - 1, start.y))){
-//            return Integer.MIN_VALUE;
-//        }
+        if(visited.contains(new Point(start.x, start.y + 1)) && visited.contains(new Point(start.x, start.y - 1)) && visited.contains(new Point(start.x + 1, start.y)) && visited.contains(new Point(start.x - 1, start.y))){
+            return Integer.MIN_VALUE;
+        }
         if (canMoveRight(start) && !visited.contains(new Point(start.x, start.y + 1))) {
             TreeSet<Point> temp = new TreeSet<>();
             temp.addAll(visited);
@@ -241,7 +241,15 @@ public class MatrixJungle {
 
     public int possibleCombinations(String s){
         Set<String> total = new TreeSet<String>();
+
         return total.size();
+    }
+
+    private void swap(String a , String b){
+        String temp = "";
+        temp = a;
+        a = b;
+        b = temp;
     }
 
     public static void main(String args[]) {
