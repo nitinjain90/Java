@@ -35,9 +35,13 @@ public class MatrixJungle {
 
             if (p.x == x && p.y == y) {
                 return 0;
-            } else
+            } else if (p.x > x){
+                return 1;
+            }else if(p.x == x && p.y > y){
+                return 1;
+            }else
                 return -1;
-        }
+            }
     }
 
     /**
@@ -126,58 +130,57 @@ public class MatrixJungle {
         return 0;
     }
 
-    int distanceRight = -1;
-    int distanceLeft = -1;
-    int distanceUp = -1;
-    int distanceDown = -1;
+
 
     public int shortestDistance(Point start, Point end, Set<Point> visited) {
 
+        int distance = Integer.MAX_VALUE;
+
         if (start.equals(end)) {
             return 0;
-        }
-        if (isIsland(start)) {
-            return Integer.MIN_VALUE;
-        }
-        if(visited.contains(new Point(start.x, start.y + 1)) && visited.contains(new Point(start.x, start.y - 1)) && visited.contains(new Point(start.x + 1, start.y)) && visited.contains(new Point(start.x - 1, start.y))){
-            return Integer.MIN_VALUE;
         }
         if (canMoveRight(start) && !visited.contains(new Point(start.x, start.y + 1))) {
             TreeSet<Point> temp = new TreeSet<>();
             temp.addAll(visited);
             temp.add(start);
-            distanceRight = 1 + shortestDistance(new Point(start.x, start.y + 1), end, temp);
+            int result = shortestDistance(new Point(start.x, start.y + 1) , end , temp);
+            if(result != -1){
+                return Math.min(distance , 1 + result);
+            }
+
         }
         if (canMoveLeft(start) && !visited.contains(new Point(start.x, start.y - 1))) {
             TreeSet<Point> temp = new TreeSet<>();
             temp.addAll(visited);
             temp.add(start);
-            distanceLeft = 1 + shortestDistance(new Point(start.x, start.y - 1), end, temp);
+            int result = shortestDistance(new Point(start.x, start.y - 1) , end , temp);
+            if(result != -1){
+                return Math.min(distance , 1 + result);
+            }
         }
         if (canMoveUp(start) && !visited.contains(new Point(start.x - 1, start.y))) {
             TreeSet<Point> temp = new TreeSet<>();
             temp.addAll(visited);
             temp.add(start);
-            distanceUp = 1 + shortestDistance(new Point(start.x - 1, start.y), end, temp);
+            int result = shortestDistance(new Point(start.x - 1, start.y) , end , temp);
+            if(result != -1){
+                return Math.min(distance , 1 + result);
+            }
         }
         if (canMoveDown(start) && !visited.contains(new Point(start.x + 1, start.y))) {
             TreeSet<Point> temp = new TreeSet<>();
             temp.addAll(visited);
             temp.add(start);
-            distanceDown = 1 + shortestDistance(new Point(start.x + 1, start.y), end, temp);
+            int result = shortestDistance(new Point(start.x + 1, start.y) , end , temp);
+            if(result != -1){
+                return Math.min(distance , 1 + result);
+            }
         }
-
-        if (distanceDown >= 0 && distanceDown <= distanceLeft && distanceDown <= distanceUp && distanceDown <= distanceRight) {
-            return distanceDown;
-        } else if (distanceUp >= 0 && distanceUp <= distanceLeft && distanceUp <= distanceDown && distanceUp <= distanceRight) {
-            return distanceUp;
-        } else if (distanceRight >= 0 && distanceRight <= distanceLeft && distanceRight <= distanceUp && distanceRight <= distanceDown) {
-            return distanceRight;
-        } else if (distanceLeft >= 0 && distanceLeft <= distanceDown && distanceLeft <= distanceUp && distanceLeft <= distanceRight) {
-            return distanceLeft;
-        } else {
+        if(distance == Integer.MAX_VALUE){
             return -1;
         }
+        return distance;
+
     }
 
     public int shortestDistance(int sx, int sy, int ex, int ey) {
@@ -282,7 +285,7 @@ public class MatrixJungle {
         MatrixJungle m4 = new MatrixJungle("1 1 1 1 0\n1 1 1 1 0\n1 0 1 1 0\n0 1 1 1 1\n0 0 1 0 1");
         System.out.println(m4.countMax());
         System.out.println(m3.shortestDistance(0, 0, 1, 2));
-        System.out.println(m4.shortestDistance(0, 1, 2, 3));
+        System.out.println(m4.shortestDistance(0, 0, 0, 1));
     }
 
 }
