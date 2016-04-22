@@ -1,18 +1,17 @@
 package com.nitin.algorithms;
 
+import javax.swing.text.html.HTMLDocument;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.TreeMap;
+import java.util.*;
 
 /**
  * Created by harash on 18/04/16.
  */
 public class TopWords {
 
-    class WordNumber implements Comparable {
+    static class WordNumber implements Comparable {
         String word;
         int number;
 
@@ -56,8 +55,18 @@ public class TopWords {
             }
             tm.put(words[i], count);
         }
+        Set set = tm.keySet();
+        for(Iterator i = set.iterator(); i.hasNext();){
+            String key = (String)i.next();
+            int value = (Integer)tm.get(key);
+            list.add(new WordNumber(key , value));
+        }
 
+        Collections.sort(list);
 
+        for(int i = 0; i < N ; i++){
+            System.out.println(list.get(i).word+"-"+list.get(i).number);
+        }
     }
 
     public static void main(String args[]) throws Exception {

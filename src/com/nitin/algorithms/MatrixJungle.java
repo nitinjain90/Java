@@ -1,5 +1,7 @@
 package com.nitin.algorithms;
 
+import com.nitin.NitinSet;
+
 import java.util.*;
 
 /**
@@ -243,9 +245,22 @@ public class MatrixJungle {
 
 
     public int possibleCombinations(String s){
-        Set<String> total = new TreeSet<String>();
+        Set<String> total = new HashSet<String>();
 
         return total.size();
+    }
+    public static void possibleCombinations(String c , String str){
+        int length = str.length();
+        Set<String> combinations = new TreeSet<>();
+        if(length == 0){
+           System.out.println(c);
+//            combinations.add(c);
+        }else {
+            for (int i = 0; i < length; i++) {
+                possibleCombinations(c + str.substring(i , i + 1), str.substring(0, i) + str.substring(i + 1, length));
+            }
+        }
+
     }
 
     private void swap(String a , String b){
@@ -286,6 +301,8 @@ public class MatrixJungle {
         System.out.println(m4.countMax());
         System.out.println(m3.shortestDistance(0, 0, 1, 2));
         System.out.println(m4.shortestDistance(0, 0, 0, 1));
+        possibleCombinations("", "aaa");
+
     }
 
 }
