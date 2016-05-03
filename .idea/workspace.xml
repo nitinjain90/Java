@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="be55d35b-58ca-468c-98e7-6c237cd86e10" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/nitin/algorithms/PossibleCombinations.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/nitin/algorithms/ProblemOne.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/nitin/algorithms/ProblemTwo.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/nitin/algorithms/SearchingQuickly.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/nitin/algorithms/MatrixJungle.java" afterPath="$PROJECT_DIR$/src/com/nitin/algorithms/MatrixJungle.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/nitin/algorithms/ProblemTwo.java" afterPath="$PROJECT_DIR$/src/com/nitin/algorithms/ProblemTwo.java" />
     </list>
     <ignored path="Java.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -64,12 +62,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ProblemTwo.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ProblemTwo.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/nitin/algorithms/ProblemTwo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.16791044">
-              <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SearchingQuickly.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/nitin/algorithms/SearchingQuickly.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.07649254">
+              <caret line="27" column="9" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -112,16 +122,6 @@
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LearnCollections.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/nitin/LearnCollections.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="63" column="52" selection-start-line="63" selection-start-column="52" selection-end-line="63" selection-end-column="52" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -204,6 +204,7 @@
         <option value="$PROJECT_DIR$/src/com/nitin/algorithms/PossibleCombinations.java" />
         <option value="$PROJECT_DIR$/src/com/nitin/algorithms/ProblemOne.java" />
         <option value="$PROJECT_DIR$/src/com/nitin/algorithms/ProblemTwo.java" />
+        <option value="$PROJECT_DIR$/src/com/nitin/algorithms/SearchingQuickly.java" />
       </list>
     </option>
   </component>
@@ -347,7 +348,7 @@
       <recent name="com.nitin.list" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ProblemOne">
+  <component name="RunManager" selected="Application.SearchingQuickly">
     <configuration default="false" name="MatrixJungle" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -376,26 +377,6 @@
         </pattern>
       </extension>
       <option name="MAIN_CLASS_NAME" value="com.nitin.algorithms.SequenceAlgorithms" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="Desktop" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="false" name="RedBlackTree" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.nitin.tree.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="com.nitin.tree.RedBlackTree" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -439,6 +420,26 @@
       <option name="VM_PARAMETERS" value="" />
       <option name="PROGRAM_PARAMETERS" value="900 1000" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="Desktop" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="SearchingQuickly" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.nitin.algorithms.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="com.nitin.algorithms.SearchingQuickly" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="ENABLE_SWING_INSPECTOR" value="false" />
@@ -701,17 +702,17 @@
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Application.MatrixJungle" />
       <item index="1" class="java.lang.String" itemvalue="Application.SequenceAlgorithms" />
-      <item index="2" class="java.lang.String" itemvalue="Application.RedBlackTree" />
-      <item index="3" class="java.lang.String" itemvalue="Application.TopWords" />
-      <item index="4" class="java.lang.String" itemvalue="Application.ProblemOne" />
+      <item index="2" class="java.lang.String" itemvalue="Application.TopWords" />
+      <item index="3" class="java.lang.String" itemvalue="Application.ProblemOne" />
+      <item index="4" class="java.lang.String" itemvalue="Application.SearchingQuickly" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.ProblemOne" />
-        <item index="1" class="java.lang.String" itemvalue="Application.MatrixJungle" />
-        <item index="2" class="java.lang.String" itemvalue="Application.TopWords" />
-        <item index="3" class="java.lang.String" itemvalue="Application.SequenceAlgorithms" />
-        <item index="4" class="java.lang.String" itemvalue="Application.RedBlackTree" />
+        <item index="0" class="java.lang.String" itemvalue="Application.SearchingQuickly" />
+        <item index="1" class="java.lang.String" itemvalue="Application.ProblemOne" />
+        <item index="2" class="java.lang.String" itemvalue="Application.MatrixJungle" />
+        <item index="3" class="java.lang.String" itemvalue="Application.TopWords" />
+        <item index="4" class="java.lang.String" itemvalue="Application.SequenceAlgorithms" />
       </list>
     </recent_temporary>
   </component>
@@ -739,7 +740,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3954984" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3954984" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32950392" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -780,17 +781,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/nitin/NitinMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="139" column="50" selection-start-line="139" selection-start-column="50" selection-end-line="139" selection-end-column="50" />
-          <folding>
-            <element signature="e#1463#1464#0" expanded="false" />
-            <element signature="e#1497#1498#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/nitin/list/NitinStack.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1417,9 +1407,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/nitin/algorithms/ProblemTwo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.16791044">
-          <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/nitin/algorithms/SearchingQuickly.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.07649254">
+          <caret line="27" column="9" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
