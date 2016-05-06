@@ -1,5 +1,8 @@
 package com.nitin.algorithms;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -11,7 +14,7 @@ public class ProblemOne {
 
     // 10 => "10 5 16 8 4 2 1"
     public static int combinations(int a) {
-        int ret = 0;
+        int ret = 1;
         while (a != 1) {
             if (a % 2 == 0) {
                 a = a / 2;
@@ -32,11 +35,20 @@ public class ProblemOne {
         System.out.println(a + " " + b + " " + answer);
     }
 
-    public static void main(String args[]) {
+    public static void main(String args[]) throws IOException {
 //        if(args.length != 2){
 //            throw new IllegalArgumentException("Need exact two arguments");
 //        }
         //maxCombinations(Integer.parseInt(args[0]) , Integer.parseInt(args[1]));
-        System.out.println(combinations(10));
+
+        System.out.println("Enter two numbers with space");
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String s = "";
+        while((s = br.readLine())!= null) {
+            String numbers[] = s.split("\\s");
+            int a = Integer.parseInt(numbers[0]);
+            int b = Integer.parseInt(numbers[1]);
+            maxCombinations(a, b);
+        }
     }
 }
