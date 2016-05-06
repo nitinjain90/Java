@@ -9,6 +9,34 @@ import java.util.TreeSet;
  */
 public class SearchingQuickly {
 
+    Set<String> wordsToIgnore;
+    ArrayList<String> sentences;
+    Set<String> keywords;
+
+    private void readInput() {
+
+    }
+
+    // Sentecens => keywords
+    private void extractKeywords() {
+
+    }
+
+    // a word is a god, word => a WORD is a god.
+    private static void printSentence(String sentence, String word) {
+
+    }
+
+    private static void printLines() {
+        for (String keyword : keywords) {
+            for (String sentence : sentences) {
+                if (sentence.indexOf(keyword) >= 0) {
+                    printSentence(sentence, word);
+                }
+            }
+        }
+    }
+
     public static String printTitles(String s){
         ArrayList<String> wordsToIgnore = new ArrayList<>();
         ArrayList<String> otherStrings = new ArrayList<>();
@@ -41,7 +69,9 @@ public class SearchingQuickly {
         return "";
     }
 
-    public static void main(String args[]){
+    public static void main(String args[]) {
+        readInput();
+        System.out.println(wordsToIgnore);
 
         printTitles("is\n" +
                "the\n" +
