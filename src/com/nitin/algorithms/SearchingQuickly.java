@@ -3,18 +3,17 @@ package com.nitin.algorithms;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Set;
-import java.util.TreeSet;
+import java.lang.reflect.Array;
+import java.util.*;
 
 /**
  * Created by harash on 03/05/16.
  */
 public class SearchingQuickly {
 
-    static Set<String> wordsToIgnore;
-    static ArrayList<String> sentences;
-    static Set<String> keywords;
+    static Set<String> wordsToIgnore = new TreeSet<>();
+    static ArrayList<String> sentences = new ArrayList<>();
+    static Set<String> keywords = new TreeSet<>();
 
     private static void readInput() throws IOException {
         ArrayList<String> temp = new ArrayList<>();
@@ -63,7 +62,16 @@ public class SearchingQuickly {
     }
 
     private static void printLines() {
-        
+       for(Iterator<String> it = keywords.iterator(); it.hasNext();){
+           String s = it.next();
+           for(int j = 0; j < sentences.size(); j++){
+               String temp[] = sentences.get(j).split("\\s");
+               ArrayList<String> str = new ArrayList<String>(Arrays.asList(temp));
+               if(str.contains(s)){
+                   printSentence(sentences.get(j) , s);
+               }
+           }
+       }
     }
 
     public static String printTitles(String s) {
@@ -100,10 +108,10 @@ public class SearchingQuickly {
 
     public static void main(String args[]) throws IOException {
 
-       printSentence("hello world" , "world");
-//        System.out.println("type simething");
-//        readInput();
-//        extractKeywords();
+        System.out.println("type simething");
+        readInput();
+        extractKeywords();
+        printLines();
 
     }
 }
