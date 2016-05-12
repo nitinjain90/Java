@@ -1,9 +1,6 @@
 package com.nitin;
 
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Created by harsh on 5/12/16.
@@ -11,8 +8,6 @@ import java.util.Set;
 public class Utils {
 
     /**
-     *
-     *
      * @return
      */
     public static String[] readCommandLine() {
@@ -28,7 +23,21 @@ public class Utils {
      * @return
      */
     public static String[] splitString(String s, String separator) {
-        return null;
+        String result[] = s.split(separator);
+        List<String> temp = Arrays.asList(result);
+        List<String> list = new ArrayList<>();
+        Iterator<String> iter = temp.iterator();
+        while (iter.hasNext()) {
+            String str = iter.next();
+            if (str.length() > 0) {
+               list.add(str);
+            }
+        }
+        String str[] = new String[list.size()];
+        for(int i = 0; i < str.length; i++){
+            str[i] = list.get(i);
+        }
+        return str;
     }
 
     // Using Iterators => List/Set
@@ -43,13 +52,25 @@ public class Utils {
     }
 
     public static void printMap(Map<String, Integer> m) {
-        Set<Map.Entry<String, Integer>> s =  m.entrySet();
-
+        Set<Map.Entry<String, Integer>> s = m.entrySet();
+        for (Iterator<Map.Entry<String, Integer>> itr = s.iterator(); itr.hasNext(); ) {
+            Map.Entry<String, Integer> temp = itr.next();
+            System.out.println(temp.getKey() + " ," + temp.getValue());
+        }
     }
 
     public static void printList(List<Integer> l) {
 
     }
+    public static void printMatrix(int matrix[][]){
+        for(int i = 0; i < matrix.length; i++){
+            for(int j = 0; j < matrix[i].length; j++){
+                System.out.print(matrix[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+
 
     public static void removeWrongly(List<Integer> l, int x) {
         // Why will this code not work ? TODO :- Homework. Find atleast 2 examples where this code will not work and
@@ -62,4 +83,27 @@ public class Utils {
         }
     }
 
+
+    public static void main(String args[]) {
+    String s = "a,b,c,d,e,f,,,,,,g";
+    System.out.println(Arrays.asList(splitString(s, "\\W")));
+//      Map<String , Integer> map = new HashMap<>();
+//        map.put("helllo", 1);
+//        map.put("hel", 2);
+//        map.put("hell", 3);
+//        map.put("hello", 4);
+//
+//      printMap(map);
+
+       List<Integer> list = new ArrayList<>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        list.add(4);
+        list.add(2);
+        list.add(1);
+
+        removeWrongly(list , 1);
+        System.out.println(list);
+    }
 }
