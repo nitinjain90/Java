@@ -30,11 +30,11 @@ public class Utils {
         while (iter.hasNext()) {
             String str = iter.next();
             if (str.length() > 0) {
-               list.add(str);
+                list.add(str);
             }
         }
         String str[] = new String[list.size()];
-        for(int i = 0; i < str.length; i++){
+        for (int i = 0; i < str.length; i++) {
             str[i] = list.get(i);
         }
         return str;
@@ -60,11 +60,12 @@ public class Utils {
     }
 
     public static void printList(List<Integer> l) {
-
+        System.out.println(l);
     }
-    public static void printMatrix(int matrix[][]){
-        for(int i = 0; i < matrix.length; i++){
-            for(int j = 0; j < matrix[i].length; j++){
+
+    public static void printMatrix(int matrix[][]) {
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
                 System.out.print(matrix[i][j] + " ");
             }
             System.out.println();
@@ -85,8 +86,8 @@ public class Utils {
 
 
     public static void main(String args[]) {
-    String s = "a,b,c,d,e,f,,,,,,g";
-    System.out.println(Arrays.asList(splitString(s, "\\W")));
+        String s = "a,b,c,d,e,f,,,,,,g";
+        System.out.println(Arrays.asList(splitString(s, "\\W")));
 //      Map<String , Integer> map = new HashMap<>();
 //        map.put("helllo", 1);
 //        map.put("hel", 2);
@@ -95,7 +96,7 @@ public class Utils {
 //
 //      printMap(map);
 
-       List<Integer> list = new ArrayList<>();
+        List<Integer> list = new ArrayList<>();
         list.add(1);
         list.add(2);
         list.add(3);
@@ -103,7 +104,7 @@ public class Utils {
         list.add(2);
         list.add(1);
 
-        removeWrongly(list , 1);
+        removeWrongly(list, 1);
         System.out.println(list);
     }
 }
