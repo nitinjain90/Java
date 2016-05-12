@@ -1,4 +1,6 @@
-package com.nitin.algorithms;
+package com.nitin.acm;
+
+import com.nitin.Utils;
 
 import java.io.BufferedReader;
 import java.io.IOException;

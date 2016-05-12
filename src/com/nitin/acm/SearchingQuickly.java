@@ -1,4 +1,4 @@
-package com.nitin.algorithms;
+package com.nitin.acm;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -50,60 +50,28 @@ public class SearchingQuickly {
     private static void printSentence(String sentence, String word) {
        String[] temp = sentence.split("\\s");
        for(int i = 0; i < temp.length; i++){
-           if(word.equals(temp[i])){
-               temp[i] = temp[i].toUpperCase();
+           if (word.equals(temp[i])){
+               System.out.print(word.toUpperCase());
+           } else {
+               System.out.print(temp[i]);
            }
+           System.out.print(" ");
        }
-        String s = "";
-        for(int i = 0; i < temp.length; i++){
-            s = s + " "+temp[i];
-        }
-        System.out.println(s);
+        System.out.println();
     }
 
     private static void printLines() {
-       for(Iterator<String> it = keywords.iterator(); it.hasNext();){
+
+       for (Iterator<String> it = keywords.iterator(); it.hasNext();){
            String s = it.next();
            for(int j = 0; j < sentences.size(); j++){
                String temp[] = sentences.get(j).split("\\s");
-               ArrayList<String> str = new ArrayList<String>(Arrays.asList(temp));
+               List<String> str = Arrays.asList(temp);
                if(str.contains(s)){
                    printSentence(sentences.get(j) , s);
                }
            }
        }
-    }
-
-    public static String printTitles(String s) {
-        ArrayList<String> wordsToIgnore = new ArrayList<>();
-        ArrayList<String> otherStrings = new ArrayList<>();
-        ArrayList<String> keywords = new ArrayList<>();
-        int value = 0;
-        String[] temp = s.split("\\n");
-        int i = 0;
-        while (!temp[i].equals("::")) {
-            wordsToIgnore.add(temp[i]);
-            i++;
-            value = i;
-
-        }
-        System.out.println(wordsToIgnore);
-        for (int j = value + 1; j < temp.length; j++) {
-            otherStrings.add(temp[j]);
-        }
-        Set<String> keys = new TreeSet<>();
-        for (int k = 0; k < otherStrings.size(); k++) {
-            String[] t = otherStrings.get(k).split("\\s");
-            for (int l = 0; l < t.length; l++) {
-                if (!wordsToIgnore.contains(t[l])) {
-                    keys.add(t[l]);
-                }
-            }
-        }
-        System.out.println(otherStrings);
-        System.out.println(keys);
-
-        return "";
     }
 
     public static void main(String args[]) throws IOException {
