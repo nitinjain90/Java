@@ -77,7 +77,8 @@ public class Utils {
             }
         }
     }
-
+      // Reason : After removing first "1" the value of i increments to 1 but the second "1" is at index 0 hence it is not removed
+      // and this method fails.
 
     public static void main(String args[]) {
         String s = "a,b,c,d,e,f,,,,,,g";

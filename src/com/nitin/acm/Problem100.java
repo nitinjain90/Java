@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * Created by harash on 03/05/16.
  */
-public class Problem01 {
+public class Problem100 {
 
     // 10 => "10 5 16 8 4 2 1"
     public static int combinations(int a) {
