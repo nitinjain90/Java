@@ -40,48 +40,21 @@ public class Problem108 {
     }
 
     public int count(int sx, int sy, int ex, int ey) {
-        if (sx <= ex && sy <= ey) {
-            int sum = 0;
-            for (int i = sx; i <= ex; i++) {
-                for (int j = sy; j <= ey; j++) {
-                    sum = sum + matrix[i][j];
-                }
+        int sum = 0;
+        for (int i = sx; i <= ex; i++) {
+            for (int j = sy; j <= ey; j++) {
+                sum = sum + matrix[i][j];
             }
-            return sum;
-        } else if (sx > ex && sy <= ey) {
-            int sum = 0;
-            for (int i = ex; i <= sx; i++) {
-                for (int j = sy; j <= ey; j++) {
-                    sum = sum + matrix[i][j];
-                }
-            }
-            return sum;
-        } else if (sx <= ex && sy > ey) {
-            int sum = 0;
-            for (int i = sx; i <= ex; i++) {
-                for (int j = ey; j <= sy; j++) {
-                    sum = sum + matrix[i][j];
-                }
-            }
-            return sum;
-        } else {
-            int sum = 0;
-            for (int i = ex; i <= sx; i++) {
-                for (int j = ey; j <= sy; j++) {
-                    sum = sum + matrix[i][j];
-                }
-            }
-            return sum;
-
         }
+        return sum;
     }
 
     public int maxSum() {
         int maxSum = Integer.MIN_VALUE;
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
-                for (int k = 0; k < rows; k++) {
-                    for (int l = 0; l < columns; l++) {
+                for (int k = i; k < rows; k++) {
+                    for (int l = j; l < columns; l++) {
                         maxSum = Math.max(maxSum, count(i, j, k, l));
                     }
                 }

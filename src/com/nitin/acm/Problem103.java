@@ -7,50 +7,50 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
  * Created by harash on 17/05/16.
  */
 public class Problem103 {
+    //  3 5
+    //  4 3
+    class Box {
+        final int index;
+        final int dimensions[];
 
-    Map<Integer, ArrayList<String>> boxes;
-    Utils utils = new Utils();
-    public Problem103(String s){
-        boxes = new HashMap<>();
-        String str[] = s.split("\\n");
-        int counter = 0;
-        while(counter < str.length){
-            String temp[] = str[counter].split("\\s+");
-            int startIndex = counter + 1;
-            int endIndex = startIndex + Integer.parseInt(temp[0]);
-            ArrayList<String> list = new ArrayList<>();
-            for(int i = startIndex; i < endIndex; i++){
-                list.add(str[i]);
-            }
-            createMapEntry(str , startIndex , endIndex);
-            counter = counter + Integer.parseInt(temp[0]) + 1;
-         }
-        utils.printMap(boxes);
-    }
+        public Box(int index, String s) {
 
-    private void createMapEntry(String s[] , int startIndex , int endIndex){
-        ArrayList<String> str = new ArrayList<>();
-        for(int i = startIndex; i <endIndex; i++){
-            str.add(s[i]);
         }
-        boxes.put(str.size() , str);
+
+        public boolean canGoInside(Box b) {
+            return false;
+        }
     }
 
+    private final List<Box> boxes;
+
+    public Problem103(int N, int D, String[] s){
+
+    }
+    
     public static void main(String args[]) throws IOException {
         System.out.println("Enter input");
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String s = "";
-        String str= "";
-        while((s = br.readLine())!=null){
-            str = str + s + "\n";
+        while((s = br.readLine()) != null){
+            String sp[] = s.split(" ");
+            int N = Integer.parseInt(sp[0]);
+            int D = Integer.parseInt(sp[1]);
+
+            String inputs[] = new String[N];
+            for (int i = 0; i < N; i++) {
+                inputs[i] = br.readLine();
+            }
+
+            Problem103 problem = new Problem103(N, D, inputs);
         }
-        Problem103 test = new Problem103(str);
     }
 
 }
