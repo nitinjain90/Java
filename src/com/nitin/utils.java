@@ -24,20 +24,14 @@ public class Utils {
      */
     public static String[] splitString(String s, String separator) {
         String result[] = s.split(separator);
-        List<String> temp = Arrays.asList(result);
         List<String> list = new ArrayList<>();
-        Iterator<String> iter = temp.iterator();
-        while (iter.hasNext()) {
-            String str = iter.next();
+        for (int i = 0; i < result.length; i++) {
+            String str = result[i];
             if (str.length() > 0) {
                 list.add(str);
             }
         }
-        String str[] = new String[list.size()];
-        for (int i = 0; i < str.length; i++) {
-            str[i] = list.get(i);
-        }
-        return str;
+        return list.toArray(new String[]{});
     }
 
     // Using Iterators => List/Set
@@ -98,7 +92,7 @@ public class Utils {
 
         List<Integer> list = new ArrayList<>();
         list.add(1);
-        list.add(2);
+        list.add(1);
         list.add(3);
         list.add(4);
         list.add(2);

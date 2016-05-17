@@ -13,8 +13,6 @@ public class MaxSum {
     int rows;
     int columns;
 
-
-
     public MaxSum(String s) {
         String str[] = s.split("\\s+");
         int counter = 1;
@@ -28,7 +26,6 @@ public class MaxSum {
             }
         }
     }
-
 
     public int count(int sx, int sy , int ex, int ey){
         int sum = 0;
@@ -58,10 +55,7 @@ public class MaxSum {
 
     public static void main(String args[]) {
         Utils utils = new Utils();
-        MaxSum  sum = new MaxSum("4\n" +
-                "0 -2 -7  0 9  2 -6  2\n" +
-                "-4  1 -4  1 -1\n" +
-                "8  0 -2");
+        MaxSum  sum = new MaxSum("2 -1 -1 -1 -1");
         System.out.println(sum.maxSum());
 
     }
