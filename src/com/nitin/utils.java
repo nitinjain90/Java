@@ -45,10 +45,10 @@ public class Utils {
         }
     }
 
-    public static void printMap(Map<String, Integer> m) {
-        Set<Map.Entry<String, Integer>> s = m.entrySet();
-        for (Iterator<Map.Entry<String, Integer>> itr = s.iterator(); itr.hasNext(); ) {
-            Map.Entry<String, Integer> temp = itr.next();
+    public static void printMap(Map<Integer, ArrayList<String>> m) {
+        Set<Map.Entry<Integer, ArrayList<String>>> s = m.entrySet();
+        for (Iterator<Map.Entry<Integer, ArrayList<String>>> itr = s.iterator(); itr.hasNext(); ) {
+            Map.Entry<Integer, ArrayList<String>> temp = itr.next();
             System.out.println(temp.getKey() + " ," + temp.getValue());
         }
     }
