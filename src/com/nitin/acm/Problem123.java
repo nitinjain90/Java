@@ -9,7 +9,7 @@ import java.util.*;
 /**
  * Created by harash on 03/05/16.
  */
-public class SearchingQuickly {
+public class Problem123 {
 
     static Set<String> wordsToIgnore = new TreeSet<>();
     static ArrayList<String> sentences = new ArrayList<>();
