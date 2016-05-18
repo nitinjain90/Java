@@ -30,14 +30,6 @@ public class Problem108 {
         }
     }
 
-    private static void swap(int sx, int sy, int ex, int ey) {
-        int tempX = sx;
-        int tempY = sy;
-        sx = ex;
-        sy = ey;
-        ex = tempX;
-        ey = tempY;
-    }
 
     public int count(int sx, int sy, int ex, int ey) {
         int sum = 0;

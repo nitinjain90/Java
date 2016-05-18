@@ -1,5 +1,8 @@
 package com.nitin;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.*;
 
 /**
@@ -45,6 +48,12 @@ public class Utils {
         }
     }
 
+    public static void printArray(int N[]){
+        for(int i = 0; i < N.length; i++){
+            System.out.print(N[i] + " ");
+        }
+    }
+
     public static void printMap(Map<Integer, ArrayList<String>> m) {
         Set<Map.Entry<Integer, ArrayList<String>>> s = m.entrySet();
         for (Iterator<Map.Entry<Integer, ArrayList<String>>> itr = s.iterator(); itr.hasNext(); ) {
@@ -76,6 +85,18 @@ public class Utils {
                 l.remove(i);
             }
         }
+    }
+
+    public static String parseInput() throws IOException {
+        System.out.println("Enter Input");
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String s = "";
+        String str = "";
+        while((s = br.readLine()) != null){
+            str = str + s;
+        }
+
+        return null;
     }
       // Reason : After removing first "1" the value of i increments to 1 but the second "1" is at index 0 hence it is not removed
       // and this method fails.
