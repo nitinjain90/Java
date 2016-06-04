@@ -98,6 +98,38 @@ public class Utils {
 
         return null;
     }
+
+    // 1 << 2 ==> 100
+    // 1 << 1 =>
+
+    // 1101010001101 & 00000001000 => 00000000000
+
+
+    // "ABCD" => 2 * 2 * 2 *2 => 2^N
+    public static List<String> allCombinations(String word, int N) {
+        List<String> ret = new ArrayList<>();
+        for (int i = 1; i <= Math.pow(2, word.length()); i++) {
+
+            String out = "";
+            for (int j = 0; j < word.length(); j++) {
+                if ((i & (1 << j)) == (1 << j)) {
+                    out = out + word.charAt(j);
+                }
+            }
+            if (out.length() == N) {
+                ret.add(out);
+            }
+        }
+        
+        return null;
+    }
+
+    // Binary representation.
+    // 1 = 01
+    // 2 = 10
+    // 3 = 11
+    // 4 = 100
+
       // Reason : After removing first "1" the value of i increments to 1 but the second "1" is at index 0 hence it is not removed
       // and this method fails.
 
@@ -123,4 +155,6 @@ public class Utils {
         removeWrongly(list, 1);
         System.out.println(list);
     }
+
+
 }
